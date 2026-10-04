@@ -1,0 +1,18 @@
+# Whitelist: only the study notes are published.
+# Class PPTs, transcripts, personal files and assignments stay local.
+/*
+!/.gitignore
+!/README.md
+!/SEM1/
+/SEM1/*
+!/SEM1/README.md
+!/SEM1/*/
+/SEM1/*/*
+!/SEM1/*/Notes/
+
+# Generated HTML copies (decision pending)
+*.html
+
+# Python / Jupyter clutter
+__pycache__/
+.ipynb_checkpoints/
