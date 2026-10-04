@@ -1,9 +1,13 @@
 # 02 · Lexical Processing in NLP, Part 1
 
 > **Course:** Introduction to Speech & Natural Language Processing · Dr. Krishnendu Ghosh · IIIT Dharwad
+>
 > **Lecture:** Lecture 2, 30 Sep 2026 (46 + 15 min). Sentence segmentation onwards continues next class.
+>
 > **Sources:** `Lecture 2.pdf` + both 30 Sep transcript parts
+>
 > **Notebook:** [`code/lexical_processing_hands_on.ipynb`](code/lexical_processing_hands_on.ipynb), Parts A–G. The professor's own Colab code: [Lecture 2 Colab](https://colab.research.google.com/drive/1I5S7q_jiuAACft0xSXBos0qJwvWnYGKn?usp=sharing)
+>
 > **Assessment:** the quiz for this lecture was due before the next Tuesday. Theoretical Assignment 1 is due **14 Oct** and is (per class) based on this lecture.
 
 ---
@@ -187,7 +191,7 @@ This is exactly what modern tokenizers do:
 
 ⚠️ TTR always falls as the text gets longer, so compare equal-length samples.
 
-**Heaps' law (beyond slides):** vocabulary size grows with corpus size as $V \approx kN^{\beta}$ with $\beta \approx 0.4$–$0.6$. **New words never stop appearing** (names, typos, new slang). That's why fixed word vocabularies fail and sub-word tokenization (§5) is needed.
+**Heaps' law (beyond slides):** vocabulary size grows with corpus size as $`V \approx kN^{\beta}`$ with $`\beta \approx 0.4`$–$`0.6`$. **New words never stop appearing** (names, typos, new slang). That's why fixed word vocabularies fail and sub-word tokenization (§5) is needed.
 
 **Morphologically rich languages** (in the professor's sense: one word with many derivations) have many more types per token than English. A Kannada or Tamil corpus has a much larger type count than an English one of the same size.
 

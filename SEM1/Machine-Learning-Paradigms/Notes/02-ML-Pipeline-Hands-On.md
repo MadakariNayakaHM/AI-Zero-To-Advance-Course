@@ -1,8 +1,11 @@
 # 02 · The ML Pipeline, Hands-On (Sentiment Demo + Iris)
 
 > **Course:** Machine Learning Paradigms (DS602) · Dr. Sunil Saumya · IIIT Dharwad
+>
 > **Lecture:** 3 October 2026 (Week 1, 1 h 18 min)
+>
 > **Sources:** Oct 3 class transcript, Colab demo shown in class, first slides of `MLP_Unit_1_Supervised_Learning_Regression.pdf` (supervised learning definition)
+>
 > **Notebook:** [`code/02_ml_pipeline_hands_on.ipynb`](code/02_ml_pipeline_hands_on.ipynb). It re-creates the demo, the iris demo and a solution to the `load_digits` homework.
 
 ---
@@ -164,9 +167,9 @@ The demo used **only 2 features** (`word_count`, `verb_count`). The choice was *
 
 **Q (class):** *Can we try feature combinations and compare?* Yes, but brute force over many features is inefficient. A better first step is to **measure each feature's linear relationship with the target** using the **Pearson correlation coefficient**:
 
-$$
+```math
 r_{x,y} = \frac{\sum_i (x_i - \bar x)(y_i - \bar y)}{\sqrt{\sum_i (x_i - \bar x)^2}\,\sqrt{\sum_i (y_i - \bar y)^2}} \in [-1, 1]
-$$
+```
 
 | r | Meaning |
 |---|---|
@@ -184,11 +187,11 @@ sepal width  -0.427   ← weakest
 
 > ⚠️ **Limits (beyond slides):**
 >
-> - Pearson only detects **linear** relations. $y = x^2$ on symmetric data gives $r \approx 0$ even though $y$ depends completely on $x$.
+> - Pearson only detects **linear** relations. $`y = x^2`$ on symmetric data gives $`r \approx 0`$ even though $`y`$ depends completely on $`x`$.
 > - Correlation with a **categorical** target is only meaningful when the classes have a natural order or for binary 0/1.
 > - Two features can be useless alone but powerful together (XOR-like).
 > - Better tools: mutual information, model-based importance, L1 regularisation, recursive feature elimination ([scikit-learn feature selection](https://scikit-learn.org/stable/modules/feature_selection.html)).
-> - Notice the same numerator, $\sum (x_i-\bar x)(y_i - \bar y)$, as in the **OLS slope** in [Note 03](03-Supervised-Learning-Regression.md). The two are linked: $m = r \cdot \frac{s_y}{s_x}$.
+> - Notice the same numerator, $`\sum (x_i-\bar x)(y_i - \bar y)`$, as in the **OLS slope** in [Note 03](03-Supervised-Learning-Regression.md). The two are linked: $`m = r \cdot \frac{s_y}{s_x}`$.
 
 ---
 
@@ -210,11 +213,11 @@ model.fit(X_train, y_train)            # learn from BOTH inputs and labels
 ### "Logistic *regression*" does classification?! (asked in class)
 Yes, it is a **classification** algorithm. Internally it computes a **probability** with the sigmoid function, and a **threshold** (0.5) turns that probability into a class:
 
-$$
+```math
 P(y=1 \mid x) = \sigma(w^\top x + b) = \frac{1}{1 + e^{-(w^\top x + b)}}, \qquad \hat y = \begin{cases}1 & P \ge 0.5\\ 0 & \text{otherwise}\end{cases}
-$$
+```
 
-The name says "regression" because it **regresses the log-odds** linearly: $\log\frac{P}{1-P} = w^\top x + b$. Full maths comes later in the classification lectures.
+The name says "regression" because it **regresses the log-odds** linearly: $`\log\frac{P}{1-P} = w^\top x + b`$. Full maths comes later in the classification lectures.
 
 ```text
 From the notebook: weights = [0.382, 0.650], bias = -3.453
@@ -249,9 +252,9 @@ The labels must be in the **same format** as during training (0/1 vs True/False)
 The model predicted `1 0 1 0 0` against true `0 1 0 1 0`. Only the last one was right, so **accuracy = 1/5 = 20%**. (My re-creation with different test reviews gives 40%; see the notebook.)
 
 ### Accuracy
-$$
+```math
 \text{Accuracy} = \frac{\text{\# correct predictions}}{\text{\# total predictions}}
-$$
+```
 Manual counting works for 5 rows; for thousands, use `accuracy_score(y_test, y_pred)`.
 
 ### Confusion matrix: *where* is the model wrong?
@@ -267,9 +270,9 @@ For binary labels, the four outcomes are:
 ### 🔴 Accuracy can lie: the majority-class trap
 In the notebook's TF-IDF challenge, the model predicted **all 0** and still scored **60%**, because 3 of the 5 test reviews were negative. On imbalanced data (fraud is 0.1% of transactions), "always predict not-fraud" gives 99.9% accuracy and is useless. That's why we need **precision, recall and F1** (upcoming):
 
-$$
+```math
 \text{Precision} = \frac{TP}{TP+FP}, \quad \text{Recall} = \frac{TP}{TP+FN}, \quad F_1 = \frac{2PR}{P+R}
-$$
+```
 
 ---
 
@@ -277,7 +280,7 @@ $$
 
 A classifier divides the feature space into **regions**, one per class. The border between them is the **decision boundary**.
 
-- For logistic regression the boundary is a **straight line** (a hyperplane in higher dimensions): $w_1 x_1 + w_2 x_2 + b = 0$.
+- For logistic regression the boundary is a **straight line** (a hyperplane in higher dimensions): $`w_1 x_1 + w_2 x_2 + b = 0`$.
 - In the class plot: circles were training points, crosses were test points, and the background was shaded red/blue by predicted class.
 - **Ideal model:** every red point sits in the red region and every blue point in the blue region.
 - **Class result:** red and blue points were mixed in the same regions, so the model makes errors (20% accuracy).
@@ -294,13 +297,13 @@ With 3 classes, one line can't separate all three. You need **multiple boundarie
 From the regression deck:
 
 - Given input–output pairs with labels.
-- **Input:** $X = \{\bar x_1, \bar x_2, \dots, \bar x_N\}$; **Output:** $Y = \{\bar y_1, \bar y_2, \dots, \bar y_N\}$
-- $(\bar x_i, \bar y_i)$ form a **pair**. In layman's terms, this is a **labelled dataset**.
-- Each $\bar x_i$ is **one row (sample)**, which is itself a vector of features (hence the bar).
+- **Input:** $`X = \{\bar x_1, \bar x_2, \dots, \bar x_N\}`$; **Output:** $`Y = \{\bar y_1, \bar y_2, \dots, \bar y_N\}`$
+- $`(\bar x_i, \bar y_i)`$ form a **pair**. In layman's terms, this is a **labelled dataset**.
+- Each $`\bar x_i`$ is **one row (sample)**, which is itself a vector of features (hence the bar).
 - We use this input–output relationship to **train** a model.
 - **Rule:** *if a labelled dataset is available, go for supervised learning.*
 
-Mathematically, we want to learn a function $f$ such that $f(\bar x_i) \approx \bar y_i$ and, crucially, $f(\bar x_{new}) \approx \bar y_{new}$ on **unseen** data (generalisation).
+Mathematically, we want to learn a function $`f`$ such that $`f(\bar x_i) \approx \bar y_i`$ and, crucially, $`f(\bar x_{new}) \approx \bar y_{new}`$ on **unseen** data (generalisation).
 
 | | Regression | Classification |
 |---|---|---|
@@ -338,7 +341,9 @@ The data is 4-dimensional and can't be plotted directly. **t-SNE** (t-distribute
 > ⚠️ t-SNE is for **visualisation only**: distances between far-apart clusters and cluster sizes aren't meaningful, and the model doesn't use it. See ["How to use t-SNE effectively"](https://distill.pub/2016/misread-tsne/).
 
 ### Pre-processing: StandardScaler (preview)
-$$ z = \frac{x - \mu}{\sigma} $$
+```math
+z = \frac{x - \mu}{\sigma}
+```
 This puts each feature on a comparable scale (mean 0, std 1). It matters for gradient-based models (see the learning-rate discussion in Note 03). **Fit the scaler on training data only**, then apply it to test data. Otherwise test information "leaks" into training.
 
 ### Train/test split

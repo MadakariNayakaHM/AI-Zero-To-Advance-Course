@@ -1,8 +1,11 @@
 # 01 · Why Research? Course-based vs Research-based Learning & the Path to Research
 
 > **Course:** Introduction to Research (I2R) · Dr. Muthusankar Eswaran (Asst. Prof., ECE) & Prof. S. R. Mahadeva Prasanna (Director, IIIT Dharwad)
+>
 > **Deck:** `PPT-1.pdf` (dated 22 Sep 2026, 39 slides). Taught over the first sessions; **29 Sep** (Prof. Prasanna) continued from "Qualifications for research".
+>
 > **Sources:** PPT + both 29 Sep transcripts (7:42 pm and 8:16 pm parts, including a long Q&A)
+>
 > **Companion:** [02 · Assignments Guide & Research Toolkit](02-Assignments-Guide-and-Research-Toolkit.md)
 
 ---

@@ -1,8 +1,11 @@
 # 01 · Introduction to Machine Learning Paradigms
 
 > **Course:** Machine Learning Paradigms (DS602) · Dr. Sunil Saumya · IIIT Dharwad
+>
 > **Lecture:** 1 October 2026 (Week 1)
+>
 > **Sources:** `01_MLP_Introduction.pdf`, `MLP_Course_Plan_Sep2026.pdf`, Oct 1 class transcripts (both parts)
+>
 > **Level:** 🟢 Basic → 🟡 Intermediate → 🔴 Advanced (marked per section)
 
 ---
@@ -159,7 +162,7 @@ Why hand-coding fails here (professor's reasons):
 2. **Continuous / unbounded ranges.** `Nouns` ∈ [0, ∞), `Entropy` is continuous. Infinitely many candidate thresholds → impossible to search by hand.
 
 ### 🔴 Deeper: why high dimensions break human intuition
-With *d* features and even 10 candidate thresholds each, there are $10^d$ combinations of rules. With *d* = 5 that's 100,000; with *d* = 100 (normal for text) it's astronomically large. ML algorithms search this space efficiently using **optimisation** (e.g., gradient descent — next topics).
+With *d* features and even 10 candidate thresholds each, there are $`10^d`$ combinations of rules. With *d* = 5 that's 100,000; with *d* = 100 (normal for text) it's astronomically large. ML algorithms search this space efficiently using **optimisation** (e.g., gradient descent — next topics).
 
 ### Real-world decision examples
 
@@ -301,9 +304,9 @@ The course is named *Paradigms* because there are **multiple ways to make a mach
 
 ### 9.1 Supervised Learning
 
-- **Data:** input–output pairs $(x_i, y_i)$ are available. "Labelled dataset".
+- **Data:** input–output pairs $`(x_i, y_i)`$ are available. "Labelled dataset".
 - **Why "supervised":** the true label acts like a **supervisor/teacher**. If the model predicts class 0 but the truth is 1, the error **corrects** it.
-  - Professor's example: model says $2 \times 2 = 3$; the target 4 tells it "you're off by 1, adjust".
+  - Professor's example: model says $`2 \times 2 = 3`$; the target 4 tells it "you're off by 1, adjust".
   - Like a teacher correcting you in class, or parents guiding you at home.
 - **Most popular, most reliable, easiest** — but needs labels, and **labels cost money** (human annotation).
 - **Two flavours:** Regression (continuous output) and Classification (categorical output) — Note 03.
@@ -335,7 +338,7 @@ flowchart LR
     ENV -- next state s_t+1 & reward r_t+1 --> AG
 ```
 
-🔴 **Deeper:** The agent maximises the **cumulative (discounted) reward** $G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots$, where $0 \le \gamma \le 1$ is the discount factor. The policy $\pi(a \mid s)$ is the probability of action *a* in state *s*. Covered in Week 6 (Q-learning).
+🔴 **Deeper:** The agent maximises the **cumulative (discounted) reward** $`G_t = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \dots`$, where $`0 \le \gamma \le 1`$ is the discount factor. The policy $`\pi(a \mid s)`$ is the probability of action *a* in state *s*. Covered in Week 6 (Q-learning).
 
 ### 9.4 Semi-Supervised Learning
 
@@ -474,9 +477,9 @@ Raised by a classmate working in hospital ML (blood transfusion, acute kidney di
 
 | Type | What changes | Example |
 |---|---|---|
-| **Data / covariate drift** | Input distribution $P(X)$ | New phone model photos look different; COVID-era patients are younger |
-| **Concept drift** | Relationship $P(Y \mid X)$ | "Sick" used to mean ill; now also means "awesome" |
-| **Label drift** | Output distribution $P(Y)$ | Fraud rate jumps during festival sales |
+| **Data / covariate drift** | Input distribution $`P(X)`$ | New phone model photos look different; COVID-era patients are younger |
+| **Concept drift** | Relationship $`P(Y \mid X)`$ | "Sick" used to mean ill; now also means "awesome" |
+| **Label drift** | Output distribution $`P(Y)`$ | Fraud rate jumps during festival sales |
 
 **How industry handles it:** monitor input statistics and live accuracy (when labels arrive later), set alerts on distribution distance (e.g., PSI, KL divergence, KS test), scheduled retraining, sliding-window training, continual learning.
 

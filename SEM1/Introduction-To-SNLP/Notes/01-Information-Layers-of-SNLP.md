@@ -1,8 +1,11 @@
 # 01 · What is SNLP? History & the Information Layers of Language
 
 > **Course:** Introduction to Speech & Natural Language Processing (1-credit elective) · Dr. Krishnendu Ghosh · IIIT Dharwad
+>
 > **Lectures:** Lecture 0 (course intro) and Lecture 1 (Information Layers of SNLP), Sep 2026
+>
 > **Sources:** `Lecture 0.pdf`, `Lecture 1.pdf`. No transcript for these two; the 30 Sep transcript (Note 02) refers back to them.
+>
 > **Notebook:** [`code/lexical_processing_hands_on.ipynb`](code/lexical_processing_hands_on.ipynb), Parts H–I (syntax tree, word senses)
 
 ---
@@ -272,7 +275,7 @@ Common representations of meaning:
 
 | Representation | Example for "Alice eats strawberries" |
 |---|---|
-| **Logical** (first-order logic) | $\exists e.\ \text{Eating}(e) \land \text{Eater}(e, \text{Alice}) \land \text{Eaten}(e, \text{strawberries})$ |
+| **Logical** (first-order logic) | $`\exists e.\ \text{Eating}(e) \land \text{Eater}(e, \text{Alice}) \land \text{Eaten}(e, \text{strawberries})`$ |
 | **Predicate–argument structure** | eat(agent = Alice, theme = strawberries) |
 | **Graph** (e.g. AMR, knowledge graphs) | (Alice) —eats→ (strawberries) |
 

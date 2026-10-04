@@ -1,35 +1,48 @@
-# AI: Zero to Advanced
+<div align="center">
 
-Detailed, concept-first study notes from my **M.Tech in Data Science & AI** at IIIT Dharwad. They build up from the basics to advanced and research-level material.
+# AI · Zero to Advanced
 
-Each topic follows the same path:
+**Concept-first study notes from an M.Tech in Data Science & AI at IIIT Dharwad**
 
-**intuition → real-world examples → theory & maths (step by step) → worked numerical examples → runnable code → advanced / research angle → common confusions → exam questions with answers → cheat sheet → curated links**
+From first principles to research depth, with runnable code for every topic.
 
-## 📚 Contents
+</div>
 
-| Semester | Subject | Notes |
-|---|---|---|
-| **Sem 1** | Machine Learning Paradigms | [ML paradigms, ML pipeline, regression & gradient descent](SEM1/Machine-Learning-Paradigms/Notes/README.md) |
-| | Applied Mathematics for DS & AI | [Linear systems, elimination & rank, vector spaces, basis, null space](SEM1/Applied-Math-For-AI-DS/Notes/README.md) |
-| | Introduction to Generative AI | [AI/ML/DL foundations, neural networks from scratch](SEM1/Introduction-To-Generative-AI/Notes/README.md) |
-| | Speech & Natural Language Processing | [Layers of language, lexical processing, tokenization](SEM1/Introduction-To-SNLP/Notes/README.md) |
-| | Introduction to Research | [Research mindset & path, literature-review toolkit](SEM1/Introduction-To-Research/Notes/README.md) |
+---
 
-See the [Semester 1 index](SEM1/README.md) for a per-lecture list.
+## Semester 1
 
-## 🧭 How to use these notes
-- **Read on GitHub.** Formulas, tables and flowcharts render directly.
-- **Run the code.** Each subject has a `Notes/code/` folder with Jupyter notebooks that reproduce every example (NumPy, scikit-learn, NLTK; no GPU needed).
-- **Difficulty markers:** 🟢 basic · 🟡 intermediate · 🔴 advanced / beyond the syllabus.
-- **Revising for exams?** Jump to the *Cheat Sheet* and *Exam Questions* sections at the end of each note.
+| Subject | What's covered |
+|:--|:--|
+| [**Machine Learning Paradigms**](SEM1/Machine-Learning-Paradigms/Notes) | ML paradigms · The ML pipeline · Regression & gradient descent |
+| [**Applied Mathematics for DS & AI**](SEM1/Applied-Math-For-AI-DS/Notes) | Linear systems · Elimination & rank · Vector spaces · Basis · Null space |
+| [**Introduction to Generative AI**](SEM1/Introduction-To-Generative-AI/Notes) | AI, ML & DL foundations · Neural networks from scratch |
+| [**Speech & Natural Language Processing**](SEM1/Introduction-To-SNLP/Notes) | Layers of language · Lexical processing · Tokenization |
+| [**Introduction to Research**](SEM1/Introduction-To-Research/Notes) | The research mindset · Literature review toolkit |
+
+→ **[Full Semester 1 index](SEM1/README.md)**
+
+---
+
+## Inside every note
+
+1. **Intuition first:** the idea in plain language, with an analogy
+2. **Real-world examples:** where it is used in practice
+3. **Theory & maths:** derivations shown step by step
+4. **Worked examples:** numbers you can check by hand, verified in code
+5. **Code:** a Jupyter notebook that reproduces everything
+6. **Beyond the syllabus:** advanced and research-level connections
+7. **Revision kit:** common confusions, exam questions with answers, a one-page cheat sheet, curated links
+
+Difficulty is marked per section: 🟢 basic · 🟡 intermediate · 🔴 advanced.
+
+---
+
+## Run the notebooks
 
 ```bash
 pip install numpy pandas matplotlib seaborn scikit-learn scipy sympy nltk jupyter
 jupyter notebook
 ```
 
-## 📝 Notes on accuracy
-Where the course material contained a slip (e.g. an arithmetic error in a worked example), the notes point it out and show the correction, verified in code. Each subject's README lists these.
-
-*Notes are updated as the semester progresses.*
+Everything runs on a laptop CPU.

@@ -1,7 +1,9 @@
 # 02 · Assignments Guide & Practical Research Toolkit
 
 > **Course:** Introduction to Research (I2R) · IIIT Dharwad
+>
 > **Sources:** assignment slides 36–38 of `PPT-1.pdf` and the 29 Sep discussion. Everything else is a **practical toolkit (beyond slides)** to help you do the assignments and your M.Tech project well.
+>
 > ⚠️ **This note gives structure, methods and templates, not answers.** The assignments are graded individual work, and the course has an ethics & plagiarism component. Use these as scaffolding and write your own content.
 
 ---
