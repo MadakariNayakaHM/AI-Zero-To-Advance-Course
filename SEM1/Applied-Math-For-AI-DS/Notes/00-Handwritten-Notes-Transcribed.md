@@ -21,6 +21,7 @@
 **Ex. 1.**
 
 - Solve
+
 ```math
 \begin{aligned}
 2x + y &= 3 \\
@@ -41,6 +42,7 @@ $`x = 1,\ y = 1`$ solves the above.
 **Ex 2**
 
 - Solve:
+
 ```math
 \begin{aligned}
 2x + y &= 3 \\
@@ -57,6 +59,7 @@ Soln is given by:
 | $`y`$ | 1 | 3 | 0 | −1 | ... |
 
 a representative structure:
+
 ```math
 \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x \\ 3 - 2x \end{pmatrix}
 ```
@@ -65,6 +68,7 @@ Q: Why did we get infinitely many soln? in this case?
 → Because the eqns are redundant.
 
 - **Ex: 3** Solve
+
 ```math
 \begin{aligned}
 2x + y &= 3 \\
@@ -126,11 +130,12 @@ x_2 = \frac{b_2 a_{11} - b_1 a_{21}}{a_{11}a_{22} - a_{12}a_{21}} \qquad \text{p
 ```
 
 **Determinant of $`A`$** $`= a_{11}a_{22} - a_{12}a_{21}`$
+
 ```math
 \Rightarrow A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
 ```
 
-[Diagram: input vector $`\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}`$ → box labelled $`A`$ → output vector $`\begin{pmatrix} b_1 \\ b_2 \end{pmatrix}`$.]
+[Diagram: input vector $`(x_1, x_2)^\top`$ → box labelled $`A`$ → output vector $`(b_1, b_2)^\top`$.]
 
 ## Page 5
 
@@ -164,7 +169,7 @@ $`A^{-1}`$ — **Inverse of $`A`$.**
 
 ## Page 6
 
-[Diagram: $`x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}`$ → box $`A`$ → $`b = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}`$, which then feeds into box $`A^{-1}`$ → $`x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}`$.]
+[Diagram: $`x = (x_1, x_2)^\top`$ → box $`A`$ → $`b = (b_1, b_2)^\top`$, which then feeds into box $`A^{-1}`$ → $`x = (x_1, x_2)^\top`$.]
 
 ```math
 A^{-1} = \frac{\text{Adj}(A)}{\det(A)}
@@ -182,7 +187,18 @@ Q:
 
 ## Page 7
 
-<u>Ex:</u> $`A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}`$ $`\qquad`$ $`Ax = b \Rightarrow \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}`$
+<u>Ex:</u>
+
+```math
+A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+```
+
+$`\qquad`$
+
+```math
+Ax = b \Rightarrow \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}[x_1, x_2]^\top = [x_1, x_2]^\top
+```
+
 
 ```math
 \Rightarrow A^{-1} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = A. \quad \Rightarrow \text{Easy to compute } A^{-1} \Rightarrow A^{-1} = A.
@@ -242,7 +258,13 @@ cx + dy &= x.
 
 ## Page 9
 
-$`\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}`$ is a **reflection matrix** whose inverse is itself.
+
+
+```math
+\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+```
+
+is a **reflection matrix** whose inverse is itself.
 
 ```math
 \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} x \\ x \end{bmatrix} = \begin{bmatrix} x \\ x \end{bmatrix}
@@ -254,7 +276,7 @@ $`\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}`$ is a **reflection matrix** whos
 \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
 ```
 
-[Diagram: x–y axes with the line $`y = x`$ through the origin, labelled "Mirror". A point $`\begin{pmatrix} x_1 \\ y_1 \end{pmatrix}`$ above the line has an arrow toward the line; its mirror image $`\begin{pmatrix} y_1 \\ x_1 \end{pmatrix}`$ is shown below the line.]
+[Diagram: x–y axes with the line $`y = x`$ through the origin, labelled "Mirror". A point $`(x_1, y_1)^\top`$ above the line has an arrow toward the line; its mirror image $`(y_1, x_1)^\top`$ is shown below the line.]
 
 Every matrix that reflects about line passing thro' (continued on next page)
 
@@ -273,6 +295,7 @@ A = \begin{bmatrix} d_1 & 0 \\ 0 & d_2 \end{bmatrix} \rightarrow \text{Diagonal 
 ```
 
 Inverse of $`A`$:
+
 ```math
 \begin{bmatrix} 1/d_1 & 0 \\ 0 & 1/d_2 \end{bmatrix}\begin{bmatrix} d_1 x \\ d_2 y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix}
 ```
@@ -280,6 +303,7 @@ Inverse of $`A`$:
 ```math
 \begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} c \\ d \end{bmatrix}
 ```
+
 ```math
 \Rightarrow \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} c/a \\ d/b \end{bmatrix} \qquad a \neq 0,\ b \neq 0.
 ```
@@ -287,6 +311,7 @@ Inverse of $`A`$:
 ## Page 11
 
 **Ex 2:**
+
 ```math
 \begin{bmatrix} \underline{\underline{0}} & d_1 \\ d_2 & \underline{\underline{0}} \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} c \\ d \end{bmatrix} \qquad \text{PIVOT}
 ```
@@ -300,9 +325,19 @@ d_2 x &= d & \qquad x &= d/d_2.
 
 Det: $`-(d_1 d_2)`$
 
-Adj: $`\begin{bmatrix} 0 & -d_1 \\ -d_2 & 0 \end{bmatrix}`$
+Adj:
 
-- **3rd best option** $`A^{-1} = A^T`$. Given $`A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}`$
+```math
+\begin{bmatrix} 0 & -d_1 \\ -d_2 & 0 \end{bmatrix}
+```
+
+
+- **3rd best option** $`A^{-1} = A^T`$. Given
+
+  ```math
+  A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}
+  ```
+
 
 ```math
 A^T = \begin{bmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{bmatrix}
@@ -330,6 +365,7 @@ Can we have $`A`$ s.t. $`A^{-1} = A^T`$?
 ```
 
 **[Boxed]**
+
 ```math
 \Rightarrow \boxed{\begin{aligned} a_{11}^2 + a_{21}^2 = a_{12}^2 + a_{22}^2 &= 1 \\ a_{11}a_{12} + a_{21}a_{22} &= 0 \end{aligned}}
 ```
@@ -337,6 +373,7 @@ Can we have $`A`$ s.t. $`A^{-1} = A^T`$?
 ## Page 13
 
 $`Ax = b`$ and if inverse is defined & exists, then
+
 ```math
 x = A^{-1}b.
 ```
@@ -651,7 +688,7 @@ The matrix which does row swap is
 
 **2. Replacing a row with non-zero multiple of the same row.**
 
-Suppose $`\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}`$ is a matrix, we want to replace $`x_1`$ with $`k x_1`$
+Suppose $`[x_1, x_2]^\top`$ is a matrix, we want to replace $`x_1`$ with $`k x_1`$
 
 ```math
 \begin{bmatrix} a & b \\ c & d \end{bmatrix}
@@ -778,7 +815,13 @@ Shearing in $`x_1`$ direc$`^n`$
 \begin{bmatrix} 0 & 1 & 2 & 1 \\ 0 & 0 & 1 & 1 \end{bmatrix}
 ```
 
-(The $`0`$ in position (2,1) of $`\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}`$ is underlined in red.)
+(The $`0`$ in position (2,1) of
+
+```math
+\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}
+```
+
+is underlined in red.)
 
 [Diagram: the blue unit square and the green sheared parallelogram with corners $`(0,0), (1,0), (2,1), (1,1)`$. A rightward arrow is labelled "Shearing along $`x_1`$ direction". Points $`\binom{0}{0}, \binom{0}{1}, \binom{1}{0}, \binom{2}{0}, \binom{3}{0}`$ are marked.]
 
@@ -844,7 +887,7 @@ a_{21} x_1 + a_{22} x_2 &= 0
 
 [Note: in the first equation the subscript "11" is written below the $`a`$. In the second equation the subscript of the first $`x`$ looks like $`x_\ell`$, but $`x_1`$ is clearly meant.]
 
-[Diagram: $`\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \longrightarrow \boxed{[A]} \longrightarrow \begin{pmatrix} 0 \\ 0 \end{pmatrix}`$, i.e. a block diagram where the input vector passes through $`A`$ and gives the zero vector.]
+[Diagram: $`[x_1, x_2]^\top \longrightarrow \boxed{[A]} \longrightarrow (0, 0)^\top`$, i.e. a block diagram where the input vector passes through $`A`$ and gives the zero vector.]
 
 ---
 
@@ -879,7 +922,7 @@ Let $`k`$ be a real no
 k(A x_H) = k(0) = 0
 ```
 
-In the above ex $`x_H = \begin{pmatrix} 1 \\ -2 \end{pmatrix}`$ (underlined)
+In the above ex $`x_H = (1, -2)^\top`$ (underlined)
 
 ---
 
@@ -963,17 +1006,17 @@ A = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix} \qquad \det = 0 \Rightarrow \te
 
 vector: Direction & Magnitude
 
-2D: $`(x, y)`$ or $`\begin{pmatrix} x \\ y \end{pmatrix}`$
+2D: $`(x, y)`$ or $`(x, y)^\top`$
 
-Ex: $`\begin{pmatrix} 2 \\ 3 \end{pmatrix}`$ is a 2-component vector.
+Ex: $`(2, 3)^\top`$ is a 2-component vector.
 
 Ordered pair of numbers.
 
 **Vector Space over a Set of real nos**
 
-2 Component Vector $`\begin{pmatrix} x \\ y \end{pmatrix}`$, $`\quad x \in \mathbb{R}`$, $`\; y \in \mathbb{R}`$.
+2 Component Vector $`(x, y)^\top`$, $`\quad x \in \mathbb{R}`$, $`\; y \in \mathbb{R}`$.
 
-[Diagram: $`x`$–$`y`$ axes. A vector from the origin to the point $`\begin{pmatrix} x_1 \\ y_1 \end{pmatrix}`$. Its components are marked as $`x_1`$ on the $`x`$-axis and $`y_1`$ on the $`y`$-axis.]
+[Diagram: $`x`$–$`y`$ axes. A vector from the origin to the point $`(x_1, y_1)^\top`$. Its components are marked as $`x_1`$ on the $`x`$-axis and $`y_1`$ on the $`y`$-axis.]
 
 ---
 
@@ -981,7 +1024,7 @@ Ordered pair of numbers.
 
 Basket $`\mathcal{V}`$ contains some elements s.t. if $`\vec{u}`$ & $`\vec{v}`$ are elements of $`\mathcal{V}`$, then we define **vector addition** as
 
-*(side note)* Let $`\vec{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}`$ & $`\vec{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}`$
+*(side note)* Let $`\vec{u} = (u_1, u_2)^\top`$ & $`\vec{v} = (v_1, v_2)^\top`$
 
 ```math
 \vec{u} + \vec{v} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix} = \vec{w}
@@ -1007,7 +1050,7 @@ for some real number $`\alpha`$,
 
 If for some scalar $`\alpha`$, real & a vector $`\vec{u}`$ an element of $`\mathcal{V}`$, $`\alpha(\vec{u}) \in \mathcal{V}`$ then we say $`\mathcal{V}`$ is **closed under scalar multiplication**.
 
-③ $`\begin{pmatrix} 0 \\ 0 \end{pmatrix} \in \mathcal{V}`$. $`\;\hookrightarrow`$ **zero vector**
+③ $`(0, 0)^\top \in \mathcal{V}`$. $`\;\hookrightarrow`$ **zero vector**
 
 ---
 
@@ -1015,7 +1058,7 @@ If for some scalar $`\alpha`$, real & a vector $`\vec{u}`$ an element of $`\math
 
 $`\mathcal{V}(+, \cdot)`$ over a set of real numbers is a **vector space** if
 
-a) $`\mathcal{V}`$ is closed under vector addition $`\quad`$ (side example: $`\begin{pmatrix} 2 \\ 3 \end{pmatrix} + \begin{pmatrix} 4 \\ 5 \end{pmatrix} = \begin{pmatrix} 6 \\ 8 \end{pmatrix}`$)
+a) $`\mathcal{V}`$ is closed under vector addition $`\quad`$ (side example: $`(2, 3)^\top + (4, 5)^\top = (6, 8)^\top`$)
 
 b) closed under scalar multiplication
 
@@ -1023,9 +1066,9 @@ b) closed under scalar multiplication
 
 [Diagram: A number line labelled $`\mathbb{R}`$ with $`0`$ marked, and arrows pointing both ways.]
 
-$`xy`$ plane – 2D. $`\hookrightarrow \mathbb{R} \times \mathbb{R} = \mathbb{R}^2`$, $`\quad \begin{pmatrix} x_1 \\ y_1 \end{pmatrix}`$
+$`xy`$ plane – 2D. $`\hookrightarrow \mathbb{R} \times \mathbb{R} = \mathbb{R}^2`$, $`\quad (x_1, y_1)^\top`$
 
-[Diagram: The $`xy`$-plane. Both axes are labelled $`\mathbb{R}`$, and the origin is marked $`\begin{pmatrix} 0 \\ 0 \end{pmatrix}`$. Vectors drawn from the origin: $`\begin{pmatrix} x_1 \\ y_1 \end{pmatrix}`$ (labelled as $`\begin{pmatrix} 2 \\ 3 \end{pmatrix}`$), $`\begin{pmatrix} x_2 \\ y_2 \end{pmatrix}`$ (labelled as $`\begin{pmatrix} 4 \\ 1 \end{pmatrix}`$), and their sum along the diagonal, labelled $`\begin{pmatrix} x_1 \\ y_1 \end{pmatrix}`$ [partly illegible]. Together they show the parallelogram rule for addition.]
+[Diagram: The $`xy`$-plane. Both axes are labelled $`\mathbb{R}`$, and the origin is marked $`(0, 0)^\top`$. Vectors drawn from the origin: $`(x_1, y_1)^\top`$ (labelled as $`(2, 3)^\top`$), $`(x_2, y_2)^\top`$ (labelled as $`(4, 1)^\top`$), and their sum along the diagonal, labelled $`(x_1, y_1)^\top`$ [partly illegible]. Together they show the parallelogram rule for addition.]
 
 ---
 
@@ -1045,13 +1088,13 @@ $`xy`$ plane – 2D. $`\hookrightarrow \mathbb{R} \times \mathbb{R} = \mathbb{R}
 \begin{pmatrix} 4 \\ 2 \end{pmatrix} + \begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 6 \\ 5 \end{pmatrix}
 ```
 
-[Diagram: Axes with the origin $`\begin{pmatrix} 0 \\ 0 \end{pmatrix}`$. Vector $`\begin{pmatrix} 2 \\ 3 \end{pmatrix}`$ is drawn with dashed guides at $`x = 2`$ and $`y = 3`$. Vector $`\begin{pmatrix} 4 \\ 2 \end{pmatrix}`$ is also drawn. Translated copies of each complete a parallelogram, and the diagonal goes to $`\begin{pmatrix} 6 \\ 5 \end{pmatrix}`$, with a dashed guide at $`x = 6`$. Edges are tick-marked.]
+[Diagram: Axes with the origin $`(0, 0)^\top`$. Vector $`(2, 3)^\top`$ is drawn with dashed guides at $`x = 2`$ and $`y = 3`$. Vector $`(4, 2)^\top`$ is also drawn. Translated copies of each complete a parallelogram, and the diagonal goes to $`(6, 5)^\top`$, with a dashed guide at $`x = 6`$. Edges are tick-marked.]
 
 ---
 
 ## Page 35
 
-**Ex: 3** $`\quad \underline{S_1} = \left\{ \begin{pmatrix} x_1 \\ x_1 \end{pmatrix},\; x_1 \in \mathbb{R} \right\}`$.
+**Ex: 3** $`\quad \underline{S_1} = \left\{ (x_1, x_1)^\top,\; x_1 \in \mathbb{R} \right\}`$.
 
 ```math
 \vec{u} = \begin{pmatrix} u_1 \\ u_1 \end{pmatrix} \qquad \vec{u} = \begin{pmatrix} v_1 \\ v_1 \end{pmatrix}
@@ -1079,15 +1122,15 @@ $`\Rightarrow S_1`$ is closed under scalar multiplication.
 
 ## Page 36
 
-Is $`\begin{pmatrix} 0 \\ 0 \end{pmatrix} \in S_1`$? Yes.
+Is $`(0, 0)^\top \in S_1`$? Yes.
 
 $`\Rightarrow S_1`$ is a vector space.
 
-**Ex 4:** $`\quad S_2 = \left\{ \begin{pmatrix} x_1 \\ 0 \end{pmatrix},\; x_1 \in \mathbb{R} \right\}`$ is a VS.
+**Ex 4:** $`\quad S_2 = \left\{ (x_1, 0)^\top,\; x_1 \in \mathbb{R} \right\}`$ is a VS.
 
-**Ex 5:** $`\quad S_3 = \left\{ \begin{pmatrix} 0 \\ x_2 \end{pmatrix},\; x_2 \in \mathbb{R} \right\}`$ is a VS.
+**Ex 5:** $`\quad S_3 = \left\{ (0, x_2)^\top,\; x_2 \in \mathbb{R} \right\}`$ is a VS.
 
-**Ex 6:** $`\quad S_4 = \left\{ \begin{pmatrix} x_1 \\ k x_1 \end{pmatrix},\; x_1 \in \mathbb{R},\; k \in \mathbb{R} \right\}`$ is a VS. $`\quad`$ (e.g. $`\begin{pmatrix} x_1 \\ 2x_1 \end{pmatrix}`$; a small "2" is written under the $`k`$)
+**Ex 6:** $`\quad S_4 = \left\{ (x_1, k x_1)^\top,\; x_1 \in \mathbb{R},\; k \in \mathbb{R} \right\}`$ is a VS. $`\quad`$ (e.g. $`(x_1, 2x_1)^\top`$; a small "2" is written under the $`k`$)
 
 [CHECK: As written, with both $`x_1`$ and $`k`$ ranging over $`\mathbb{R}`$, $`S_4`$ is the union of all non-vertical lines through the origin. That union is not closed under addition. The intended meaning is presumably a **fixed** $`k`$ (e.g. $`k = 2`$), which gives a single line $`y = kx`$. The conclusion below also supports this reading.]
 
@@ -1097,9 +1140,9 @@ $`\Rightarrow`$ **Every line passing through the origin is a vector space.**
 
 ## Page 37
 
-**Ex 7:** $`\quad S_5 = \left\{ \begin{pmatrix} x_1 \\ 3 \end{pmatrix},\; x_1 \in \mathbb{R} \right\}`$ is **not** a VS (underlined).
+**Ex 7:** $`\quad S_5 = \left\{ (x_1, 3)^\top,\; x_1 \in \mathbb{R} \right\}`$ is **not** a VS (underlined).
 
-**Ex 8:** $`\quad S_6 = \left\{ \begin{pmatrix} 0 \\ 0 \end{pmatrix} \right\}`$ is a vector space.
+**Ex 8:** $`\quad S_6 = \left\{ (0, 0)^\top \right\}`$ is a vector space.
 
 **Ex 9:** $`\quad \underline{\mathcal{M}^{2\times 2}}`$: Set of all $`2\times 2`$ real matrices. $`\quad`$ (margin note: $`(x, y)`$)
 
@@ -1125,7 +1168,13 @@ kA = k\begin{bmatrix} a_1 & a_2 \\ a_3 & a_4 \end{bmatrix} = \begin{bmatrix} ka_
 
 $`\mathcal{M}^{2\times 2}`$ is closed under scalar multiplication
 
-Is $`\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{M}^{2\times 2}`$? YES.
+Is
+
+```math
+\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{M}^{2\times 2}
+```
+
+? YES.
 
 $`\therefore \mathcal{M}^{2\times 2}`$ is a vector space.
 
@@ -1149,7 +1198,7 @@ Recall Ex: 3, …, 8.
 
 **Q:** Does the set $`S_1`$ in Ex 3 contain all the points in $`\mathbb{R}^2`$? $`\quad`$ No.
 
-However $`S_1`$ is a subset of $`\mathbb{R}^2`$, closed under VA, SM & has zero vector $`\begin{pmatrix} 0 \\ 0 \end{pmatrix}`$.
+However $`S_1`$ is a subset of $`\mathbb{R}^2`$, closed under VA, SM & has zero vector $`(0, 0)^\top`$.
 
 $`S_1`$ is called a **vector subspace** of $`\mathbb{R}^2`$.
 
@@ -1167,7 +1216,7 @@ $`\Rightarrow`$ All these sets are vector subspaces of $`\mathbb{R}^2`$.
 
 **Geometry of Subspaces of $`\mathbb{R}^2`$:**
 
-\* $`\left\{ \begin{pmatrix} 0 \\ 0 \end{pmatrix} \right\}`$ is a subspace of $`\mathbb{R}^2`$.
+\* $`\left\{ (0, 0)^\top \right\}`$ is a subspace of $`\mathbb{R}^2`$.
 
 \* Any line passing thro' the origin is a vector subspace of $`\mathbb{R}^2`$
 
@@ -1183,7 +1232,7 @@ For ex let $`\mathcal{V} = \mathbb{R}^2`$
 
 How do we generali [sic, likely "generate"] all the vectors in $`\mathbb{R}^2`$?
 
-Choose 2 vectors $`\vec{u}`$ & $`\vec{v}`$ s.t. $`\vec{u}, \vec{v}`$ are in 2 different directions. $`\quad \vec{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}`$, $`\; \vec{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}`$
+Choose 2 vectors $`\vec{u}`$ & $`\vec{v}`$ s.t. $`\vec{u}, \vec{v}`$ are in 2 different directions. $`\quad \vec{u} = (u_1, u_2)^\top`$, $`\; \vec{v} = (v_1, v_2)^\top`$
 
 For $`\alpha, \beta`$ real,
 
@@ -1207,7 +1256,7 @@ For $`\alpha, \beta`$ real,
 
 ## Page 43
 
-**Claim:** $`\alpha\begin{bmatrix}2\\5\end{bmatrix} + \beta\begin{bmatrix}1\\5\end{bmatrix}`$ for different $`\alpha`$ & $`\beta`$ results in entire $`\mathbb{R}^2`$.
+**Claim:** $`\alpha[2, 5]^\top + \beta[1, 5]^\top`$ for different $`\alpha`$ & $`\beta`$ results in entire $`\mathbb{R}^2`$.
 
 ```math
 \Rightarrow \begin{bmatrix}2\alpha+\beta\\5\alpha+5\beta\end{bmatrix} = \underbrace{\begin{bmatrix}2&1\\5&5\end{bmatrix}}_{A}\underbrace{\begin{bmatrix}\alpha\\\beta\end{bmatrix}}_{\vec{x}} = \begin{bmatrix}w_1\\w_2\end{bmatrix}
@@ -1219,61 +1268,68 @@ $`\Rightarrow A^{-1}`$ exists.
 
 (Side note, left margin:) $`A\vec{x} = \vec{b}`$, $`\;\vec{x} = A^{-1}\vec{b}`$
 
-For every $`\begin{bmatrix}\alpha\\\beta\end{bmatrix}`$, $`\begin{bmatrix}2&1\\5&5\end{bmatrix}\begin{bmatrix}\alpha\\\beta\end{bmatrix}`$ gives different vectors.
+For every $`[\alpha, \beta]^\top`$,
 
-$`\vec{u} = \begin{bmatrix}1\\0\end{bmatrix}`$, $`\vec{v} = \begin{bmatrix}0\\1\end{bmatrix}`$ $`\Rightarrow x_1\begin{bmatrix}1\\0\end{bmatrix} + x_2\begin{bmatrix}0\\1\end{bmatrix}`$ is the set of all possible linear combination for different $`\begin{bmatrix}x_1\\x_2\end{bmatrix}`$.
+```math
+\begin{bmatrix}2&1\\5&5\end{bmatrix}[\alpha, \beta]^\top
+```
+
+gives different vectors.
+
+$`\vec{u} = [1, 0]^\top`$, $`\vec{v} = [0, 1]^\top`$ $`\Rightarrow x_1[1, 0]^\top + x_2[0, 1]^\top`$ is the set of all possible linear combination for different $`[x_1, x_2]^\top`$.
 
 ## Page 44
 
-[Diagram: $`x_1`$–$`x_2`$ axes with ticks 0–5 on each axis. Two arrows from the origin: a green arrow to $`\begin{bmatrix}1\\5\end{bmatrix}`$ and a purple arrow to $`\begin{bmatrix}2\\5\end{bmatrix}`$.]
+[Diagram: $`x_1`$–$`x_2`$ axes with ticks 0–5 on each axis. Two arrows from the origin: a green arrow to $`[1, 5]^\top`$ and a purple arrow to $`[2, 5]^\top`$.]
 
-Suppose $`\vec{u} = \begin{bmatrix}1\\5\end{bmatrix}`$, $`\vec{v} = \begin{bmatrix}2\\5\end{bmatrix}`$, $`\vec{w} = \begin{bmatrix}3\\5\end{bmatrix}`$
+Suppose $`\vec{u} = [1, 5]^\top`$, $`\vec{v} = [2, 5]^\top`$, $`\vec{w} = [3, 5]^\top`$
 
 ```math
 \alpha\vec{u} + \beta\vec{v} + \gamma\vec{w}
 ```
 
 \* **Defn:** A set of vectors $`\{\vec{u}, \vec{v}, \vec{w}\}`$ is said to be **linearly indep** if and only if, for scalars $`c_1, c_2, c_3`$ real,
+
 ```math
 c_1\vec{u} + c_2\vec{v} + c_3\vec{w} = \vec{0} \iff \boxed{c_1 = 0,\ c_2 = 0\ \&\ c_3 = 0}
 ```
 
 ## Page 45
 
-$`\vec{u} = \begin{bmatrix}1\\0\end{bmatrix}`$ ✓, $`\vec{v} = \begin{bmatrix}0\\1\end{bmatrix}`$ ✓, $`\vec{w} = \begin{bmatrix}2\\3\end{bmatrix}`$ ✓
+$`\vec{u} = [1, 0]^\top`$ ✓, $`\vec{v} = [0, 1]^\top`$ ✓, $`\vec{w} = [2, 3]^\top`$ ✓
 
 ```math
 c_1\begin{bmatrix}1\\0\end{bmatrix} + c_2\begin{bmatrix}0\\1\end{bmatrix} + c_3\begin{bmatrix}2\\3\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}
 ```
 
-Look at that l.c which results in $`\begin{bmatrix}0\\0\end{bmatrix}`$
+Look at that l.c which results in $`[0, 0]^\top`$
 
-- $`c_1 = 0, c_2 = 0, c_3 = 0 \Rightarrow c_1\begin{bmatrix}1\\0\end{bmatrix} + c_2\begin{bmatrix}0\\1\end{bmatrix} + c_3\begin{bmatrix}2\\3\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}`$
-- $`c_1 = 2, c_2 = 3, c_3 = -1 \Rightarrow 2\begin{bmatrix}1\\0\end{bmatrix} + 3\begin{bmatrix}0\\1\end{bmatrix} - 1\begin{bmatrix}2\\3\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}`$
+- $`c_1 = 0, c_2 = 0, c_3 = 0 \Rightarrow c_1[1, 0]^\top + c_2[0, 1]^\top + c_3[2, 3]^\top = [0, 0]^\top`$
+- $`c_1 = 2, c_2 = 3, c_3 = -1 \Rightarrow 2[1, 0]^\top + 3[0, 1]^\top - 1[2, 3]^\top = [0, 0]^\top`$
 
-- $`\Rightarrow \begin{bmatrix}1\\5\end{bmatrix}, \begin{bmatrix}2\\5\end{bmatrix} \Rightarrow \mathbb{R}^2`$ (this pair is circled)
-- $`\Rightarrow \begin{bmatrix}1\\5\end{bmatrix}, \begin{bmatrix}3\\5\end{bmatrix} = \mathbb{R}^2`$
-- $`\Rightarrow \begin{bmatrix}1\\0\end{bmatrix}, \begin{bmatrix}0\\1\end{bmatrix} \Rightarrow \mathbb{R}^2`$
-- $`\Rightarrow \begin{bmatrix}2\\5\end{bmatrix}, \begin{bmatrix}3\\5\end{bmatrix} = \mathbb{R}^2`$
+- $`\Rightarrow [1, 5]^\top, [2, 5]^\top \Rightarrow \mathbb{R}^2`$ (this pair is circled)
+- $`\Rightarrow [1, 5]^\top, [3, 5]^\top = \mathbb{R}^2`$
+- $`\Rightarrow [1, 0]^\top, [0, 1]^\top \Rightarrow \mathbb{R}^2`$
+- $`\Rightarrow [2, 5]^\top, [3, 5]^\top = \mathbb{R}^2`$
 
 ## Page 46
 
 **Basis:** It is the set of linearly indep vectors whose all possible linear combinations generate an entire vector space.
 
-**Ex 1:** $`\vec{u} = \left\{\begin{bmatrix}1\\1\end{bmatrix}\right\}`$ generates the subspace $`\left\{x_1\begin{bmatrix}1\\1\end{bmatrix}\right\}`$
+**Ex 1:** $`\vec{u} = \left\{[1, 1]^\top\right\}`$ generates the subspace $`\left\{x_1[1, 1]^\top\right\}`$
 
-Basis for the vs $`\left\{\begin{bmatrix}x_1\\x_1\end{bmatrix}\right\}`$. $`\quad \left\{\begin{bmatrix}x_1\\x_1\end{bmatrix}\right\}`$
+Basis for the vs $`\left\{[x_1, x_1]^\top\right\}`$. $`\quad \left\{[x_1, x_1]^\top\right\}`$
 
-**Ex 2:** $`V = \left\{\begin{bmatrix}x_1\\2x_1\end{bmatrix}, x_1 \in \mathbb{R}\right\}`$ $`\quad`$ Basis: $`\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\}`$.
+**Ex 2:** $`V = \left\{[x_1, 2x_1]^\top, x_1 \in \mathbb{R}\right\}`$ $`\quad`$ Basis: $`\left\{[1, 2]^\top\right\}`$.
 
-**Ex 3:** $`V = \left\{\begin{bmatrix}-3x_1\\x_1\end{bmatrix}, x_1 \in \mathbb{R}\right\}`$ $`\quad`$ Basis: $`\left\{\begin{bmatrix}-3\\1\end{bmatrix}\right\}`$.
+**Ex 3:** $`V = \left\{[-3x_1, x_1]^\top, x_1 \in \mathbb{R}\right\}`$ $`\quad`$ Basis: $`\left\{[-3, 1]^\top\right\}`$.
 
 ## Page 47
 
 **Comments:**
 
 1. A set containing only one nonzero vector is a linearly indep set.
-   Q: Is $`\left\{\begin{bmatrix}1\\0\end{bmatrix}\right\}`$ a l.i set? Yes.
+   Q: Is $`\left\{[1, 0]^\top\right\}`$ a l.i set? Yes.
 
 2. A set that has $`n`$ linearly indep vectors is a basis for an $`n`$-dim vector space.
 3. Any set that contains the zero vector is a linearly dep set.
@@ -1288,6 +1344,7 @@ For ex: $`\mathbb{R}^2`$ is vector space
 ```math
 B_1 = \left\{\begin{bmatrix}1\\0\end{bmatrix}, \begin{bmatrix}0\\1\end{bmatrix}\right\} \qquad B_2 = \left\{\begin{bmatrix}2\\1\end{bmatrix}, \begin{bmatrix}1\\2\end{bmatrix}\right\}
 ```
+
 ```math
 B_3 = \left\{\begin{bmatrix}1\\4\end{bmatrix}, \begin{bmatrix}-1\\2\end{bmatrix}\right\} \qquad B_4 = \left\{\begin{bmatrix}-2\\-3\end{bmatrix}, \begin{bmatrix}1\\-4\end{bmatrix}\right\}
 ```
@@ -1296,14 +1353,14 @@ All these bases have exactly 2 l.i vectors. $`\Rightarrow`$ **The number of vect
 
 ## Page 49
 
-5. Let $`V = \left\{\begin{bmatrix}0\\0\end{bmatrix}\right\} \rightarrow`$ vs.
+5. Let $`V = \left\{[0, 0]^\top\right\} \rightarrow`$ vs.
    Basis: ?
 
 *03.10.2026.*
 
-\* Basis for $`V = \left\{\begin{bmatrix}0\\0\end{bmatrix}\right\}`$ ?
+\* Basis for $`V = \left\{[0, 0]^\top\right\}`$ ?
 
-$`V`$ has only one element $`\begin{bmatrix}0\\0\end{bmatrix}`$. Thus $`V`$ is a linearly dep. set. $`\therefore \begin{bmatrix}0\\0\end{bmatrix}`$ cannot be a basis for $`V`$. $`\Rightarrow`$ Basis $`= \{\{\ \}\}`$ $`\rightarrow \left\{\begin{bmatrix}0\\0\end{bmatrix}\right\}`$ is a 0-D subspace.
+$`V`$ has only one element $`[0, 0]^\top`$. Thus $`V`$ is a linearly dep. set. $`\therefore [0, 0]^\top`$ cannot be a basis for $`V`$. $`\Rightarrow`$ Basis $`= \{\{\ \}\}`$ $`\rightarrow \left\{[0, 0]^\top\right\}`$ is a 0-D subspace.
 
 [CHECK: The basis of the zero subspace is the empty set $`\{\}`$ (i.e. $`\emptyset`$); $`\{\{\}\}`$ as written denotes a set containing the empty set.]
 
@@ -1313,6 +1370,7 @@ $`V`$ has only one element $`\begin{bmatrix}0\\0\end{bmatrix}`$. Thus $`V`$ is a
 \# of vectors in any basis is called the Dimension of the vector space.
 
 \* Let
+
 ```math
 A = \begin{bmatrix}1&1\\1&-1\\2&1\end{bmatrix} \qquad x = \begin{bmatrix}x_1\\x_2\end{bmatrix} \qquad b = \begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}
 ```
@@ -1338,6 +1396,7 @@ Ax = b \Rightarrow \begin{bmatrix}1&1\\1&-1\\2&1\end{bmatrix}\begin{bmatrix}x_1\
 ```
 
 $`\Rightarrow`$ Look at set of solns to $`A\vec{x} = \vec{0}`$
+
 ```math
 A^{m\times n}x^{n\times 1} = 0^{m\times 1}
 ```
@@ -1347,6 +1406,7 @@ $`\Rightarrow`$ Set of solutions, $`\underline{x^{n\times 1}}`$, to $`Ax = 0`$ f
 ## Page 52
 
 (2)
+
 ```math
 \underbrace{\begin{bmatrix}1&1\\1&1\\1&1\end{bmatrix}}_{A}\begin{bmatrix}x_1\\x_2\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix} \quad A\vec{x} = \vec{0}
 ```
@@ -1359,7 +1419,7 @@ $`\Rightarrow`$ Set of solutions, $`\underline{x^{n\times 1}}`$, to $`Ax = 0`$ f
 $`x_1 = 0,\ 1,\ -1,\ 2,\ \dots`$
 $`x_2 = 0,\ -1,\ 1,\ -2,\ \dots`$
 
-$`\Rightarrow \left\{\begin{bmatrix}x_1\\-x_1\end{bmatrix}\right\} \Rightarrow`$
+$`\Rightarrow \left\{[x_1, -x_1]^\top\right\} \Rightarrow`$
 
 Null sp(A): 1D Subsp. of $`\mathbb{R}^2`$.
 Nullity: 1.
@@ -1367,6 +1427,7 @@ Nullity: 1.
 ```math
 A^{m\times n}\,x^{n\times 1} = b^{m\times 1} \qquad A \in \mathbb{R}^{m\times n}
 ```
+
 ```math
 x \in \mathbb{R}^n \qquad b \in \mathbb{R}^m
 ```
@@ -1374,7 +1435,7 @@ x \in \mathbb{R}^n \qquad b \in \mathbb{R}^m
 Soln to $`Ax = 0 \Rightarrow x \in \mathbb{R}^n`$
 
 For ex $`A^{3\times 2}x^{2\times 1} = b^{3\times 1}`$.
-Soln to $`Ax = 0 \Rightarrow x \in \mathbb{R}^2`$, $`\begin{bmatrix}x_1\\x_2\end{bmatrix}`$
+Soln to $`Ax = 0 \Rightarrow x \in \mathbb{R}^2`$, $`[x_1, x_2]^\top`$
 
 ## Page 53
 
@@ -1408,11 +1469,11 @@ $`A^{1000\times 100}`$ $`\quad`$ nullity = 37 $`\Rightarrow`$ Out of 100, 37 var
 \underset{2\times2}{\begin{bmatrix}1&1\\1&1\end{bmatrix}}\underset{2\times1}{\begin{bmatrix}x_1\\x_2\end{bmatrix}} = \underset{2\times1}{\begin{bmatrix}0\\0\end{bmatrix}} \qquad \begin{aligned} x_1 + x_2 &= 0\\ \Rightarrow x_2 &= -x_1 \end{aligned}
 ```
 
-Null Space: $`\left\{k\begin{bmatrix}1\\-1\end{bmatrix}\right\}`$ $`\quad`$ 1D subsp. of $`\mathbb{R}^2`$
+Null Space: $`\left\{k[1, -1]^\top\right\}`$ $`\quad`$ 1D subsp. of $`\mathbb{R}^2`$
 
-$`\mathbb{R}^2`$. $`\quad \left\{\begin{bmatrix}k\\-k\end{bmatrix}\right\}`$, $`\quad \left\{k\begin{bmatrix}1\\-1\end{bmatrix}\right\}`$
+$`\mathbb{R}^2`$. $`\quad \left\{[k, -k]^\top\right\}`$, $`\quad \left\{k[1, -1]^\top\right\}`$
 
-[Diagram: $`x_1`$–$`x_2`$ axes with the line $`x_2 = -x_1`$ through the origin (top-left to bottom-right); an arrow along the line points to $`\begin{bmatrix}1\\-1\end{bmatrix}`$, labelled "→ 1D Subs".]
+[Diagram: $`x_1`$–$`x_2`$ axes with the line $`x_2 = -x_1`$ through the origin (top-left to bottom-right); an arrow along the line points to $`[1, -1]^\top`$, labelled "→ 1D Subs".]
 
 ## Page 55
 
@@ -1439,7 +1500,7 @@ $`\Rightarrow x_1 + t + 2t = 0 \Rightarrow x_1 = -3t`$.
 \therefore \text{Soln}: \left\{\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}-3t\\t\\t\end{bmatrix} = t\begin{bmatrix}-3\\1\\1\end{bmatrix}\right\}.
 ```
 
-$`\Rightarrow`$ Null space: 1D sub. of $`\mathbb{R}^3`$ $`= \left\{t\begin{bmatrix}-3\\1\\1\end{bmatrix}\right\}`$
+$`\Rightarrow`$ Null space: 1D sub. of $`\mathbb{R}^3`$ $`= \left\{t[-3, 1, 1]^\top\right\}`$
 
 (Margin note, underlined:) *October 5/2026 — Class from 8pm – 9:30pm*
 
