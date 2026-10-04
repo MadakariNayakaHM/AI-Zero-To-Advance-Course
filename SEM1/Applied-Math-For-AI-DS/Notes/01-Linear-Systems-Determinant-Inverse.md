@@ -110,13 +110,13 @@ General ("representative") solution: $`\begin{pmatrix}x\\y\end{pmatrix} = \begin
 ### No solution (Ex 3): what do we do?
 The same quantity $`2x+y`$ was "measured" as 3 and as 4: a **measurement inconsistency** (real sensors are noisy). Since an exact solution doesn't exist, we look for the **least-squares solution**: the $`x`$ that makes $`Ax`$ **as close as possible** to $`b`$.
 ```math
-\hat x = \arg\min_x \|Ax - b\|^2
+\hat{x} = \arg\min_x \|Ax - b\|^2
 ```
 In the notes: *"the soln that takes you to a destination closer to the actual one"*, with the squared error (variance) being minimised.
 
 For Ex 3, least squares gives $`Ax = (3.5, 3.5)`$, splitting the difference between 3 and 4 (notebook Part A).
 
-> 🔗 **This is linear regression!** In MLP Note 03 we had 5 data points (5 equations) and 2 unknowns ($`m, c`$). No line passes through all points, so there is no exact solution, and OLS finds the least-squares one. The normal equation $`\mathbf w = (X^\top X)^{-1}X^\top \mathbf y`$ is the least-squares solution of $`X\mathbf w = \mathbf y`$.
+> 🔗 **This is linear regression!** In MLP Note 03 we had 5 data points (5 equations) and 2 unknowns ($`m, c`$). No line passes through all points, so there is no exact solution, and OLS finds the least-squares one. The normal equation $`\mathbf{w} = (X^\top X)^{-1}X^\top \mathbf{y}`$ is the least-squares solution of $`X\mathbf{w} = \mathbf{y}`$.
 
 ### 🔴 Rank criterion (preview of Note 02)
 For $`Ax=b`$ with $`n`$ unknowns:
@@ -178,7 +178,7 @@ Writing the solution as a matrix times $`b`$:
 \qquad\Longrightarrow\qquad \boxed{x = A^{-1}b}
 ```
 ```math
-A^{-1} = \frac{\operatorname{Adj}(A)}{\det(A)}
+A^{-1} = \frac{\text{Adj}(A)}{\det(A)}
 ```
 **2×2 recipe:** *swap the diagonal elements, negate the off-diagonal elements, divide by the determinant.*
 
@@ -224,7 +224,7 @@ D^{-1} = \begin{bmatrix}1/d_1&0\\0&1/d_2\end{bmatrix} \quad (d_1, d_2 \ne 0)
 ```
 Each variable is scaled independently, so **the equations are decoupled**: $`ax = c \Rightarrow x = c/a`$, $`by = d \Rightarrow y = d/b`$.
 
-**Anti-diagonal variant (Ex 2, p.11):** $`\begin{bmatrix}0&d_1\\d_2&0\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}c\\d\end{bmatrix}`$ gives $`y = c/d_1`$, $`x = d/d_2`$. Still trivial. $`\det = -d_1d_2`$, $`\operatorname{Adj} = \begin{bmatrix}0&-d_1\\-d_2&0\end{bmatrix}`$. (It's a diagonal matrix combined with a swap.) The zeros on the main diagonal mean there's no **pivot** there, so a row swap is needed to bring non-zeros onto the diagonal (Note 02).
+**Anti-diagonal variant (Ex 2, p.11):** $`\begin{bmatrix}0&d_1\\d_2&0\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}c\\d\end{bmatrix}`$ gives $`y = c/d_1`$, $`x = d/d_2`$. Still trivial. $`\det = -d_1d_2`$, $`\text{Adj} = \begin{bmatrix}0&-d_1\\-d_2&0\end{bmatrix}`$. (It's a diagonal matrix combined with a swap.) The zeros on the main diagonal mean there's no **pivot** there, so a row swap is needed to bring non-zeros onto the diagonal (Note 02).
 
 > 🔗 **Why ML loves diagonal matrices:** eigen-decomposition $`A = PDP^{-1}`$ and SVD $`A = U\Sigma V^\top`$ rewrite hard matrices in terms of **diagonal** ones. That is how PCA works.
 
@@ -258,7 +258,7 @@ Orthogonal matrices **preserve lengths and angles** ($`\|Qx\| = \|x\|`$). They'r
 | 1 | Identity / reflection | $`A^{-1} = A`$ | Free |
 | 2 | Diagonal (non-zero entries) | Reciprocals | $`O(n)`$ |
 | 3 | Orthogonal | $`A^{-1} = A^\top`$ | Free (transpose) |
-| — | General | $`\operatorname{Adj}/\det`$ or elimination | $`O(n^3)`$ |
+| — | General | $`\text{Adj}/\det`$ or elimination | $`O(n^3)`$ |
 
 ---
 

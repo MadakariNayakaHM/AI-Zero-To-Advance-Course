@@ -291,9 +291,9 @@ Check with Ex 2 from Note 01: $`x_p = (1,1)`$, $`x_H = (1,-2)`$, so $`x = (1+k, 
 
 Rank = **the amount of genuinely independent information** in a matrix. The notes give three equivalent definitions (p.28):
 
-1. If $`A`$ is $`n\times n`$ with $`\det A \ne 0`$, then $`\operatorname{rank}(A) = n`$ (**full rank**).
-2. $`\operatorname{rank}(A)`$ = **number of pivot columns** in the RREF of $`A`$.
-3. $`\operatorname{rank}(A)`$ = **size of the largest square sub-matrix with non-zero determinant** (largest non-vanishing *minor*).
+1. If $`A`$ is $`n\times n`$ with $`\det A \ne 0`$, then $`\text{rank}(A) = n`$ (**full rank**).
+2. $`\text{rank}(A)`$ = **number of pivot columns** in the RREF of $`A`$.
+3. $`\text{rank}(A)`$ = **size of the largest square sub-matrix with non-zero determinant** (largest non-vanishing *minor*).
 
 > 📝 Definition 3 in the notes says "square matrix". It means a square **sub-matrix of $`A`$**.
 
@@ -312,16 +312,16 @@ Rank = **the amount of genuinely independent information** in a matrix. The note
 ### Key facts (beyond slides) 🔴
 
 - **rank = number of independent rows = number of independent columns** (row rank = column rank, always).
-- $`\operatorname{rank}(A) \le \min(m, n)`$.
-- **Rank–nullity theorem:** $`\operatorname{rank}(A) + \operatorname{nullity}(A) = n`$ (number of columns). See [Note 05](05-Null-Space-and-Nullity.md).
-- Solvability: $`Ax = b`$ is consistent $`\iff \operatorname{rank}(A) = \operatorname{rank}([A\,|\,b])`$.
+- $`\text{rank}(A) \le \min(m, n)`$.
+- **Rank–nullity theorem:** $`\text{rank}(A) + \text{nullity}(A) = n`$ (number of columns). See [Note 05](05-Null-Space-and-Nullity.md).
+- Solvability: $`Ax = b`$ is consistent $`\iff \text{rank}(A) = \text{rank}([A\,|\,b])`$.
 
 ### Rank in ML / data science
 
 | Situation | Rank tells you |
 |---|---|
 | Data matrix $`X`$ ($`m`$ samples × $`n`$ features) | Number of non-redundant features |
-| $`\operatorname{rank}(X) < n`$ | Collinear features → $`X^\top X`$ singular → OLS weights not unique |
+| $`\text{rank}(X) < n`$ | Collinear features → $`X^\top X`$ singular → OLS weights not unique |
 | Recommender systems (Netflix) | User×movie ratings ≈ **low-rank** matrix (few "taste" factors) |
 | **LoRA** fine-tuning of LLMs | Weight updates $`\Delta W = BA`$ restricted to **low rank** $`r \ll d`$ |
 | Image compression | Keep the top-$`k`$ singular values (rank-$`k`$ approximation) |
@@ -400,7 +400,7 @@ $`\det\begin{bmatrix}1&k\\0&1\end{bmatrix} = 1`$, and |det| = area scaling facto
 - **REF:** staircase of pivots, zeros below them, zero rows at the bottom. **RREF:** additionally pivots = 1 and zeros above them (unique).
 - **Homogeneous** $`Ax=0`$: always has $`x=0`$. A non-trivial $`x_H`$ means infinitely many solutions $`x_p + kx_H`$.
 - **Rank** = number of pivots = number of independent rows = number of independent columns = size of the largest non-zero minor.
-- Consistent $`\iff \operatorname{rank}A = \operatorname{rank}[A|b]`$; unique $`\iff`$ additionally rank $`= n`$.
+- Consistent $`\iff \text{rank}A = \text{rank}[A|b]`$; unique $`\iff`$ additionally rank $`= n`$.
 
 ---
 

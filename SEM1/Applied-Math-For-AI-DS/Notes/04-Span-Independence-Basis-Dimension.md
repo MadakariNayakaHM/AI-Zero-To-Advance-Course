@@ -33,7 +33,7 @@
 
 ## 1. Big Picture: How Do We Generate a Vector Space?
 
-Every subspace (except $`\{\mathbf 0\}`$) has **infinitely many** vectors. We can't list them. So the question is: *can a few vectors **generate** all of them?*
+Every subspace (except $`\{\mathbf{0}\}`$) has **infinitely many** vectors. We can't list them. So the question is: *can a few vectors **generate** all of them?*
 
 **Professor's analogies:**
 
@@ -46,20 +46,20 @@ Every subspace (except $`\{\mathbf 0\}`$) has **infinitely many** vectors. We ca
 
 In linear algebra the "generators" are a **basis**: a small set of **independent** vectors whose **linear combinations** produce the **entire** space.
 
-> ⚠️ The prime analogy is only an analogy (professor's warning). Primes generate via **multiplication/exponents** and there are **infinitely many** primes. Bases here generate via **addition + scaling**, and in $`\mathbb R^n`$ a basis has exactly **n** vectors. *"Don't map this with that, you will land in trouble."*
+> ⚠️ The prime analogy is only an analogy (professor's warning). Primes generate via **multiplication/exponents** and there are **infinitely many** primes. Bases here generate via **addition + scaling**, and in $`\mathbb{R}^n`$ a basis has exactly **n** vectors. *"Don't map this with that, you will land in trouble."*
 
 ---
 
 ## 2. Linear Combination 🟢
 
-For vectors $`\vec u, \vec v`$ and real scalars $`\alpha, \beta`$:
+For vectors $`\vec{u}, \vec{v}`$ and real scalars $`\alpha, \beta`$:
 ```math
-\boxed{\alpha\vec u + \beta\vec v} \quad\text{is a } \textbf{linear combination} \text{ of } \vec u \text{ and } \vec v.
+\boxed{\alpha\vec{u} + \beta\vec{v}} \quad\text{is a } \textbf{linear combination} \text{ of } \vec{u} \text{ and } \vec{v}.
 ```
 ```math
 \alpha\begin{pmatrix}u_1\\u_2\end{pmatrix} + \beta\begin{pmatrix}v_1\\v_2\end{pmatrix} = \begin{pmatrix}\alpha u_1 + \beta v_1\\ \alpha u_2 + \beta v_2\end{pmatrix}
 ```
-More generally: $`c_1\vec v_1 + c_2\vec v_2 + \dots + c_k\vec v_k`$.
+More generally: $`c_1\vec{v}_1 + c_2\vec{v}_2 + \dots + c_k\vec{v}_k`$.
 
 ### 🎵 Music analogy (professor, for students unsure about linear combinations)
 A song you hear is **one track**, but it's made of **many tracks**: vocals, guitar, drums, keyboard.
@@ -72,9 +72,9 @@ A song you hear is **one track**, but it's made of **many tracks**: vocals, guit
 
 ### In the family analogy
 
-- $`\alpha\vec u`$ for all $`\alpha`$ = all relatives from the **paternal** side (multiples of one direction: "cousins").
-- $`\beta\vec v`$ for all $`\beta`$ = all relatives from the **maternal** side.
-- $`\alpha\vec u + \beta\vec v`$ = **every** relative.
+- $`\alpha\vec{u}`$ for all $`\alpha`$ = all relatives from the **paternal** side (multiples of one direction: "cousins").
+- $`\beta\vec{v}`$ for all $`\beta`$ = all relatives from the **maternal** side.
+- $`\alpha\vec{u} + \beta\vec{v}`$ = **every** relative.
 
 ### Ax = b is a linear combination! (Notes p.50)
 ```math
@@ -88,27 +88,27 @@ The coefficients of $`x_1`$ (1, 1, 2) form the **first column**, so **$`Ax`$ = l
 
 ## 3. Span: Generating ℝ² from Two Vectors 🟢
 
-**Claim:** if $`\vec u, \vec v \in \mathbb R^2`$ point in **two different directions**, then $`\{\alpha\vec u + \beta\vec v : \alpha,\beta\in\mathbb R\}`$ = **all of $`\mathbb R^2`$**.
+**Claim:** if $`\vec{u}, \vec{v} \in \mathbb{R}^2`$ point in **two different directions**, then $`\{\alpha\vec{u} + \beta\vec{v} : \alpha,\beta\in\mathbb{R}\}`$ = **all of $`\mathbb{R}^2`$**.
 
 The set of all linear combinations is called the **span**:
 ```math
-\operatorname{span}\{\vec u, \vec v\} = \{\alpha\vec u + \beta\vec v : \alpha, \beta \in \mathbb R\}
+\text{span}\{\vec{u}, \vec{v}\} = \{\alpha\vec{u} + \beta\vec{v} : \alpha, \beta \in \mathbb{R}\}
 ```
 
-**Class example (students chose the vectors):** $`\vec u = (2,5)`$, $`\vec v = (1,5)`$.
+**Class example (students chose the vectors):** $`\vec{u} = (2,5)`$, $`\vec{v} = (1,5)`$.
 
 ![span](images/07_span_basis.png)
 
-The skewed grid shows that integer combinations tile the plane, and real combinations fill **every** point. Example: $`(1, 0) = 1\cdot\vec u - 1\cdot\vec v`$.
+The skewed grid shows that integer combinations tile the plane, and real combinations fill **every** point. Example: $`(1, 0) = 1\cdot\vec{u} - 1\cdot\vec{v}`$.
 
 **The professor's GeoGebra demo (30 Sep):**
 
-- Set $`c_1 = 0`$ and vary $`c_2`$: the result moves along the **line through $`\vec v`$** only.
-- Set $`c_2 = 0`$ and vary $`c_1`$: the result moves along the line through $`\vec u`$.
-- Vary both: the resultant visits **all four quadrants**, so it sweeps all of $`\mathbb R^2`$.
-- Same with $`\vec u = (1,0)`$, $`\vec v = (0,1)`$: $`x_1(1,0) + x_2(0,1) = (x_1, x_2)`$, so every point is reached trivially.
+- Set $`c_1 = 0`$ and vary $`c_2`$: the result moves along the **line through $`\vec{v}`$** only.
+- Set $`c_2 = 0`$ and vary $`c_1`$: the result moves along the line through $`\vec{u}`$.
+- Vary both: the resultant visits **all four quadrants**, so it sweeps all of $`\mathbb{R}^2`$.
+- Same with $`\vec{u} = (1,0)`$, $`\vec{v} = (0,1)`$: $`x_1(1,0) + x_2(0,1) = (x_1, x_2)`$, so every point is reached trivially.
 
-**Span of ONE non-zero vector** = a line through the origin. E.g. $`\operatorname{span}\{(1,1)\} = \{(x_1, x_1)\}`$ (Ex 3 from Note 03).
+**Span of ONE non-zero vector** = a line through the origin. E.g. $`\text{span}\{(1,1)\} = \{(x_1, x_1)\}`$ (Ex 3 from Note 03).
 
 ---
 
@@ -120,37 +120,37 @@ The skewed grid shows that integer combinations tile the plane, and real combina
 \alpha\begin{bmatrix}2\\5\end{bmatrix} + \beta\begin{bmatrix}1\\5\end{bmatrix} = \begin{bmatrix}2\alpha+\beta\\5\alpha+5\beta\end{bmatrix} = \underbrace{\begin{bmatrix}2&1\\5&5\end{bmatrix}}_{A}\underbrace{\begin{bmatrix}\alpha\\\beta\end{bmatrix}}_{x} = \begin{bmatrix}w_1\\w_2\end{bmatrix}
 ```
 - $`\det A = 10 - 5 = 5 \ne 0`$, so $`A^{-1}`$ exists.
-- **Given any target** $`\vec w = (w_1, w_2)`$, take $`\begin{bmatrix}\alpha\\\beta\end{bmatrix} = A^{-1}\vec w`$. A solution always exists, so **every** $`\vec w`$ is reachable.
-- It's also **unique**: no two different $`(\alpha, \beta)`$ give the same $`\vec w`$.
+- **Given any target** $`\vec{w} = (w_1, w_2)`$, take $`\begin{bmatrix}\alpha\\\beta\end{bmatrix} = A^{-1}\vec{w}`$. A solution always exists, so **every** $`\vec{w}`$ is reachable.
+- It's also **unique**: no two different $`(\alpha, \beta)`$ give the same $`\vec{w}`$.
 
-Hence $`\operatorname{span}\{\vec u,\vec v\} = \mathbb R^2`$. ∎
+Hence $`\text{span}\{\vec{u},\vec{v}\} = \mathbb{R}^2`$. ∎
 
-> 🔑 **General test:** $`n`$ vectors in $`\mathbb R^n`$ span $`\mathbb R^n`$ $`\iff`$ the matrix with those vectors as columns has $`\det \ne 0`$. "Two different directions" ⇔ $`\det \ne 0`$ (they aren't multiples of each other).
+> 🔑 **General test:** $`n`$ vectors in $`\mathbb{R}^n`$ span $`\mathbb{R}^n`$ $`\iff`$ the matrix with those vectors as columns has $`\det \ne 0`$. "Two different directions" ⇔ $`\det \ne 0`$ (they aren't multiples of each other).
 
 ---
 
 ## 5. Linear Independence 🟢→🟡
 
-**Follow-up question:** *"What if I add a third vector, $`\vec w = (3,5)`$? Do I get a new direction?"* No. In $`\mathbb R^2`$ the third vector adds nothing new. We need a precise word for "adds nothing new".
+**Follow-up question:** *"What if I add a third vector, $`\vec{w} = (3,5)`$? Do I get a new direction?"* No. In $`\mathbb{R}^2`$ the third vector adds nothing new. We need a precise word for "adds nothing new".
 
 ### Definition (notes p.44)
-A set $`\{\vec v_1, \vec v_2, \dots, \vec v_k\}`$ is **linearly independent** if and only if
+A set $`\{\vec{v}_1, \vec{v}_2, \dots, \vec{v}_k\}`$ is **linearly independent** if and only if
 ```math
-c_1\vec v_1 + c_2\vec v_2 + \dots + c_k\vec v_k = \mathbf 0 \;\Longrightarrow\; c_1 = c_2 = \dots = c_k = 0
+c_1\vec{v}_1 + c_2\vec{v}_2 + \dots + c_k\vec{v}_k = \mathbf{0} \;\Longrightarrow\; c_1 = c_2 = \dots = c_k = 0
 ```
 **In words:** the **only** way to combine them into the zero vector is the trivial way (all coefficients zero). Otherwise the set is **linearly dependent**.
 
 **Professor's intuition:** *"If I take zero proportion of each vector, I definitely get nothing. But if some **non-zero** proportions also give nothing, there's **redundancy**."*
 
 ### Worked example (notes p.45)
-$`\vec u = (1,0)`$, $`\vec v = (0,1)`$, $`\vec w = (2,3)`$ (all non-zero):
+$`\vec{u} = (1,0)`$, $`\vec{v} = (0,1)`$, $`\vec{w} = (2,3)`$ (all non-zero):
 
-- $`c = (0,0,0)`$ gives $`\mathbf 0`$ ✓ (always true, the trivial case)
+- $`c = (0,0,0)`$ gives $`\mathbf{0}`$ ✓ (always true, the trivial case)
 - $`c = (2, 3, -1)`$: $`2(1,0) + 3(0,1) - 1(2,3) = (0,0)`$ ✗ **non-trivial!**
 
 ![dependence](images/08_linear_dependence.png)
 
-⇒ $`\{\vec u, \vec v, \vec w\}`$ is **linearly dependent**: $`\vec w = 2\vec u + 3\vec v`$ is redundant.
+⇒ $`\{\vec{u}, \vec{v}, \vec{w}\}`$ is **linearly dependent**: $`\vec{w} = 2\vec{u} + 3\vec{v}`$ is redundant.
 
 ### Equivalent views
 
@@ -158,8 +158,8 @@ $`\vec u = (1,0)`$, $`\vec v = (0,1)`$, $`\vec w = (2,3)`$ (all non-zero):
 |---|---|
 | Dependent | **Some vector is a linear combination of the others** |
 | Independent | Each vector contributes a **genuinely new direction** |
-| Matrix test | Put the vectors as columns of $`M`$: independent $`\iff`$ $`M\vec c = \mathbf 0`$ has only $`\vec c = \mathbf 0`$ $`\iff`$ $`\operatorname{rank}(M) = k`$ |
-| Square case | $`k = n`$ vectors in $`\mathbb R^n`$: independent $`\iff \det M \ne 0`$ |
+| Matrix test | Put the vectors as columns of $`M`$: independent $`\iff`$ $`M\vec{c} = \mathbf{0}`$ has only $`\vec{c} = \mathbf{0}`$ $`\iff`$ $`\text{rank}(M) = k`$ |
+| Square case | $`k = n`$ vectors in $`\mathbb{R}^n`$: independent $`\iff \det M \ne 0`$ |
 
 > 🔗 **Link to Note 02:** "$`Ax=0`$ has only the trivial solution" is *exactly* "the columns of $`A`$ are linearly independent". The professor pointed this out: *"I'm cheating you by not telling you we've done this before."*
 
@@ -168,9 +168,9 @@ $`\vec u = (1,0)`$, $`\vec v = (0,1)`$, $`\vec w = (2,3)`$ (all non-zero):
 | Situation | Independent? |
 |---|---|
 | One non-zero vector | ✅ Always |
-| Any set containing $`\mathbf 0`$ | ❌ Always dependent ($`1\cdot\mathbf 0 = \mathbf 0`$ is a non-trivial combination) |
+| Any set containing $`\mathbf{0}`$ | ❌ Always dependent ($`1\cdot\mathbf{0} = \mathbf{0}`$ is a non-trivial combination) |
 | Two vectors | Independent ⇔ neither is a multiple of the other |
-| More than $`n`$ vectors in $`\mathbb R^n`$ | ❌ **Always dependent** (e.g. 3 vectors in $`\mathbb R^2`$) |
+| More than $`n`$ vectors in $`\mathbb{R}^n`$ | ❌ **Always dependent** (e.g. 3 vectors in $`\mathbb{R}^2`$) |
 | Orthogonal non-zero vectors | ✅ Always |
 
 ---
@@ -193,7 +193,7 @@ A basis is a **minimal spanning set**, or equivalently a **maximal independent s
 | $`\{(x_1, x_1)\}`$ (line $`y=x`$) | $`\{(1,1)\}`$ |
 | $`\{(x_1, 2x_1)\}`$ | $`\{(1,2)\}`$ |
 | $`\{(-3x_1, x_1)\}`$ | $`\{(-3,1)\}`$ |
-| $`\mathbb R^2`$ | $`\{(1,0),(0,1)\}`$ (standard basis), or $`\{(2,5),(1,5)\}`$, or … |
+| $`\mathbb{R}^2`$ | $`\{(1,0),(0,1)\}`$ (standard basis), or $`\{(2,5),(1,5)\}`$, or … |
 
 ### 👓 Basis = spectacles (professor's analogy)
 Why don't we all use the same reading glasses from a shop? **Each person's eye power is different.** Everyone picks lenses that suit them, but **everyone sees the same page.**
@@ -208,7 +208,7 @@ Why don't we all use the same reading glasses from a shop? **Each person's eye p
 **Language version:** you and a famous politician understand the **same English book** using **different vocabularies**. Different bases, same space.
 
 ### There are infinitely many bases
-For $`\mathbb R^2`$ (notes p.48):
+For $`\mathbb{R}^2`$ (notes p.48):
 ```math
 B_1 = \{(1,0),(0,1)\},\quad B_2 = \{(2,1),(1,2)\},\quad B_3 = \{(1,4),(-1,2)\},\quad B_4 = \{(-2,-3),(1,-4)\},\ \dots
 ```
@@ -226,10 +226,10 @@ Different bases of the same space contain **different vectors** but **always the
 
 | Space | Dimension | Geometry |
 |---|---|---|
-| $`\{\mathbf 0\}`$ | 0 | Point |
+| $`\{\mathbf{0}\}`$ | 0 | Point |
 | Line through origin | 1 | Only one direction (length) |
-| Plane through origin / $`\mathbb R^2`$ | 2 | Two directions (length, breadth) |
-| $`\mathbb R^n`$ | n | |
+| Plane through origin / $`\mathbb{R}^2`$ | 2 | Two directions (length, breadth) |
+| $`\mathbb{R}^n`$ | n | |
 
 Professor: *"Dimension corresponds to the number of **independent directions**."*
 
@@ -239,11 +239,11 @@ Professor: *"Dimension corresponds to the number of **independent directions**."
 
 1. **A set containing only one non-zero vector is linearly independent.** E.g. $`\{(1,0)\}`$ ✓.
 2. **A set of $`n`$ linearly independent vectors (from an $`n`$-dimensional space) is a basis for that space.** 2 independent vectors give a 2-D space, 3 give 3-D, and so on.
-   *(Notes p.47 omit "from that space". Two independent vectors in $`\mathbb R^3`$ form a basis of a 2-D **plane**, not of $`\mathbb R^3`$.)*
+   *(Notes p.47 omit "from that space". Two independent vectors in $`\mathbb{R}^3`$ form a basis of a 2-D **plane**, not of $`\mathbb{R}^3`$.)*
 
 3. **Any set containing the zero vector is linearly dependent.**
 4. **Every vector space has infinitely many bases, but all bases have the same number of linearly independent vectors** (the same cardinality).
-5. **What is the basis of $`V = \{\mathbf 0\}`$?** → §9.
+5. **What is the basis of $`V = \{\mathbf{0}\}`$?** → §9.
 
 Corollary (a student's observation, 3 Oct): *in an $`n`$-dimensional space, any $`n+1`$ vectors are definitely redundant.*
 
@@ -253,20 +253,20 @@ Corollary (a student's observation, 3 Oct): *in an $`n`$-dimensional space, any 
 
 Homework from 30 Sep, solved on 3 Oct.
 
-**Setup:** $`V = \{(0,0)\}`$ is a vector space (Ex 8). Its only element is $`\mathbf 0`$, and $`\{\mathbf 0\}`$ is linearly **dependent** (Remark 3), so $`\{\mathbf 0\}`$ **cannot** be a basis. So what is?
+**Setup:** $`V = \{(0,0)\}`$ is a vector space (Ex 8). Its only element is $`\mathbf{0}`$, and $`\{\mathbf{0}\}`$ is linearly **dependent** (Remark 3), so $`\{\mathbf{0}\}`$ **cannot** be a basis. So what is?
 
 **Professor's reasoning:**
 
 1. A basis must be a **subset** of the vector space.
-2. The subsets of $`\{\mathbf 0\}`$ are $`\{\mathbf 0\}`$ and $`\varnothing`$ (the empty set).
-3. $`\{\mathbf 0\}`$ is dependent, so throw it out.
+2. The subsets of $`\{\mathbf{0}\}`$ are $`\{\mathbf{0}\}`$ and $`\varnothing`$ (the empty set).
+3. $`\{\mathbf{0}\}`$ is dependent, so throw it out.
 4. What remains is **$`\varnothing`$**, which is (vacuously) independent.
 
 ```math
-\boxed{\text{Basis of } \{\mathbf 0\} = \varnothing = \{\ \},\qquad \dim\{\mathbf 0\} = 0}
+\boxed{\text{Basis of } \{\mathbf{0}\} = \varnothing = \{\ \},\qquad \dim\{\mathbf{0}\} = 0}
 ```
 
-Why it's consistent: the span of the empty set is defined as $`\{\mathbf 0\}`$ (the "empty linear combination", a sum of nothing, is $`\mathbf 0`$). The answer "there is no basis" is **wrong**: the basis exists, it's just empty.
+Why it's consistent: the span of the empty set is defined as $`\{\mathbf{0}\}`$ (the "empty linear combination", a sum of nothing, is $`\mathbf{0}`$). The answer "there is no basis" is **wrong**: the basis exists, it's just empty.
 
 > 📝 Notes p.49 write "Basis = $`\{\{\ \}\}`$". That is a set *containing* the empty set. The basis is the empty set itself, $`\{\ \} = \varnothing`$.
 
@@ -280,12 +280,12 @@ Why it's consistent: the span of the empty set is defined as $`\{\mathbf 0\}`$ (
 
 | | Example |
 |---|---|
-| Vectors have **5 components** (they live in $`\mathbb R^5`$) | $`(1,0,0,0,0)`$, $`(0,1,0,0,0)`$ |
-| Their span is only **2-dimensional** | A plane inside $`\mathbb R^5`$ |
+| Vectors have **5 components** (they live in $`\mathbb{R}^5`$) | $`(1,0,0,0,0)`$, $`(0,1,0,0,0)`$ |
+| Their span is only **2-dimensional** | A plane inside $`\mathbb{R}^5`$ |
 
-The line $`\{(x_1, x_1)\}`$ is made of 2-component vectors, but it's a **1-D** subspace of $`\mathbb R^2`$: *"only one direction."*
+The line $`\{(x_1, x_1)\}`$ is made of 2-component vectors, but it's a **1-D** subspace of $`\mathbb{R}^2`$: *"only one direction."*
 
-**For $`Ax=b`$ with $`A`$ an $`m\times n`$ matrix:** each column has $`m`$ components (lives in $`\mathbb R^m`$), and there are $`n`$ columns. The space spanned by the columns has dimension $`\operatorname{rank}(A) \le \min(m,n)`$. *"It depends on the rank of the matrix."* (If all $`n`$ columns are independent, they span an $`n`$-dimensional subspace of $`\mathbb R^m`$.)
+**For $`Ax=b`$ with $`A`$ an $`m\times n`$ matrix:** each column has $`m`$ components (lives in $`\mathbb{R}^m`$), and there are $`n`$ columns. The space spanned by the columns has dimension $`\text{rank}(A) \le \min(m,n)`$. *"It depends on the rank of the matrix."* (If all $`n`$ columns are independent, they span an $`n`$-dimensional subspace of $`\mathbb{R}^m`$.)
 
 ---
 
@@ -311,13 +311,13 @@ The professor's link (30 Sep): **"Vector space ↔ feature space; linear indepen
 
 ## 12. 🎓 Professor Emphasised
 
-1. **Linear combination** $`\alpha\vec u + \beta\vec v`$ (music-mixing analogy).
-2. Two vectors in **different directions** generate all of $`\mathbb R^2`$; proof via $`\det \ne 0 \Rightarrow A^{-1}`$ exists.
-3. **Linear independence:** the only combination giving $`\mathbf 0`$ is all-zero coefficients.
+1. **Linear combination** $`\alpha\vec{u} + \beta\vec{v}`$ (music-mixing analogy).
+2. Two vectors in **different directions** generate all of $`\mathbb{R}^2`$; proof via $`\det \ne 0 \Rightarrow A^{-1}`$ exists.
+3. **Linear independence:** the only combination giving $`\mathbf{0}`$ is all-zero coefficients.
 4. Independent vectors are like **primes / alphabets** (analogy only!).
 5. **Basis** = independent + spanning; **infinitely many** bases; **all have the same size** = **dimension**.
 6. **Basis = spectacles**: choose the one that suits your problem; the space doesn't change.
-7. Basis of $`\{\mathbf 0\}`$ is the **empty set**; dimension 0.
+7. Basis of $`\{\mathbf{0}\}`$ is the **empty set**; dimension 0.
 8. **Feature space ↔ vector space**, **independent features ↔ linearly independent vectors**.
 9. Recommended: the professor's NPTEL lectures on *Linear Algebra Through Geometry* for more on bases.
 10. **Participate in class!** The professor has threatened to switch to plain slides if only 4–5 people keep answering.
@@ -331,9 +331,9 @@ The professor's link (30 Sep): **"Vector space ↔ feature space; linear indepen
 | Independent = perpendicular | Perpendicular implies independent, but not the converse: $`(2,5),(1,5)`$ are independent yet not perpendicular |
 | A basis is unique | Infinitely many bases; only the **count** (dimension) is fixed |
 | More vectors = bigger span | Not if they're dependent: $`(3,5)`$ adds nothing to $`\{(1,5),(2,5)\}`$ |
-| $`\{(1,5),(2,5)\}`$ and $`\{(2,5),(3,5)\}`$ span different spaces | Both span **all of $`\mathbb R^2`$**: same space, different spectacles |
-| $`\{\mathbf 0\}`$ has no basis | Its basis is $`\varnothing`$; dim = 0 |
-| Dimension = number of components | Dimension of a **space** = size of a basis; a line in $`\mathbb R^2`$ is 1-D |
+| $`\{(1,5),(2,5)\}`$ and $`\{(2,5),(3,5)\}`$ span different spaces | Both span **all of $`\mathbb{R}^2`$**: same space, different spectacles |
+| $`\{\mathbf{0}\}`$ has no basis | Its basis is $`\varnothing`$; dim = 0 |
+| Dimension = number of components | Dimension of a **space** = size of a basis; a line in $`\mathbb{R}^2`$ is 1-D |
 | Independence of scalars $`x_1, x_2`$ | Independence is a property of **vectors**, not scalars (the professor corrected this on 3 Oct) |
 
 ---
@@ -343,19 +343,19 @@ The professor's link (30 Sep): **"Vector space ↔ feature space; linear indepen
 <details>
 <summary><b>P1.</b> Are $`(1,2)`$ and $`(3,6)`$ independent? What do they span?</summary>
 
-$`(3,6) = 3(1,2)`$ → **dependent**. They span only the line $`\{t(1,2)\}`$ (1-D), not $`\mathbb R^2`$.
+$`(3,6) = 3(1,2)`$ → **dependent**. They span only the line $`\{t(1,2)\}`$ (1-D), not $`\mathbb{R}^2`$.
 </details>
 
 <details>
-<summary><b>P2.</b> Express $`(7, 4)`$ as a combination of $`\vec u = (1,1)`$, $`\vec v = (1,-1)`$.</summary>
+<summary><b>P2.</b> Express $`(7, 4)`$ as a combination of $`\vec{u} = (1,1)`$, $`\vec{v} = (1,-1)`$.</summary>
 
 $`\alpha + \beta = 7`$, $`\alpha - \beta = 4`$ → $`\alpha = 5.5`$, $`\beta = 1.5`$.
 </details>
 
 <details>
-<summary><b>P3.</b> Are $`(1,0,1), (0,1,1), (1,1,0)`$ independent? Basis of $`\mathbb R^3`$?</summary>
+<summary><b>P3.</b> Are $`(1,0,1), (0,1,1), (1,1,0)`$ independent? Basis of $`\mathbb{R}^3`$?</summary>
 
-$`\det\begin{bmatrix}1&0&1\\0&1&1\\1&1&0\end{bmatrix} = 1(0-1) - 0 + 1(0-1) = -2 \ne 0`$ → independent → 3 independent vectors in $`\mathbb R^3`$ → **basis**.
+$`\det\begin{bmatrix}1&0&1\\0&1&1\\1&1&0\end{bmatrix} = 1(0-1) - 0 + 1(0-1) = -2 \ne 0`$ → independent → 3 independent vectors in $`\mathbb{R}^3`$ → **basis**.
 </details>
 
 <details>
@@ -377,7 +377,7 @@ $`\det = 4 - k^2 = 0 \Rightarrow k = \pm 2`$.
 </details>
 
 <details>
-<summary><b>P7.</b> Give a basis of $`\mathcal M^{2\times 2}`$. What is its dimension?</summary>
+<summary><b>P7.</b> Give a basis of $`\mathcal{M}^{2\times 2}`$. What is its dimension?</summary>
 
 $`\left\{\begin{bmatrix}1&0\\0&0\end{bmatrix},\begin{bmatrix}0&1\\0&0\end{bmatrix},\begin{bmatrix}0&0\\1&0\end{bmatrix},\begin{bmatrix}0&0\\0&1\end{bmatrix}\right\}`$, dim **4**.
 </details>
@@ -386,12 +386,12 @@ $`\left\{\begin{bmatrix}1&0\\0&0\end{bmatrix},\begin{bmatrix}0&1\\0&0\end{bmatri
 
 ## 15. 🧾 Cheat Sheet
 
-- **Linear combination:** $`c_1\vec v_1 + \dots + c_k\vec v_k`$. $`Ax`$ = combination of the columns of $`A`$.
+- **Linear combination:** $`c_1\vec{v}_1 + \dots + c_k\vec{v}_k`$. $`Ax`$ = combination of the columns of $`A`$.
 - **Span** = the set of all linear combinations (always a subspace).
-- **Independent:** $`\sum c_i\vec v_i = \mathbf 0 \Rightarrow`$ all $`c_i = 0`$. Test: rank of the column matrix = number of vectors (square: $`\det\ne0`$).
-- Contains $`\mathbf 0`$ → dependent. More than $`n`$ vectors in $`\mathbb R^n`$ → dependent. One non-zero vector → independent.
+- **Independent:** $`\sum c_i\vec{v}_i = \mathbf{0} \Rightarrow`$ all $`c_i = 0`$. Test: rank of the column matrix = number of vectors (square: $`\det\ne0`$).
+- Contains $`\mathbf{0}`$ → dependent. More than $`n`$ vectors in $`\mathbb{R}^n`$ → dependent. One non-zero vector → independent.
 - **Basis** = independent + spanning. Infinitely many; all have the same size.
-- **Dimension** = size of any basis: $`\{\mathbf 0\}`$ → 0 (basis ∅), line → 1, plane → 2, $`\mathbb R^n`$ → n.
+- **Dimension** = size of any basis: $`\{\mathbf{0}\}`$ → 0 (basis ∅), line → 1, plane → 2, $`\mathbb{R}^n`$ → n.
 - n independent vectors in an n-dim space form a basis automatically.
 - ML: basis ↔ non-redundant features; dimension ↔ intrinsic degrees of freedom.
 

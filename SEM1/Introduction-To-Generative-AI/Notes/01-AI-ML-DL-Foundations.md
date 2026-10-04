@@ -172,31 +172,31 @@ This is the mathematical language the rest of the course (and research papers) w
 
 ### The ingredients
 ```math
-\mathcal D = \{(\mathbf x_1, y_1), \dots, (\mathbf x_n, y_n)\} \subseteq \mathbb R^d \times \mathcal Y
+\mathcal{D} = \{(\mathbf{x}_1, y_1), \dots, (\mathbf{x}_n, y_n)\} \subseteq \mathbb{R}^d \times \mathcal{Y}
 ```
 
 | Symbol | Name | Meaning |
 |---|---|---|
-| $`\mathcal D`$ | Training data | $`n`$ labelled examples |
-| $`\mathbf x_i \in \mathbb R^d`$ | Input / feature vector | The $`i`$-th sample, with $`d`$ features |
-| $`\mathbb R^d`$ | **Feature space** | The vector space where inputs live (cf. Applied Math Note 03!) |
-| $`y_i \in \mathcal Y`$ | Label | Target for the $`i`$-th sample |
-| $`\mathcal Y`$ | **Label space** | The set of possible outputs |
+| $`\mathcal{D}`$ | Training data | $`n`$ labelled examples |
+| $`\mathbf{x}_i \in \mathbb{R}^d`$ | Input / feature vector | The $`i`$-th sample, with $`d`$ features |
+| $`\mathbb{R}^d`$ | **Feature space** | The vector space where inputs live (cf. Applied Math Note 03!) |
+| $`y_i \in \mathcal{Y}`$ | Label | Target for the $`i`$-th sample |
+| $`\mathcal{Y}`$ | **Label space** | The set of possible outputs |
 | $`P(X, Y)`$ | Data distribution | **Unknown** process that generates the data |
-| $`h`$ | Hypothesis / model | A function $`h: \mathbb R^d \to \mathcal Y`$ |
-| $`\mathcal H`$ | Hypothesis class | The set of functions we search over (e.g. all lines, all neural nets of a given shape) |
+| $`h`$ | Hypothesis / model | A function $`h: \mathbb{R}^d \to \mathcal{Y}`$ |
+| $`\mathcal{H}`$ | Hypothesis class | The set of functions we search over (e.g. all lines, all neural nets of a given shape) |
 
 **The crucial assumption:** data points are drawn **i.i.d.** (independently, identically distributed) from some **unknown** distribution $`P(X, Y)`$. Training and test data come from the **same** distribution. (When this breaks, you get **data drift**: MLP Note 01 §12.)
 
-**The goal:** find $`h`$ such that for a **new** pair $`(\mathbf x, y) \sim P`$, we have $`h(\mathbf x) = y`$ with high probability (classification) or $`h(\mathbf x) \approx y`$ (regression).
+**The goal:** find $`h`$ such that for a **new** pair $`(\mathbf{x}, y) \sim P`$, we have $`h(\mathbf{x}) = y`$ with high probability (classification) or $`h(\mathbf{x}) \approx y`$ (regression).
 
 ### Label spaces
 
-| Problem | $`\mathcal Y`$ | Example |
+| Problem | $`\mathcal{Y}`$ | Example |
 |---|---|---|
 | Binary classification | $`\{0, 1\}`$ or $`\{-1, +1\}`$ | Spam (+1) vs not spam (−1) |
 | Multi-class classification | $`\{1, 2, \dots, K\}`$, $`K \ge 2`$ | Digit 0–9 ($`K = 10`$), cat/dog/horse |
-| Regression | $`\mathbb R`$ | Temperature, height, house price |
+| Regression | $`\mathbb{R}`$ | Temperature, height, house price |
 | *(beyond slides)* Multi-label | $`\{0,1\}^K`$ | Movie genres (action **and** comedy) |
 | *(beyond slides)* Structured / generative | Sequences, images | Translation, **text generation** ← Gen AI |
 
@@ -214,11 +214,11 @@ flowchart LR
 
 ## 8. Loss Functions & Learning as Optimisation 🟡
 
-> A **loss function** evaluates a hypothesis $`h \in \mathcal H`$ on the training data and tells us **how bad it is**. Higher loss means worse; **zero loss means perfect predictions** (on that data).
+> A **loss function** evaluates a hypothesis $`h \in \mathcal{H}`$ on the training data and tells us **how bad it is**. Higher loss means worse; **zero loss means perfect predictions** (on that data).
 
 ### Squared loss (slide 13)
 ```math
-L_{sq}(h) = \frac1n\sum_{i=1}^n \big(h(\mathbf x_i) - y_i\big)^2
+L_{sq}(h) = \frac1n\sum_{i=1}^n \big(h(\mathbf{x}_i) - y_i\big)^2
 ```
 Two effects of squaring:
 
@@ -227,7 +227,7 @@ Two effects of squaring:
 
 ### Learning = minimisation
 ```math
-\boxed{h^* = \arg\min_{h\in\mathcal H} L(h)}
+\boxed{h^* = \arg\min_{h\in\mathcal{H}} L(h)}
 ```
 This is called **Empirical Risk Minimisation (ERM)**: "empirical" because we average over the training sample, not the true distribution. Notebook Part A tries 4 hypotheses on data from $`y = 3x + 2 + \text{noise}`$. The one with the lowest $`L_{sq}`$ is $`h(x) = 3x + 2`$ ✓.
 
@@ -237,8 +237,8 @@ This is called **Empirical Risk Minimisation (ERM)**: "empirical" because we ave
 |---|---|---|---|
 | Squared | $`(h(x)-y)^2`$ | Regression | Sensitive to outliers |
 | Absolute | $`\lvert h(x)-y\rvert`$ | Robust regression | Less outlier-sensitive |
-| **0/1 loss** | $`\mathbb 1[h(x) \ne y]`$ | Classification error rate | Not differentiable → can't use gradient descent |
-| **Cross-entropy (log loss)** | $`-[y\log\hat p + (1-y)\log(1-\hat p)]`$ | Classification | Differentiable surrogate for 0/1; **used to train every LLM** |
+| **0/1 loss** | $`\mathbb{1}[h(x) \ne y]`$ | Classification error rate | Not differentiable → can't use gradient descent |
+| **Cross-entropy (log loss)** | $`-[y\log\hat{p} + (1-y)\log(1-\hat{p})]`$ | Classification | Differentiable surrogate for 0/1; **used to train every LLM** |
 
 > 🔗 The regression notes ([MLP Note 03](../../Machine-Learning-Paradigms/Notes/03-Supervised-Learning-Regression.md)) show how to actually *do* the arg min: closed form (OLS) or **gradient descent**. Neural networks always use gradient descent.
 
@@ -248,19 +248,19 @@ This is called **Empirical Risk Minimisation (ERM)**: "empirical" because we ave
 
 The slides end with the word **"Generalization"**. It's the whole point:
 
-> **Zero training loss is easy. Just memorise.** A lookup table that returns $`y_i`$ for each $`\mathbf x_i`$ has $`L = 0`$ but is useless on new data.
+> **Zero training loss is easy. Just memorise.** A lookup table that returns $`y_i`$ for each $`\mathbf{x}_i`$ has $`L = 0`$ but is useless on new data.
 
 What we really want is low loss on **unseen** data from $`P`$:
 ```math
-\underbrace{\mathbb E_{(\mathbf x,y)\sim P}\big[\ell(h(\mathbf x), y)\big]}_{\text{true risk (what we care about)}} \quad\text{vs}\quad \underbrace{\frac1n\sum_i \ell(h(\mathbf x_i), y_i)}_{\text{training loss (what we can compute)}}
+\underbrace{\mathbb{E}_{(\mathbf{x},y)\sim P}\big[\ell(h(\mathbf{x}), y)\big]}_{\text{true risk (what we care about)}} \quad\text{vs}\quad \underbrace{\frac1n\sum_i \ell(h(\mathbf{x}_i), y_i)}_{\text{training loss (what we can compute)}}
 ```
 We estimate the true risk with a held-out **test set**, and tune choices on a **validation set**.
 
 | | Training error | Test error | Diagnosis |
 |---|---|---|---|
-| Under-fitting | High | High | $`\mathcal H`$ too simple |
+| Under-fitting | High | High | $`\mathcal{H}`$ too simple |
 | Good fit | Low | Low | ✓ |
-| Over-fitting | Very low | High | Memorised noise; $`\mathcal H`$ too flexible or data too small |
+| Over-fitting | Very low | High | Memorised noise; $`\mathcal{H}`$ too flexible or data too small |
 
 The laptop-buyer plot (slide 10) shows a boundary that loops around a single red point. That's a hint of over-fitting.
 
@@ -293,7 +293,7 @@ The laptop-buyer plot (slide 10) shows a boundary that loops around a single red
 
 *(Beyond these slides: the concept this course is named after.)*
 
-Everything above **predicts $`y`$ from $`\mathbf x`$**. A **generative** model instead learns the **distribution of the data itself**, so it can **create new samples**.
+Everything above **predicts $`y`$ from $`\mathbf{x}`$**. A **generative** model instead learns the **distribution of the data itself**, so it can **create new samples**.
 
 | | Discriminative | Generative |
 |---|---|---|
@@ -302,7 +302,7 @@ Everything above **predicts $`y`$ from $`\mathbf x`$**. A **generative** model i
 | Examples | Logistic regression, ResNet classifier, BERT classifier | Naive Bayes, GMMs, VAEs, GANs, **GPT**, **diffusion models** |
 | Output | A label / number | **New data**: text, images, audio |
 
-**How an LLM fits the supervised setup:** GPT is trained with **self-supervised** learning. For every position in a text, $`\mathbf x`$ = the previous tokens and $`y`$ = the next token, with $`\mathcal Y`$ = the vocabulary (~50k–200k tokens). It's multi-class classification with **softmax + cross-entropy** ([Note 02](02-Neural-Networks-Fundamentals.md)). It becomes *generative* by **sampling** a token, appending it, and repeating:
+**How an LLM fits the supervised setup:** GPT is trained with **self-supervised** learning. For every position in a text, $`\mathbf{x}`$ = the previous tokens and $`y`$ = the next token, with $`\mathcal{Y}`$ = the vocabulary (~50k–200k tokens). It's multi-class classification with **softmax + cross-entropy** ([Note 02](02-Neural-Networks-Fundamentals.md)). It becomes *generative* by **sampling** a token, appending it, and repeating:
 ```math
 P(\text{text}) = \prod_t P(\text{token}_t \mid \text{token}_1, \dots, \text{token}_{t-1})
 ```
@@ -340,13 +340,13 @@ Chess has explicit, formal rules that can be coded and searched. Face recognitio
 <details>
 <summary><b>Q3.</b> Write the formal supervised learning setup. What assumption links training and test data?</summary>
 
-$`\mathcal D = \{(\mathbf x_i, y_i)\}_{i=1}^n \subseteq \mathbb R^d\times\mathcal Y`$, drawn i.i.d. from an unknown $`P(X,Y)`$; find $`h\in\mathcal H`$ minimising loss so that $`h(\mathbf x)\approx y`$ for new $`(\mathbf x,y)\sim P`$. The assumption: train and test come from the **same** distribution (i.i.d.).
+$`\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^n \subseteq \mathbb{R}^d\times\mathcal{Y}`$, drawn i.i.d. from an unknown $`P(X,Y)`$; find $`h\in\mathcal{H}`$ minimising loss so that $`h(\mathbf{x})\approx y`$ for new $`(\mathbf{x},y)\sim P`$. The assumption: train and test come from the **same** distribution (i.i.d.).
 </details>
 
 <details>
 <summary><b>Q4.</b> Give the label space for: (a) sentiment pos/neg, (b) MNIST, (c) rainfall in mm, (d) next-word prediction.</summary>
 
-(a) $`\{0,1\}`$; (b) $`\{0,\dots,9\}`$; (c) $`\mathbb R_{\ge 0}`$; (d) the vocabulary $`\{1,\dots,V\}`$, multi-class with $`V`$ classes.
+(a) $`\{0,1\}`$; (b) $`\{0,\dots,9\}`$; (c) $`\mathbb{R}_{\ge 0}`$; (d) the vocabulary $`\{1,\dots,V\}`$, multi-class with $`V`$ classes.
 </details>
 
 <details>
@@ -358,7 +358,7 @@ Non-negative; grows quadratically, so large errors are penalised heavily. Disadv
 <details>
 <summary><b>Q6.</b> A model has training loss 0 and test accuracy 52% on a balanced binary task. Diagnose.</summary>
 
-Severe **over-fitting / memorisation**: near-chance test performance. Fix: more data, simpler $`\mathcal H`$, regularisation, early stopping, data augmentation.
+Severe **over-fitting / memorisation**: near-chance test performance. Fix: more data, simpler $`\mathcal{H}`$, regularisation, early stopping, data augmentation.
 </details>
 
 <details>
@@ -381,9 +381,9 @@ Reinforcement learning: no labelled correct actions; learning by trial and error
 - **ML** = learn from data: **E + T + P** (Mitchell).
 - **DL** = multi-layer neural networks; **learns features**; hierarchical; data and compute hungry.
 - **DL ⊂ ML ⊂ AI**; Gen AI ⊂ DL.
-- Supervised: $`\mathcal D \subseteq \mathbb R^d\times\mathcal Y`$ i.i.d. from unknown $`P(X,Y)`$; find $`h\in\mathcal H`$.
-- $`\mathcal Y`$: $`\{0,1\}`$/$`\{-1,+1\}`$ (binary), $`\{1..K\}`$ (multi-class), $`\mathbb R`$ (regression).
-- Squared loss $`\frac1n\sum(h(\mathbf x_i)-y_i)^2`$; learning = $`\arg\min_{h\in\mathcal H}L(h)`$ (ERM).
+- Supervised: $`\mathcal{D} \subseteq \mathbb{R}^d\times\mathcal{Y}`$ i.i.d. from unknown $`P(X,Y)`$; find $`h\in\mathcal{H}`$.
+- $`\mathcal{Y}`$: $`\{0,1\}`$/$`\{-1,+1\}`$ (binary), $`\{1..K\}`$ (multi-class), $`\mathbb{R}`$ (regression).
+- Squared loss $`\frac1n\sum(h(\mathbf{x}_i)-y_i)^2`$; learning = $`\arg\min_{h\in\mathcal{H}}L(h)`$ (ERM).
 - **Generalisation** is the real goal → evaluate on held-out test data.
 - Unsupervised: patterns without labels (clustering, dim. reduction). RL: agent, environment, reward, policy.
 - Generative models learn $`P(X)`$ and can **sample new data**.
@@ -394,7 +394,7 @@ Reinforcement learning: no labelled correct actions; learning by trial and error
 
 | Topic | Why | Link |
 |---|---|---|
-| Formal ML setup | The source of the $`\mathcal D`$, $`\mathcal H`$, label-space notation in these slides | [Cornell CS4780 (Kilian Weinberger) — Lecture note 1: ML setup](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote01_MLsetup.html) |
+| Formal ML setup | The source of the $`\mathcal{D}`$, $`\mathcal{H}`$, label-space notation in these slides | [Cornell CS4780 (Kilian Weinberger) — Lecture note 1: ML setup](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote01_MLsetup.html) |
 | Gentle visual ML intro | Train/test, fitting, over-fitting | [StatQuest — A Gentle Introduction to Machine Learning](https://www.youtube.com/watch?v=Gv9_4yMHFhI) |
 | Deep learning textbook | Ch. 1 (history, representation learning), Ch. 5 (ML basics) | [Goodfellow, Bengio & Courville — Deep Learning (free)](https://www.deeplearningbook.org/) |
 | Interactive DL textbook | Code in every chapter (PyTorch) | [Dive into Deep Learning (d2l.ai)](https://d2l.ai/) |

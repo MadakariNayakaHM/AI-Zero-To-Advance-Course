@@ -33,10 +33,10 @@
 
 ## 1. Big Picture
 
-Supervised learning wants $`y \approx f(\mathbf x)`$. Linear models can only draw **straight lines/planes**. Real problems (faces, speech, language) need **curvy, complicated** functions. A **neural network** is a flexible function built by **stacking simple layers**:
+Supervised learning wants $`y \approx f(\mathbf{x})`$. Linear models can only draw **straight lines/planes**. Real problems (faces, speech, language) need **curvy, complicated** functions. A **neural network** is a flexible function built by **stacking simple layers**:
 
 ```math
-\text{layer} = \text{linear map } (W\mathbf x + \mathbf b) \;\to\; \text{non-linear squash } g(\cdot)
+\text{layer} = \text{linear map } (W\mathbf{x} + \mathbf{b}) \;\to\; \text{non-linear squash } g(\cdot)
 ```
 
 Stack enough of them and you can approximate essentially any function. Every model in this course (CNNs, Transformers, GPT, diffusion) is built from this unit.
@@ -45,7 +45,7 @@ Stack enough of them and you can approximate essentially any function. Every mod
 
 ## 2. Why Neural Networks? The Limits of Linear Models 🟢
 
-**Setup (slide 18):** given $`\{(\mathbf x_i, y_i)\}_{i=1}^N`$, learn $`y \approx f(\mathbf x)`$. *But what if the relationship between $`\mathbf x`$ and $`y`$ is complex and cannot be represented by a simple linear model?*
+**Setup (slide 18):** given $`\{(\mathbf{x}_i, y_i)\}_{i=1}^N`$, learn $`y \approx f(\mathbf{x})`$. *But what if the relationship between $`\mathbf{x}`$ and $`y`$ is complex and cannot be represented by a simple linear model?*
 
 **Definition (slide 19):** Neural networks are ML models **inspired by how the brain processes information**. They consist of **interconnected neurons arranged in layers** that learn patterns from data.
 
@@ -56,7 +56,7 @@ Stack enough of them and you can approximate essentially any function. Every mod
 - Neural networks use **multiple layers + non-linear transformations** to learn them.
 - So they offer a **flexible way to learn complex functions from large datasets**.
 
-> **Goal:** learn a flexible function mapping input $`\mathbf x`$ to output $`\hat y`$.
+> **Goal:** learn a flexible function mapping input $`\mathbf{x}`$ to output $`\hat{y}`$.
 
 **Real-world non-linearities:**
 
@@ -100,7 +100,7 @@ Decompose: **XOR = OR AND (NOT AND)**.
 - Hidden neuron $`h_2`$ = **AND**: $`\text{step}(x_1 + x_2 - 1.5)`$
 - Output = $`\text{step}(h_1 - h_2 - 0.5)`$
 
-| $`(x_1,x_2)`$ | $`h_1`$ (OR) | $`h_2`$ (AND) | $`\hat y`$ |
+| $`(x_1,x_2)`$ | $`h_1`$ (OR) | $`h_2`$ (AND) | $`\hat{y}`$ |
 |---|---|---|---|
 | (0,0) | 0 | 0 | 0 ✓ |
 | (0,1) | 1 | 0 | 1 ✓ |
@@ -134,11 +134,11 @@ flowchart BT
 |---|---|
 | **Neuron** | Computes weighted sum + bias, then applies an activation |
 | **Layer** | A group of neurons at the same depth; each connects to neurons of the previous layer |
-| **Input layer** | Just holds $`\mathbf x`$ (no computation) |
+| **Input layer** | Just holds $`\mathbf{x}`$ (no computation) |
 | **Hidden layer** | Intermediate representations, not directly observed |
-| **Output layer** | Produces $`\hat y`$ |
+| **Output layer** | Produces $`\hat{y}`$ |
 | **Weights** $`W`$ | Strength of each connection |
-| **Biases** $`\mathbf c`$ (or $`\mathbf b`$) | Shift each neuron's threshold |
+| **Biases** $`\mathbf{c}`$ (or $`\mathbf{b}`$) | Shift each neuron's threshold |
 | **Parameters** $`\theta`$ | **All** weights and biases: what's learned |
 | $`a`$ (pre-activation) | Weighted sum + bias, **before** the non-linearity |
 | $`h`$ (activation) | Output **after** the non-linearity, $`h = g(a)`$ |
@@ -151,26 +151,26 @@ Each neuron in the diagram is drawn split into $`a`$ (bottom) and $`h`$ (top): f
 
 **Slide 21:**
 
-- In supervised learning there is a true (unknown) function $`y = f^*(\mathbf x)`$.
-- The network learns an **approximation** $`y \approx f(\mathbf x;\theta)`$, where $`\theta`$ = weights and biases.
+- In supervised learning there is a true (unknown) function $`y = f^*(\mathbf{x})`$.
+- The network learns an **approximation** $`y \approx f(\mathbf{x};\theta)`$, where $`\theta`$ = weights and biases.
 - A deep network builds $`f`$ by **composing** layers:
 ```math
-f(\mathbf x) = f^{(3)}\Big(f^{(2)}\big(f^{(1)}(\mathbf x)\big)\Big)
+f(\mathbf{x}) = f^{(3)}\Big(f^{(2)}\big(f^{(1)}(\mathbf{x})\big)\Big)
 ```
 
-> 🎯 **Key sentence (slide 21):** *"A neural network does not directly learn $`f^*`$. It learns the parameters $`\theta`$ so that $`f(\mathbf x;\theta)`$ approximates $`f^*(\mathbf x)`$."*
+> 🎯 **Key sentence (slide 21):** *"A neural network does not directly learn $`f^*`$. It learns the parameters $`\theta`$ so that $`f(\mathbf{x};\theta)`$ approximates $`f^*(\mathbf{x})`$."*
 
 **Slide 22, layer by layer:**
 ```math
 \begin{aligned}
-\mathbf h_1 &= g(W_1\mathbf x + \mathbf b_1) && \text{Layer 1}\\
-\mathbf h_2 &= g(W_2\mathbf h_1 + \mathbf b_2) && \text{Layer 2}\\
-\hat y &= O(W_3\mathbf h_2 + \mathbf b_3) && \text{Output layer ($O$ = output activation)}
+\mathbf{h}_1 &= g(W_1\mathbf{x} + \mathbf{b}_1) && \text{Layer 1}\\
+\mathbf{h}_2 &= g(W_2\mathbf{h}_1 + \mathbf{b}_2) && \text{Layer 2}\\
+\hat{y} &= O(W_3\mathbf{h}_2 + \mathbf{b}_3) && \text{Output layer ($O$ = output activation)}
 \end{aligned}
 ```
 *"A deep neural network is a composition of simple functions."*
 
-**Analogy: an assembly line.** Raw material ($`\mathbf x`$) passes through stations. Each station does one simple transformation; the final product emerges at the end. No station is smart, but the line as a whole builds a car.
+**Analogy: an assembly line.** Raw material ($`\mathbf{x}`$) passes through stations. Each station does one simple transformation; the final product emerges at the end. No station is smart, but the line as a whole builds a car.
 
 ---
 
@@ -188,31 +188,31 @@ h_i^{l} = g(a_i^{l})
 ```
 **Output layer**, same pattern using the hidden activations as inputs:
 ```math
-a_i^{(out)} = \sum_j W_{ij}^{(out)}h_j + c_i^{(out)}, \qquad \hat y_i = g_{out}\big(a_i^{(out)}\big)
+a_i^{(out)} = \sum_j W_{ij}^{(out)}h_j + c_i^{(out)}, \qquad \hat{y}_i = g_{out}\big(a_i^{(out)}\big)
 ```
 
 **Matrix form** (how it's actually coded):
 ```math
-\mathbf a = W\mathbf x + \mathbf c, \qquad \mathbf h = g(\mathbf a)
+\mathbf{a} = W\mathbf{x} + \mathbf{c}, \qquad \mathbf{h} = g(\mathbf{a})
 ```
 Row $`i`$ of $`W`$ holds the weights **into** neuron $`i`$. So $`W`$ has shape (neurons in this layer) × (neurons in the previous layer).
 
-> 📝 **Notation check:** slide 23 says "$`W_{ji}`$ is the weight connecting input $`j`$ to hidden neuron $`i`$" while the formula uses $`W_{ij}x_j`$. Read it as **$`W_{ij}`$ = weight from input $`j`$ to neuron $`i`$** (row = destination, column = source). That matches $`\mathbf a = W\mathbf x`$. Different textbooks use the transpose convention; always check.
+> 📝 **Notation check:** slide 23 says "$`W_{ji}`$ is the weight connecting input $`j`$ to hidden neuron $`i`$" while the formula uses $`W_{ij}x_j`$. Read it as **$`W_{ij}`$ = weight from input $`j`$ to neuron $`i`$** (row = destination, column = source). That matches $`\mathbf{a} = W\mathbf{x}`$. Different textbooks use the transpose convention; always check.
 
-> 🔗 **This is linear algebra from Applied Math!** $`W\mathbf x`$ is a **linear combination of the columns of $`W`$** weighted by the inputs (Applied Math Note 04). Each layer maps $`\mathbb R^{n_{in}}`$ to $`\mathbb R^{n_{out}}`$, and its rank and null space determine what information can pass through.
+> 🔗 **This is linear algebra from Applied Math!** $`W\mathbf{x}`$ is a **linear combination of the columns of $`W`$** weighted by the inputs (Applied Math Note 04). Each layer maps $`\mathbb{R}^{n_{in}}`$ to $`\mathbb{R}^{n_{out}}`$, and its rank and null space determine what information can pass through.
 
 ### ✍️ Worked example (notebook Part C)
-$`\mathbf x = (1, 2)`$, $`W_1 = \begin{bmatrix}0.5 & -1\\1.5 & 0.5\end{bmatrix}`$, $`\mathbf c_1 = (0, -1)`$, $`W_2 = \begin{bmatrix}2 & -1\end{bmatrix}`$, $`c_2 = 0.5`$, ReLU hidden, sigmoid output.
+$`\mathbf{x} = (1, 2)`$, $`W_1 = \begin{bmatrix}0.5 & -1\\1.5 & 0.5\end{bmatrix}`$, $`\mathbf{c}_1 = (0, -1)`$, $`W_2 = \begin{bmatrix}2 & -1\end{bmatrix}`$, $`c_2 = 0.5`$, ReLU hidden, sigmoid output.
 
 | Step | Computation | Result |
 |---|---|---|
 | $`a_{11}`$ | $`0.5(1) + (-1)(2) + 0`$ | −1.5 |
 | $`a_{12}`$ | $`1.5(1) + 0.5(2) - 1`$ | 1.5 |
-| $`\mathbf h_1 = \text{ReLU}(\mathbf a_1)`$ | $`\max(0,\cdot)`$ | (0, 1.5) |
+| $`\mathbf{h}_1 = \text{ReLU}(\mathbf{a}_1)`$ | $`\max(0,\cdot)`$ | (0, 1.5) |
 | $`a_2`$ | $`2(0) + (-1)(1.5) + 0.5`$ | −1.0 |
-| $`\hat y = \sigma(a_2)`$ | $`1/(1+e^{1})`$ | **0.2689** |
+| $`\hat{y} = \sigma(a_2)`$ | $`1/(1+e^{1})`$ | **0.2689** |
 
-Interpretation: $`P(y = 1 \mid \mathbf x) \approx 27\%`$, so the prediction is class 0. Note that hidden neuron 1 is "off" (ReLU zeroed it). It contributes nothing for this input.
+Interpretation: $`P(y = 1 \mid \mathbf{x}) \approx 27\%`$, so the prediction is class 0. Note that hidden neuron 1 is "off" (ReLU zeroed it). It contributes nothing for this input.
 
 ---
 
@@ -237,7 +237,7 @@ Interpretation: $`P(y = 1 \mid \mathbf x) \approx 27\%`$, so the prediction is c
 
 **Claim:** without activation functions, a deep network is **just one linear layer**.
 ```math
-W_3\big(W_2(W_1\mathbf x + \mathbf b_1) + \mathbf b_2\big) + \mathbf b_3 = \underbrace{(W_3W_2W_1)}_{W}\mathbf x + \underbrace{(W_3W_2\mathbf b_1 + W_3\mathbf b_2 + \mathbf b_3)}_{\mathbf b}
+W_3\big(W_2(W_1\mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2\big) + \mathbf{b}_3 = \underbrace{(W_3W_2W_1)}_{W}\mathbf{x} + \underbrace{(W_3W_2\mathbf{b}_1 + W_3\mathbf{b}_2 + \mathbf{b}_3)}_{\mathbf{b}}
 ```
 A product of matrices is just another matrix, so 100 linear layers = 1 linear layer (notebook Part F checks this numerically).
 
@@ -259,13 +259,13 @@ A network with **one hidden layer** and a non-linear activation can approximate 
 
 | Problem | Output activation | Output | Example | Loss to pair with *(beyond slides)* |
 |---|---|---|---|---|
-| **Regression** | **Linear** $`\hat y = \mathbf w^\top\mathbf h + b`$ | Any real number $`(-\infty, \infty)`$ | House price, temperature, height | Mean squared error |
-| **Binary classification** | **Sigmoid** $`\hat y = \sigma(z)`$ | $`(0, 1)`$, read as $`P(y=1\mid\mathbf x)`$ | Spam / not spam | Binary cross-entropy |
+| **Regression** | **Linear** $`\hat{y} = \mathbf{w}^\top\mathbf{h} + b`$ | Any real number $`(-\infty, \infty)`$ | House price, temperature, height | Mean squared error |
+| **Binary classification** | **Sigmoid** $`\hat{y} = \sigma(z)`$ | $`(0, 1)`$, read as $`P(y=1\mid\mathbf{x})`$ | Spam / not spam | Binary cross-entropy |
 | **Multi-class classification** | **Softmax** | $`K`$ probabilities summing to 1 | Cat / dog / horse | Categorical cross-entropy |
 
 ### Softmax
 ```math
-\hat y_k = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}}, \qquad k = 1,\dots,K, \qquad \sum_{k=1}^K \hat y_k = 1
+\hat{y}_k = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}}, \qquad k = 1,\dots,K, \qquad \sum_{k=1}^K \hat{y}_k = 1
 ```
 The raw scores $`z_k`$ are called **logits**.
 
@@ -280,8 +280,8 @@ The raw scores $`z_k`$ are called **logits**.
 **🔴 Facts worth knowing:**
 
 - **Sigmoid = 2-class softmax:** $`\text{softmax}([z, 0])_1 = \sigma(z)`$ (verified in the notebook).
-- **Numerical stability:** compute $`\text{softmax}(\mathbf z - \max\mathbf z)`$. The result is identical, and it avoids overflow from $`e^{1000}`$.
-- **Temperature** $`T`$: $`\text{softmax}(\mathbf z/T)`$. Low $`T`$ makes outputs more confident (deterministic); high $`T`$ makes them flatter (more random). This is **exactly the "temperature" setting in ChatGPT/LLM APIs**. Every LLM's final layer is a softmax over its whole vocabulary.
+- **Numerical stability:** compute $`\text{softmax}(\mathbf{z} - \max\mathbf{z})`$. The result is identical, and it avoids overflow from $`e^{1000}`$.
+- **Temperature** $`T`$: $`\text{softmax}(\mathbf{z}/T)`$. Low $`T`$ makes outputs more confident (deterministic); high $`T`$ makes them flatter (more random). This is **exactly the "temperature" setting in ChatGPT/LLM APIs**. Every LLM's final layer is a softmax over its whole vocabulary.
 
 ---
 
@@ -292,12 +292,12 @@ The raw scores $`z_k`$ are called **logits**.
 - Input: an $`n`$-dimensional vector (the **0-th layer**).
 - $`L - 1`$ **hidden layers** (2 in the figure), each with $`n`$ neurons.
 - One **output layer** (the **$`L`$-th layer**) with $`k`$ neurons (e.g. $`k`$ classes).
-- $`W_i \in \mathbb R^{n\times n}`$, $`\mathbf b_i \in \mathbb R^n`$ between layers $`i-1`$ and $`i`$ ($`0 < i < L`$).
-- $`W_L`$, $`\mathbf b_L \in \mathbb R^k`$ between the last hidden layer and the output.
+- $`W_i \in \mathbb{R}^{n\times n}`$, $`\mathbf{b}_i \in \mathbb{R}^n`$ between layers $`i-1`$ and $`i`$ ($`0 < i < L`$).
+- $`W_L`$, $`\mathbf{b}_L \in \mathbb{R}^k`$ between the last hidden layer and the output.
 
 "Feed-forward" = information flows **one way**, input → output, with **no loops** (unlike RNNs). Also called a **multi-layer perceptron (MLP)**.
 
-> 📝 **Shape check:** the slide writes $`W_L \in \mathbb R^{n\times k}`$. With the $`\mathbf a = W\mathbf h + \mathbf b`$ convention (slide 22), the output weight matrix must be **$`k\times n`$** ($`k`$ outputs, $`n`$ inputs). $`n\times k`$ is correct for the row-vector convention $`\mathbf a = \mathbf h^\top W`$. The hidden $`W_i`$ are $`n\times n`$ either way. **Rule:** $`W`$ has shape (out × in) when it multiplies a column vector on the left.
+> 📝 **Shape check:** the slide writes $`W_L \in \mathbb{R}^{n\times k}`$. With the $`\mathbf{a} = W\mathbf{h} + \mathbf{b}`$ convention (slide 22), the output weight matrix must be **$`k\times n`$** ($`k`$ outputs, $`n`$ inputs). $`n\times k`$ is correct for the row-vector convention $`\mathbf{a} = \mathbf{h}^\top W`$. The hidden $`W_i`$ are $`n\times n`$ either way. **Rule:** $`W`$ has shape (out × in) when it multiplies a column vector on the left.
 
 ### Counting parameters
 Each layer: $`(\text{in} \times \text{out})`$ weights $`+ \text{out}`$ biases.
@@ -321,7 +321,7 @@ flowchart LR
     F[Forward pass<br/>compute ŷ] --> L[Loss<br/>compare ŷ with y] --> B[Backward pass<br/>backpropagation:<br/>∂L/∂θ by chain rule] --> U[Update<br/>θ ← θ − α∇θL] --> F
 ```
 
-**Backpropagation** = the chain rule, applied efficiently from the output back to the input, reusing intermediate results. For the sigmoid + cross-entropy output, the gradient at the output simplifies beautifully to $`\hat y - y`$ (prediction minus truth), exactly like linear regression's error term.
+**Backpropagation** = the chain rule, applied efficiently from the output back to the input, reusing intermediate results. For the sigmoid + cross-entropy output, the gradient at the output simplifies beautifully to $`\hat{y} - y`$ (prediction minus truth), exactly like linear regression's error term.
 
 The notebook (Part E) trains a 2–4–1 network on XOR **from scratch in NumPy**: forward pass, BCE loss, hand-written backprop, and gradient descent. Loss falls to 0.0005 and predictions are `[0 1 1 0]` ✓. It also **verifies backprop against numerical gradients**, the standard debugging technique.
 
@@ -333,7 +333,7 @@ Everything in this lecture reappears inside a Transformer (GPT):
 
 | This lecture | Inside GPT |
 |---|---|
-| Linear layer $`W\mathbf x + \mathbf b`$ | Q/K/V projections, output projection |
+| Linear layer $`W\mathbf{x} + \mathbf{b}`$ | Q/K/V projections, output projection |
 | Feed-forward network (MLP) | Every Transformer block has an MLP sub-layer (~⅔ of all parameters) |
 | ReLU | GELU / SwiGLU |
 | Softmax | (1) attention weights, (2) next-token probabilities over the vocabulary |
@@ -355,7 +355,7 @@ Everything in this lecture reappears inside a Transformer (GPT):
 | Softmax outputs are calibrated confidences | They sum to 1 but are often **over-confident**; calibration is a separate problem |
 | Universal approximation → any net will learn anything | It guarantees existence, not learnability or size |
 | $`W_{ij}`$ convention is universal | Check row = destination vs row = source in each source |
-| The input layer has weights | The input layer just holds $`\mathbf x`$; weights live **between** layers |
+| The input layer has weights | The input layer just holds $`\mathbf{x}`$; weights live **between** layers |
 
 ---
 
@@ -370,7 +370,7 @@ Assume $`w_1x_1+w_2x_2+b>0 \iff`$ class 1. The four points give $`b\le0`$, $`w_2
 <details>
 <summary><b>Q2.</b> Design a 2-2-1 network with step activations that computes XOR.</summary>
 
-$`h_1=\text{step}(x_1+x_2-0.5)`$ (OR), $`h_2=\text{step}(x_1+x_2-1.5)`$ (AND), $`\hat y=\text{step}(h_1-h_2-0.5)`$.
+$`h_1=\text{step}(x_1+x_2-0.5)`$ (OR), $`h_2=\text{step}(x_1+x_2-1.5)`$ (AND), $`\hat{y}=\text{step}(h_1-h_2-0.5)`$.
 </details>
 
 <details>
@@ -382,7 +382,7 @@ $`W_2(W_1x+b_1)+b_2 = (W_2W_1)x + (W_2b_1+b_2) = Wx+b`$; by induction, any depth
 <details>
 <summary><b>Q4.</b> Compute the forward pass: $`x=(1,-1)`$, $`W_1 = \begin{bmatrix}1&2\\-1&1\end{bmatrix}`$, $`b_1=(0,1)`$, ReLU, $`W_2=[1\;\;3]`$, $`b_2=-1`$, linear output.</summary>
 
-$`a_1 = (1-2+0,\ -1-1+1) = (-1, -1)`$; $`h_1 = (0, 0)`$; $`\hat y = 0 + 0 - 1 = -1`$.
+$`a_1 = (1-2+0,\ -1-1+1) = (-1, -1)`$; $`h_1 = (0, 0)`$; $`\hat{y} = 0 + 0 - 1 = -1`$.
 </details>
 
 <details>
@@ -420,8 +420,8 @@ It guarantees that a one-hidden-layer network with enough units can approximate 
 ## 15. 🧾 Cheat Sheet
 
 - Linear models draw straight boundaries; XOR needs a **hidden layer**.
-- Neuron: $`a = \sum_j W_{ij}x_j + c_i`$, then $`h = g(a)`$. Layer: $`\mathbf h = g(W\mathbf x + \mathbf b)`$, with $`W`$ of shape out × in.
-- Network = composition $`f^{(L)}(\cdots f^{(1)}(\mathbf x))`$, learns $`\theta`$ so that $`f(\mathbf x;\theta)\approx f^*(\mathbf x)`$.
+- Neuron: $`a = \sum_j W_{ij}x_j + c_i`$, then $`h = g(a)`$. Layer: $`\mathbf{h} = g(W\mathbf{x} + \mathbf{b})`$, with $`W`$ of shape out × in.
+- Network = composition $`f^{(L)}(\cdots f^{(1)}(\mathbf{x}))`$, learns $`\theta`$ so that $`f(\mathbf{x};\theta)\approx f^*(\mathbf{x})`$.
 - Activations: sigmoid (0,1), tanh (−1,1) zero-centred, **ReLU** $`\max(0,z)`$ is the default for hidden layers.
 - No non-linearity → collapses to one linear layer.
 - Outputs: **linear** (regression), **sigmoid** (binary, $`P(y{=}1|x)`$), **softmax** (multi-class, sums to 1).

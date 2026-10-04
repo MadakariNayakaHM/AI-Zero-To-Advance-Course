@@ -46,16 +46,16 @@ So the solutions of $`Ax = 0`$ form a **subspace**. It gets a name, the **null s
 ## 2. Where Do Vectors Live? (Dimensions of A, x, b) 🟢
 
 ```math
-A_{m\times n}\; x_{n\times 1} = b_{m\times 1}, \qquad A \in \mathbb R^{m\times n},\quad x \in \mathbb R^n,\quad b \in \mathbb R^m
+A_{m\times n}\; x_{n\times 1} = b_{m\times 1}, \qquad A \in \mathbb{R}^{m\times n},\quad x \in \mathbb{R}^n,\quad b \in \mathbb{R}^m
 ```
 
 | Object | Size | Lives in |
 |---|---|---|
-| $`A`$ | $`m`$ rows (equations / observations) × $`n`$ columns (unknowns / features) | $`\mathbb R^{m\times n}`$ |
-| $`x`$ (input, solution) | $`n`$ components | $`\mathbb R^n`$ |
-| $`b`$ (output) | $`m`$ components | $`\mathbb R^m`$ |
+| $`A`$ | $`m`$ rows (equations / observations) × $`n`$ columns (unknowns / features) | $`\mathbb{R}^{m\times n}`$ |
+| $`x`$ (input, solution) | $`n`$ components | $`\mathbb{R}^n`$ |
+| $`b`$ (output) | $`m`$ components | $`\mathbb{R}^m`$ |
 
-**Example:** $`A`$ is $`3\times2`$, so $`x \in \mathbb R^2`$ and $`b \in \mathbb R^3`$. Solutions of $`Ax = 0`$ **always** live in $`\mathbb R^n`$ (here $`\mathbb R^2`$), whatever $`b`$ is.
+**Example:** $`A`$ is $`3\times2`$, so $`x \in \mathbb{R}^2`$ and $`b \in \mathbb{R}^3`$. Solutions of $`Ax = 0`$ **always** live in $`\mathbb{R}^n`$ (here $`\mathbb{R}^2`$), whatever $`b`$ is.
 
 > The matrix is **fixed** (constant). What varies are the inputs $`x`$ and outputs $`b`$. (Professor, answering "how do we define the space for $`A`$?")
 
@@ -63,21 +63,21 @@ A_{m\times n}\; x_{n\times 1} = b_{m\times 1}, \qquad A \in \mathbb R^{m\times n
 
 ## 3. Null Space: Definition 🟢
 
-> **Definition:** For $`A \in \mathbb R^{m\times n}`$, the set of all solutions of $`Ax = \mathbf 0`$,
+> **Definition:** For $`A \in \mathbb{R}^{m\times n}`$, the set of all solutions of $`Ax = \mathbf{0}`$,
 > ```math
-> \operatorname{Null}(A) = \{x \in \mathbb R^n : Ax = \mathbf 0\},
+> \text{Null}(A) = \{x \in \mathbb{R}^n : Ax = \mathbf{0}\},
 > ```
-> forms a vector **subspace of $`\mathbb R^n`$**, called the **null space** or **kernel** of $`A`$.
+> forms a vector **subspace of $`\mathbb{R}^n`$**, called the **null space** or **kernel** of $`A`$.
 
 **Proof that it's a subspace:**
 
-1. $`A\mathbf 0 = \mathbf 0`$, so $`\mathbf 0 \in \operatorname{Null}(A)`$ ✓
+1. $`A\mathbf{0} = \mathbf{0}`$, so $`\mathbf{0} \in \text{Null}(A)`$ ✓
 2. $`Ax = 0,\ Ay = 0 \Rightarrow A(x + y) = Ax + Ay = 0`$ ✓
 3. $`A(kx) = kAx = 0`$ ✓ ∎
 
 **What it means:** the null space is **all the input vectors that $`A`$ transforms to zero**: what $`A`$ "kills" or "can't see".
 
-> ⚠️ *"Null space doesn't mean there is nothing in it!"* It always contains at least $`\mathbf 0`$, and often infinitely many vectors.
+> ⚠️ *"Null space doesn't mean there is nothing in it!"* It always contains at least $`\mathbf{0}`$, and often infinitely many vectors.
 > ⚠️ *"Kernel" here has nothing to do with the OS kernel or kernel SVMs.* *"One term appears in multiple places. Don't give it the same meaning."*
 
 ---
@@ -90,7 +90,7 @@ A = \begin{bmatrix}1&1\\1&-1\\2&1\end{bmatrix}: \quad x_1 + x_2 = 0,\quad x_1 - 
 ```
 The first two equations say $`x_1 = -x_2`$ **and** $`x_1 = x_2`$, so $`x_1 = x_2 = 0`$ (and this satisfies eq 3).
 ```math
-\operatorname{Null}(A) = \{\mathbf 0\} \quad\text{(0-D subspace of } \mathbb R^2\text{)},\qquad \text{nullity} = 0
+\text{Null}(A) = \{\mathbf{0}\} \quad\text{(0-D subspace of } \mathbb{R}^2\text{)},\qquad \text{nullity} = 0
 ```
 → The columns $`(1,1,2)`$ and $`(1,-1,1)`$ are **independent**.
 
@@ -98,9 +98,9 @@ The first two equations say $`x_1 = -x_2`$ **and** $`x_1 = x_2`$, so $`x_1 = x_2
 ```math
 A = \begin{bmatrix}1&1\\1&1\\1&1\end{bmatrix}: \quad x_1 + x_2 = 0 \text{ (three times)}
 ```
-Solutions: $`(0,0), (1,-1), (-1,1), (2,-2), \dots`$, so $`\operatorname{Null}(A) = \{(x_1, -x_1)\} = \{k(1,-1)\}`$.
+Solutions: $`(0,0), (1,-1), (-1,1), (2,-2), \dots`$, so $`\text{Null}(A) = \{(x_1, -x_1)\} = \{k(1,-1)\}`$.
 ```math
-\text{a line through the origin} = \text{1-D subspace of } \mathbb R^2,\qquad \text{nullity} = 1
+\text{a line through the origin} = \text{1-D subspace of } \mathbb{R}^2,\qquad \text{nullity} = 1
 ```
 (This is the "$`y = kx`$ with $`k = -1`$" subspace from Note 03.)
 
@@ -108,7 +108,7 @@ Solutions: $`(0,0), (1,-1), (-1,1), (2,-2), \dots`$, so $`\operatorname{Null}(A)
 
 ### Example 3: the 2×2 version (notes p.54)
 ```math
-\begin{bmatrix}1&1\\1&1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix} \Rightarrow x_2 = -x_1 \Rightarrow \operatorname{Null}(A) = \{k(1,-1)\}
+\begin{bmatrix}1&1\\1&1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix} \Rightarrow x_2 = -x_1 \Rightarrow \text{Null}(A) = \{k(1,-1)\}
 ```
 Geometrically this is the 135° line ("like the Ramayana snake arrow" ↘):
 
@@ -118,11 +118,11 @@ Geometrically this is the 135° line ("like the Ramayana snake arrow" ↘):
 
 ### Example 4: the zero matrix (notes p.53)
 ```math
-A = 0_{5\times3}:\quad Ax = 0 \text{ for every } x\in\mathbb R^3 \Rightarrow \operatorname{Null}(A) = \mathbb R^3,\quad \text{nullity} = 3
+A = 0_{5\times3}:\quad Ax = 0 \text{ for every } x\in\mathbb{R}^3 \Rightarrow \text{Null}(A) = \mathbb{R}^3,\quad \text{nullity} = 3
 ```
-Likewise $`0_{2\times2}`$ gives $`\mathbb R^2`$ with nullity 2. A matrix whose null space is all of $`\mathbb R^5`$ has nullity 5.
+Likewise $`0_{2\times2}`$ gives $`\mathbb{R}^2`$ with nullity 2. A matrix whose null space is all of $`\mathbb{R}^5`$ has nullity 5.
 
-> 🎯 **Only the zero matrix** has the whole $`\mathbb R^n`$ as its null space. *"Even a 100×100 matrix with **one** non-zero element won't."* A data matrix of all zeros "recorded nothing".
+> 🎯 **Only the zero matrix** has the whole $`\mathbb{R}^n`$ as its null space. *"Even a 100×100 matrix with **one** non-zero element won't."* A data matrix of all zeros "recorded nothing".
 
 ### Example 5: 2×3 by row reduction (notes p.55)
 ```math
@@ -135,16 +135,16 @@ Likewise $`0_{2\times2}`$ gives $`\mathbb R^2`$ with nullity 2. A matrix whose n
 
 ```math
 x = \begin{bmatrix}-3t\\t\\t\end{bmatrix} = t\begin{bmatrix}-3\\1\\1\end{bmatrix}
-\;\Rightarrow\; \operatorname{Null}(A) = \operatorname{span}\{(-3,1,1)\},\ \text{a 1-D subspace (line) of } \mathbb R^3
+\;\Rightarrow\; \text{Null}(A) = \text{span}\{(-3,1,1)\},\ \text{a 1-D subspace (line) of } \mathbb{R}^3
 ```
-**Geometry (figure above, right):** each equation is a **plane through the origin** in $`\mathbb R^3`$. Two planes meet in a **line**, and that line is the null space.
+**Geometry (figure above, right):** each equation is a **plane through the origin** in $`\mathbb{R}^3`$. Two planes meet in a **line**, and that line is the null space.
 
 **Why only the RHS = 0 matters:** row operations on $`0`$ give $`0`$, so the RHS can be ignored. *"Why waste time on that?"*
 
 ### 🔗 Connection to the 3 Oct dependence example
 The same lecture showed $`3\cdot(1,1) - 1\cdot(1,0) - 1\cdot(2,3) = (0,0)`$, so the columns $`(1,1), (1,0), (2,3)`$ are dependent. Those are exactly the columns of this $`A`$! Equivalently, $`-3\cdot\text{col}_1 + \text{col}_2 + \text{col}_3 = 0`$:
 
-> **Null-space vectors are the recipes (coefficients) of linear dependencies among the columns.** $`Ax = 0`$ means $`x_1\text{col}_1 + \dots + x_n\text{col}_n = \mathbf 0`$.
+> **Null-space vectors are the recipes (coefficients) of linear dependencies among the columns.** $`Ax = 0`$ means $`x_1\text{col}_1 + \dots + x_n\text{col}_n = \mathbf{0}`$.
 
 ### Systematic recipe for Null(A)
 
@@ -164,12 +164,12 @@ The same lecture showed $`3\cdot(1,1) - 1\cdot(1,0) - 1\cdot(2,3) = (0,0)`$, so 
 |---|---|---|
 | What | A **set** (subspace) of vectors | A **number** |
 | Example 2 | The line $`\{k(1,-1)\}`$ | 1 |
-| Example 4 | $`\mathbb R^3`$ | 3 |
-| Example 1 | $`\{\mathbf 0\}`$ | 0 |
+| Example 4 | $`\mathbb{R}^3`$ | 3 |
+| Example 1 | $`\{\mathbf{0}\}`$ | 0 |
 
 *"Null space is the collection of vectors. Nullity is a number."* Nullity = number of **independent directions** in the null space = number of **free variables**.
 
-**Range of values:** $`0 \le \operatorname{nullity}(A) \le n`$. It is 0 iff the columns are independent, and $`n`$ iff $`A = 0`$.
+**Range of values:** $`0 \le \text{nullity}(A) \le n`$. It is 0 iff the columns are independent, and $`n`$ iff $`A = 0`$.
 
 ---
 
@@ -214,7 +214,7 @@ Notebook Part E demo: a synthetic 1000×6 health dataset with `height_in = heigh
 
 Every example satisfies:
 ```math
-\boxed{\operatorname{rank}(A) + \operatorname{nullity}(A) = n \ (\text{number of columns})}
+\boxed{\text{rank}(A) + \text{nullity}(A) = n \ (\text{number of columns})}
 ```
 
 | $`A`$ | n | rank | nullity |
@@ -239,10 +239,10 @@ For square $`A`$ ($`n\times n`$), all of the following are **equivalent**:
 | $`A^{-1}`$ exists | No inverse |
 | $`Ax = b`$ has a **unique** solution for every $`b`$ | No solution or infinitely many |
 | $`Ax = 0`$ has only $`x = 0`$ | Non-trivial solutions exist |
-| $`\operatorname{Null}(A) = \{\mathbf 0\}`$, nullity 0 | Nullity ≥ 1 |
+| $`\text{Null}(A) = \{\mathbf{0}\}`$, nullity 0 | Nullity ≥ 1 |
 | rank $`= n`$ (n pivots) | rank < n |
 | Columns linearly **independent** | Columns dependent |
-| Columns form a **basis** of $`\mathbb R^n`$ | Columns span a smaller subspace |
+| Columns form a **basis** of $`\mathbb{R}^n`$ | Columns span a smaller subspace |
 | RREF $`= I`$ | RREF has a zero row |
 
 This **Invertible Matrix Theorem** ties together Notes 01–05. If you understand why each row implies the others, you understand Unit 1.
@@ -251,8 +251,8 @@ This **Invertible Matrix Theorem** ties together Notes 01–05. If you understan
 
 ## 9. 🎓 Professor Emphasised
 
-1. The solution set of $`Ax = 0`$ is a **subspace of $`\mathbb R^n`$**: the **null space / kernel**.
-2. **Null space ≠ empty**: it always contains $`\mathbf 0`$.
+1. The solution set of $`Ax = 0`$ is a **subspace of $`\mathbb{R}^n`$**: the **null space / kernel**.
+2. **Null space ≠ empty**: it always contains $`\mathbf{0}`$.
 3. **Null space is a set; nullity is a number** (its dimension).
 4. Dimension counts **independent directions**, not the number of vectors or values.
 5. Only the **zero matrix** has the whole space as its null space.
@@ -268,9 +268,9 @@ This **Invertible Matrix Theorem** ties together Notes 01–05. If you understan
 
 | Confusion | Clarification |
 |---|---|
-| Null space = empty / nothing | Always contains $`\mathbf 0`$; often infinite |
+| Null space = empty / nothing | Always contains $`\mathbf{0}`$; often infinite |
 | Nullity = number of solutions | Nullity = **dimension** (number of directions); the number of solutions is 1 or ∞ |
-| Null space lives in $`\mathbb R^m`$ | It's in $`\mathbb R^n`$ (the input/column-count space) |
+| Null space lives in $`\mathbb{R}^m`$ | It's in $`\mathbb{R}^n`$ (the input/column-count space) |
 | Null space is always one dimension lower | No: anything from 0 to n (examples: 0, 1, 3) |
 | Nullity = n means many redundant variables | Nullity = n only for the zero matrix (everything is redundant) |
 | Nullity identifies *which* features to drop | Only *how many*; the choice isn't unique |
@@ -290,7 +290,7 @@ $`x_1 + 2x_2 = 0 \Rightarrow x = t(-2, 1)`$. Null(A) is the line spanned by $`(-
 <details>
 <summary><b>P2.</b> Find a basis of Null(A) for $`A = \begin{bmatrix}1&2&3\\2&4&6\end{bmatrix}`$.</summary>
 
-$`R_2 - 2R_1 = 0`$, so only $`x_1 + 2x_2 + 3x_3 = 0`$. Free: $`x_2 = s`$, $`x_3 = t`$ → $`x = s(-2,1,0) + t(-3,0,1)`$. Basis $`\{(-2,1,0), (-3,0,1)\}`$, nullity 2 (a plane in $`\mathbb R^3`$), rank 1. Check: 1 + 2 = 3 ✓.
+$`R_2 - 2R_1 = 0`$, so only $`x_1 + 2x_2 + 3x_3 = 0`$. Free: $`x_2 = s`$, $`x_3 = t`$ → $`x = s(-2,1,0) + t(-3,0,1)`$. Basis $`\{(-2,1,0), (-3,0,1)\}`$, nullity 2 (a plane in $`\mathbb{R}^3`$), rank 1. Check: 1 + 2 = 3 ✓.
 </details>
 
 <details>
@@ -321,8 +321,8 @@ True: $`A(x_p + z) = b + 0 = b`$. (General solution = particular + null space; N
 
 ## 12. 🧾 Cheat Sheet
 
-- $`A_{m\times n}`$: $`x\in\mathbb R^n`$, $`b\in\mathbb R^m`$.
-- **Null(A)** $`= \{x : Ax = 0\}`$, a subspace of $`\mathbb R^n`$ (aka **kernel**).
+- $`A_{m\times n}`$: $`x\in\mathbb{R}^n`$, $`b\in\mathbb{R}^m`$.
+- **Null(A)** $`= \{x : Ax = 0\}`$, a subspace of $`\mathbb{R}^n`$ (aka **kernel**).
 - **Nullity** = dim Null(A) = number of free variables = number of redundant columns/features.
 - Recipe: RREF → free variables → parametrise → basis vectors.
 - Null-space vectors = coefficients of **column dependencies**.

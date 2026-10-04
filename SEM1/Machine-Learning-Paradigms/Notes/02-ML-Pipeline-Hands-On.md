@@ -168,7 +168,7 @@ The demo used **only 2 features** (`word_count`, `verb_count`). The choice was *
 **Q (class):** *Can we try feature combinations and compare?* Yes, but brute force over many features is inefficient. A better first step is to **measure each feature's linear relationship with the target** using the **Pearson correlation coefficient**:
 
 ```math
-r_{x,y} = \frac{\sum_i (x_i - \bar x)(y_i - \bar y)}{\sqrt{\sum_i (x_i - \bar x)^2}\,\sqrt{\sum_i (y_i - \bar y)^2}} \in [-1, 1]
+r_{x,y} = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2}\,\sqrt{\sum_i (y_i - \bar{y})^2}} \in [-1, 1]
 ```
 
 | r | Meaning |
@@ -191,7 +191,7 @@ sepal width  -0.427   ← weakest
 > - Correlation with a **categorical** target is only meaningful when the classes have a natural order or for binary 0/1.
 > - Two features can be useless alone but powerful together (XOR-like).
 > - Better tools: mutual information, model-based importance, L1 regularisation, recursive feature elimination ([scikit-learn feature selection](https://scikit-learn.org/stable/modules/feature_selection.html)).
-> - Notice the same numerator, $`\sum (x_i-\bar x)(y_i - \bar y)`$, as in the **OLS slope** in [Note 03](03-Supervised-Learning-Regression.md). The two are linked: $`m = r \cdot \frac{s_y}{s_x}`$.
+> - Notice the same numerator, $`\sum (x_i-\bar{x})(y_i - \bar{y})`$, as in the **OLS slope** in [Note 03](03-Supervised-Learning-Regression.md). The two are linked: $`m = r \cdot \frac{s_y}{s_x}`$.
 
 ---
 
@@ -214,7 +214,7 @@ model.fit(X_train, y_train)            # learn from BOTH inputs and labels
 Yes, it is a **classification** algorithm. Internally it computes a **probability** with the sigmoid function, and a **threshold** (0.5) turns that probability into a class:
 
 ```math
-P(y=1 \mid x) = \sigma(w^\top x + b) = \frac{1}{1 + e^{-(w^\top x + b)}}, \qquad \hat y = \begin{cases}1 & P \ge 0.5\\ 0 & \text{otherwise}\end{cases}
+P(y=1 \mid x) = \sigma(w^\top x + b) = \frac{1}{1 + e^{-(w^\top x + b)}}, \qquad \hat{y} = \begin{cases}1 & P \ge 0.5\\ 0 & \text{otherwise}\end{cases}
 ```
 
 The name says "regression" because it **regresses the log-odds** linearly: $`\log\frac{P}{1-P} = w^\top x + b`$. Full maths comes later in the classification lectures.
@@ -297,13 +297,13 @@ With 3 classes, one line can't separate all three. You need **multiple boundarie
 From the regression deck:
 
 - Given input–output pairs with labels.
-- **Input:** $`X = \{\bar x_1, \bar x_2, \dots, \bar x_N\}`$; **Output:** $`Y = \{\bar y_1, \bar y_2, \dots, \bar y_N\}`$
-- $`(\bar x_i, \bar y_i)`$ form a **pair**. In layman's terms, this is a **labelled dataset**.
-- Each $`\bar x_i`$ is **one row (sample)**, which is itself a vector of features (hence the bar).
+- **Input:** $`X = \{\bar{x}_1, \bar{x}_2, \dots, \bar{x}_N\}`$; **Output:** $`Y = \{\bar{y}_1, \bar{y}_2, \dots, \bar{y}_N\}`$
+- $`(\bar{x}_i, \bar{y}_i)`$ form a **pair**. In layman's terms, this is a **labelled dataset**.
+- Each $`\bar{x}_i`$ is **one row (sample)**, which is itself a vector of features (hence the bar).
 - We use this input–output relationship to **train** a model.
 - **Rule:** *if a labelled dataset is available, go for supervised learning.*
 
-Mathematically, we want to learn a function $`f`$ such that $`f(\bar x_i) \approx \bar y_i`$ and, crucially, $`f(\bar x_{new}) \approx \bar y_{new}`$ on **unseen** data (generalisation).
+Mathematically, we want to learn a function $`f`$ such that $`f(\bar{x}_i) \approx \bar{y}_i`$ and, crucially, $`f(\bar{x}_{new}) \approx \bar{y}_{new}`$ on **unseen** data (generalisation).
 
 | | Regression | Classification |
 |---|---|---|

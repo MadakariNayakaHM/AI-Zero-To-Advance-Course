@@ -91,7 +91,7 @@ The same review dataset, two different questions:
 
 The best you can do is predict the **mean = 9.4** for every review.
 
-**Why the mean? (Proof, beyond slides.)** We want the constant $`k`$ minimising $`L(k) = \frac1n\sum (y_i - k)^2`$. Setting $`\frac{dL}{dk} = -\frac2n\sum(y_i - k) = 0`$ gives $`k = \frac1n\sum y_i = \bar y`$. ∎
+**Why the mean? (Proof, beyond slides.)** We want the constant $`k`$ minimising $`L(k) = \frac1n\sum (y_i - k)^2`$. Setting $`\frac{dL}{dk} = -\frac2n\sum(y_i - k) = 0`$ gives $`k = \frac1n\sum y_i = \bar{y}`$. ∎
 
 > 🎯 This is the **baseline model**. Any real model must beat it. Here its MSE = **46.64**. The **R²** metric (Section 16) literally measures "how much better than predicting the mean".
 
@@ -111,11 +111,11 @@ Now we also have an input, word count:
 
 **Assumption:** votes are a **linear function** of word count:
 ```math
-\hat Y = mX + c
+\hat{Y} = mX + c
 ```
 - $`m`$ = **slope**: extra votes per extra word
 - $`c`$ = **intercept**: predicted votes at 0 words
-- In the ML notation used later: $`\hat y = w_0 + w_1 x`$ (so $`w_1 = m`$, $`w_0 = c`$). These are the **parameters/weights** the model learns.
+- In the ML notation used later: $`\hat{y} = w_0 + w_1 x`$ (so $`w_1 = m`$, $`w_0 = c`$). These are the **parameters/weights** the model learns.
 
 **Goal:** find the **best-fit line**, the line closest to all the points.
 
@@ -131,26 +131,26 @@ Now we also have an input, word count:
 ```math
 S(m,c) = \sum_{i=1}^{n} \big(Y_i - (mX_i + c)\big)^2
 ```
-A **residual** $`e_i = Y_i - \hat Y_i`$ is the vertical gap between a point and the line (the green vertical segments in the figure above).
+A **residual** $`e_i = Y_i - \hat{Y}_i`$ is the vertical gap between a point and the line (the green vertical segments in the figure above).
 
 **Step 1: derivative w.r.t. $`c`$, set to 0**
 ```math
-\frac{\partial S}{\partial c} = -2\sum (Y_i - mX_i - c) = 0 \;\Rightarrow\; \sum Y_i = m\sum X_i + nc \;\Rightarrow\; \boxed{c = \bar Y - m\bar X}
+\frac{\partial S}{\partial c} = -2\sum (Y_i - mX_i - c) = 0 \;\Rightarrow\; \sum Y_i = m\sum X_i + nc \;\Rightarrow\; \boxed{c = \bar{Y} - m\bar{X}}
 ```
-➡️ Meaning: **the best-fit line always passes through $`(\bar X, \bar Y)`$**.
+➡️ Meaning: **the best-fit line always passes through $`(\bar{X}, \bar{Y})`$**.
 
 **Step 2: derivative w.r.t. $`m`$, set to 0**
 ```math
 \frac{\partial S}{\partial m} = -2\sum X_i (Y_i - mX_i - c) = 0
 ```
-Substitute $`c = \bar Y - m\bar X`$:
+Substitute $`c = \bar{Y} - m\bar{X}`$:
 ```math
-\sum X_i\big[(Y_i - \bar Y) - m(X_i - \bar X)\big] = 0
-\;\Rightarrow\; m = \frac{\sum X_i (Y_i - \bar Y)}{\sum X_i (X_i - \bar X)}
+\sum X_i\big[(Y_i - \bar{Y}) - m(X_i - \bar{X})\big] = 0
+\;\Rightarrow\; m = \frac{\sum X_i (Y_i - \bar{Y})}{\sum X_i (X_i - \bar{X})}
 ```
-Because $`\sum \bar X (Y_i - \bar Y) = 0`$ and $`\sum \bar X(X_i - \bar X) = 0`$, we can subtract $`\bar X`$ inside freely:
+Because $`\sum \bar{X} (Y_i - \bar{Y}) = 0`$ and $`\sum \bar{X}(X_i - \bar{X}) = 0`$, we can subtract $`\bar{X}`$ inside freely:
 ```math
-\boxed{m = \frac{\sum (X_i - \bar X)(Y_i - \bar Y)}{\sum (X_i - \bar X)^2} = \frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}}
+\boxed{m = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2} = \frac{\text{Cov}(X,Y)}{\text{Var}(X)}}
 ```
 
 > 🔗 **Connection:** $`m = r_{XY}\cdot \frac{s_Y}{s_X}`$, where $`r`$ is the Pearson correlation from [Note 02](02-ML-Pipeline-Hands-On.md#5-feature-selection--pearson-correlation-). Slope and correlation share the same numerator.
@@ -159,9 +159,9 @@ Because $`\sum \bar X (Y_i - \bar Y) = 0`$ and $`\sum \bar X(X_i - \bar X) = 0`$
 
 ## 6. Worked Example & Slide Correction 🟢
 
-Means: $`\bar X = 31/5 = 6.2`$, $`\bar Y = 47/5 = 9.4`$
+Means: $`\bar{X} = 31/5 = 6.2`$, $`\bar{Y} = 47/5 = 9.4`$
 
-| $`X_i`$ | $`Y_i`$ | $`X_i - \bar X`$ | $`Y_i - \bar Y`$ | $`(X_i-\bar X)(Y_i-\bar Y)`$ | $`(X_i-\bar X)^2`$ |
+| $`X_i`$ | $`Y_i`$ | $`X_i - \bar{X}`$ | $`Y_i - \bar{Y}`$ | $`(X_i-\bar{X})(Y_i-\bar{Y})`$ | $`(X_i-\bar{X})^2`$ |
 |---|---|---|---|---|---|
 | 7 | 3 | 0.8 | −6.4 | −5.12 | 0.64 |
 | 8 | 15 | 1.8 | 5.6 | 10.08 | 3.24 |
@@ -174,10 +174,10 @@ Means: $`\bar X = 31/5 = 6.2`$, $`\bar Y = 47/5 = 9.4`$
 m = \frac{29.6}{10.8} = \mathbf{2.74}, \qquad c = 9.4 - 2.74 \times 6.2 = \mathbf{-7.59}
 ```
 ```math
-\boxed{\hat Y = 2.74X - 7.59}
+\boxed{\hat{Y} = 2.74X - 7.59}
 ```
 
-> ⚠️ **The slide shows $`m = 4.41`$, $`c = -18.00`$ (i.e. $`\hat Y = 4.41X - 18.00`$). That is an arithmetic error.** Evidence (see notebook Part A):
+> ⚠️ **The slide shows $`m = 4.41`$, $`c = -18.00`$ (i.e. $`\hat{Y} = 4.41X - 18.00`$). That is an arithmetic error.** Evidence (see notebook Part A):
 >
 > | Line | MSE on the 5 points |
 > |---|---|
@@ -189,8 +189,8 @@ m = \frac{29.6}{10.8} = \mathbf{2.74}, \qquad c = 9.4 - 2.74 \times 6.2 = \mathb
 
 **Sanity checks to do in exams:**
 
-1. $`\sum (X_i - \bar X) = 0`$ and $`\sum (Y_i - \bar Y) = 0`$ (they always do).
-2. The line passes through $`(\bar X, \bar Y)`$: $`2.74 \times 6.2 - 7.59 = 9.40`$ ✅
+1. $`\sum (X_i - \bar{X}) = 0`$ and $`\sum (Y_i - \bar{Y}) = 0`$ (they always do).
+2. The line passes through $`(\bar{X}, \bar{Y})`$: $`2.74 \times 6.2 - 7.59 = 9.40`$ ✅
 3. The sign of $`m`$ matches the scatter trend (more words → more votes, so positive).
 
 **Interpretation:** each extra word adds ≈2.74 votes. The intercept (−7.59 votes at 0 words) is **meaningless** physically, because we never observed reviews near 0 words. **Don't extrapolate** outside the data range.
@@ -199,7 +199,7 @@ m = \frac{29.6}{10.8} = \mathbf{2.74}, \qquad c = 9.4 - 2.74 \times 6.2 = \mathb
 
 ## 7. Loss Function: MSE 🟢
 
-The final hypothesis $`\hat Y = mX + c`$ needs a score for "how wrong". **Mean Squared Error:**
+The final hypothesis $`\hat{Y} = mX + c`$ needs a score for "how wrong". **Mean Squared Error:**
 ```math
 L(m, c) = \frac{1}{n}\sum_{i=1}^{n} \big(Y_i - (mX_i + c)\big)^2
 ```
@@ -377,7 +377,7 @@ They differ in **how many samples are used to compute each gradient**:
 
 When the relationship is **curved**, a straight line under-fits. Add powers of $`x`$:
 ```math
-\hat y_i = w_0 + w_1 x_i + w_2 x_i^2 + w_3 x_i^3
+\hat{y}_i = w_0 + w_1 x_i + w_2 x_i^2 + w_3 x_i^3
 ```
 
 **GD updates (slides).** Same pattern: error × the input each weight multiplies:
@@ -408,7 +408,7 @@ Train error **always** decreases with degree; test error is **U-shaped**. Choose
 
 ### Motivation (slides: salary prediction)
 
-- **Univariate:** $`x`$ = total experience in months, $`y`$ = salary (₹), M = 100 samples. Learn $`y = h_w(x)`$; predict $`\hat y^{(k)} = h_w(x_k)`$, expecting $`\hat y^{(k)} \approx y_k`$.
+- **Univariate:** $`x`$ = total experience in months, $`y`$ = salary (₹), M = 100 samples. Learn $`y = h_w(x)`$; predict $`\hat{y}^{(k)} = h_w(x_k)`$, expecting $`\hat{y}^{(k)} \approx y_k`$.
 - But experience has components: **teaching ($`x_1`$), research ($`x_2`$), admin ($`x_3`$)**. Univariate uses $`x = x_1 + x_2 + x_3`$ and treats a month of research the same as a month of admin.
 - Each component may affect salary differently, so give each its **own weight**.
 
@@ -420,42 +420,42 @@ Add a dummy feature $`x_0 = 1`$:
 ```math
 h_w(x) = w_0x_0 + w_1x_1 + \dots + w_Nx_N = \mathbf{w}^\top \mathbf{x}
 ```
-where $`\mathbf w = [w_0, w_1, \dots, w_N]^\top`$ and $`\mathbf x = [x_0, x_1, \dots, x_N]^\top`$ are **(N+1)-dimensional column vectors**. The prediction is their **inner (dot) product**.
+where $`\mathbf{w} = [w_0, w_1, \dots, w_N]^\top`$ and $`\mathbf{x} = [x_0, x_1, \dots, x_N]^\top`$ are **(N+1)-dimensional column vectors**. The prediction is their **inner (dot) product**.
 
 > 💡 **Why $`x_0 = 1`$?** It folds the intercept into the dot product, so there's no special case and everything becomes one clean matrix operation.
 
 ### Data in matrix form
 
-- $`X`$ is an $`M \times (N+1)`$ matrix: row $`i`$ is sample $`\mathbf x^{(i)\top}`$ (with leading 1), column $`j`$ is feature $`j`$.
-- $`\mathbf y`$ is an $`M`$-dimensional column vector.
+- $`X`$ is an $`M \times (N+1)`$ matrix: row $`i`$ is sample $`\mathbf{x}^{(i)\top}`$ (with leading 1), column $`j`$ is feature $`j`$.
+- $`\mathbf{y}`$ is an $`M`$-dimensional column vector.
 - Notation: $`x^{(i)}_j`$ = feature $`j`$ of sample $`i`$ (superscript = **which row**, subscript = **which column**).
 
 ### Cost
 ```math
-\min_{\mathbf w} C(\mathbf w) = \min_{\mathbf w}\frac{1}{2M}\sum_{i=1}^{M}\big(\mathbf w^\top \mathbf x^{(i)} - y^{(i)}\big)^2
+\min_{\mathbf{w}} C(\mathbf{w}) = \min_{\mathbf{w}}\frac{1}{2M}\sum_{i=1}^{M}\big(\mathbf{w}^\top \mathbf{x}^{(i)} - y^{(i)}\big)^2
 ```
 
 ### Gradient & update (for each j = 0, …, N)
 ```math
-\frac{\partial C}{\partial w_j} = \frac{1}{M}\sum_{i=1}^{M}\big(\mathbf w^\top \mathbf x^{(i)} - y^{(i)}\big)\,x^{(i)}_j
+\frac{\partial C}{\partial w_j} = \frac{1}{M}\sum_{i=1}^{M}\big(\mathbf{w}^\top \mathbf{x}^{(i)} - y^{(i)}\big)\,x^{(i)}_j
 \qquad
-w_j := w_j - \alpha\frac{1}{M}\sum_{i=1}^{M}\big(\mathbf w^\top \mathbf x^{(i)} - y^{(i)}\big)\,x^{(i)}_j
+w_j := w_j - \alpha\frac{1}{M}\sum_{i=1}^{M}\big(\mathbf{w}^\top \mathbf{x}^{(i)} - y^{(i)}\big)\,x^{(i)}_j
 ```
 Repeat all (N+1) updates simultaneously until convergence.
 
-> 📝 **Slide typo:** two update lines in the deck read $`(w_0 + w_1x^{(i)} - y^{(i)})`$. In the multivariate case it should be the full prediction $`\mathbf w^\top\mathbf x^{(i)}`$, as in the $`w_N`$ line.
+> 📝 **Slide typo:** two update lines in the deck read $`(w_0 + w_1x^{(i)} - y^{(i)})`$. In the multivariate case it should be the full prediction $`\mathbf{w}^\top\mathbf{x}^{(i)}`$, as in the $`w_N`$ line.
 
 ### 🔴 Vectorised form (what you actually code)
 All N+1 updates in one line:
 ```math
-\nabla_{\mathbf w} C = \frac{1}{M}X^\top(X\mathbf w - \mathbf y), \qquad \mathbf w := \mathbf w - \alpha\,\frac{1}{M}X^\top(X\mathbf w - \mathbf y)
+\nabla_{\mathbf{w}} C = \frac{1}{M}X^\top(X\mathbf{w} - \mathbf{y}), \qquad \mathbf{w} := \mathbf{w} - \alpha\,\frac{1}{M}X^\top(X\mathbf{w} - \mathbf{y})
 ```
 ```python
 w = np.zeros(N + 1)
 for _ in range(iters):
     w -= alpha * X.T @ (X @ w - y) / M      # X already contains the column of 1s
 ```
-Shapes: $`X\mathbf w`$ is (M,), the error is (M,), $`X^\top \cdot`$ error is (N+1,). ✅
+Shapes: $`X\mathbf{w}`$ is (M,), the error is (M,), $`X^\top \cdot`$ error is (N+1,). ✅
 
 **Notebook Part F result** (synthetic salary data, true weights `[20000, 300, 500, 150]`):
 ```text
@@ -473,7 +473,7 @@ All three agree. Research months pay the most per month (≈₹506), admin the l
 
 OLS generalised to many features. Set the gradient to zero:
 ```math
-X^\top(X\mathbf w - \mathbf y) = 0 \;\Rightarrow\; X^\top X\,\mathbf w = X^\top \mathbf y \;\Rightarrow\; \boxed{\mathbf w = (X^\top X)^{-1}X^\top \mathbf y}
+X^\top(X\mathbf{w} - \mathbf{y}) = 0 \;\Rightarrow\; X^\top X\,\mathbf{w} = X^\top \mathbf{y} \;\Rightarrow\; \boxed{\mathbf{w} = (X^\top X)^{-1}X^\top \mathbf{y}}
 ```
 (The univariate formulas in Section 5 are the special case N = 1.)
 
@@ -494,10 +494,10 @@ X^\top(X\mathbf w - \mathbf y) = 0 \;\Rightarrow\; X^\top X\,\mathbf w = X^\top 
 
 | Metric | Formula | Units | Notes |
 |---|---|---|---|
-| **MSE** | $`\frac1n\sum(y_i-\hat y_i)^2`$ | squared units | Penalises big errors; used as loss |
+| **MSE** | $`\frac1n\sum(y_i-\hat{y}_i)^2`$ | squared units | Penalises big errors; used as loss |
 | **RMSE** | $`\sqrt{\text{MSE}}`$ | same as $`y`$ | "Typical error size" |
-| **MAE** | $`\frac1n\sum\lvert y_i-\hat y_i\rvert`$ | same as $`y`$ | Robust to outliers |
-| **R²** | $`1 - \frac{\sum(y_i-\hat y_i)^2}{\sum(y_i-\bar y)^2}`$ | unitless | 1 = perfect; 0 = no better than the mean; < 0 = worse than the mean |
+| **MAE** | $`\frac1n\sum\lvert y_i-\hat{y}_i\rvert`$ | same as $`y`$ | Robust to outliers |
+| **R²** | $`1 - \frac{\sum(y_i-\hat{y}_i)^2}{\sum(y_i-\bar{y})^2}`$ | unitless | 1 = perfect; 0 = no better than the mean; < 0 = worse than the mean |
 
 For the slide example: R² = 1 − 30.41/46.64 = **0.35**. Word count explains ~35% of the variance in votes.
 
@@ -535,13 +535,13 @@ Check them with residual plots: residuals vs predicted should look like random n
 
 ## 18. 🔴 Advanced: Why Squared Error? (Probabilistic View)
 
-Assume data is generated as $`y = \mathbf w^\top\mathbf x + \varepsilon`$ with Gaussian noise $`\varepsilon \sim \mathcal N(0, \sigma^2)`$. Then
+Assume data is generated as $`y = \mathbf{w}^\top\mathbf{x} + \varepsilon`$ with Gaussian noise $`\varepsilon \sim \mathcal{N}(0, \sigma^2)`$. Then
 ```math
-p(y_i \mid \mathbf x_i; \mathbf w) = \frac{1}{\sqrt{2\pi}\sigma}\exp\!\left(-\frac{(y_i - \mathbf w^\top \mathbf x_i)^2}{2\sigma^2}\right)
+p(y_i \mid \mathbf{x}_i; \mathbf{w}) = \frac{1}{\sqrt{2\pi}\sigma}\exp\!\left(-\frac{(y_i - \mathbf{w}^\top \mathbf{x}_i)^2}{2\sigma^2}\right)
 ```
 The log-likelihood of all data is
 ```math
-\log \mathcal L(\mathbf w) = -\frac{n}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum_i (y_i - \mathbf w^\top\mathbf x_i)^2
+\log \mathcal{L}(\mathbf{w}) = -\frac{n}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum_i (y_i - \mathbf{w}^\top\mathbf{x}_i)^2
 ```
 **Maximising likelihood is the same as minimising the sum of squared errors.** So MSE isn't arbitrary: it's the **maximum likelihood estimator** under Gaussian noise. (With Laplace noise you'd get MAE instead.) This "loss = negative log-likelihood" idea is how **cross-entropy** arises for classification and for training **LLMs**. You'll see this again in Gen AI.
 
@@ -590,13 +590,13 @@ pipe = make_pipeline(StandardScaler(), LinearRegression()).fit(X_train, y_train)
 <details>
 <summary><b>Q1.</b> Derive the OLS formulas for slope and intercept.</summary>
 
-Minimise $`S = \sum (y_i - mx_i - c)^2`$. $`\partial S/\partial c = 0 \Rightarrow c = \bar y - m\bar x`$. $`\partial S/\partial m = 0`$ and substitution gives $`m = \sum(x_i-\bar x)(y_i-\bar y)/\sum(x_i-\bar x)^2`$. (Full steps in Section 5.)
+Minimise $`S = \sum (y_i - mx_i - c)^2`$. $`\partial S/\partial c = 0 \Rightarrow c = \bar{y} - m\bar{x}`$. $`\partial S/\partial m = 0`$ and substitution gives $`m = \sum(x_i-\bar{x})(y_i-\bar{y})/\sum(x_i-\bar{x})^2`$. (Full steps in Section 5.)
 </details>
 
 <details>
 <summary><b>Q2.</b> Fit a line to X = [1,2,3,4,5], Y = [2,4,5,4,5].</summary>
 
-$`\bar x = 3`$, $`\bar y = 4`$. dx = [−2,−1,0,1,2], dy = [−2,0,1,0,1]. Σdx·dy = 4+0+0+0+2 = 6; Σdx² = 10. m = 0.6; c = 4 − 0.6·3 = 2.2. **ŷ = 0.6x + 2.2.**
+$`\bar{x} = 3`$, $`\bar{y} = 4`$. dx = [−2,−1,0,1,2], dy = [−2,0,1,0,1]. Σdx·dy = 4+0+0+0+2 = 6; Σdx² = 10. m = 0.6; c = 4 − 0.6·3 = 2.2. **ŷ = 0.6x + 2.2.**
 </details>
 
 <details>
@@ -632,7 +632,7 @@ Yes. It is linear in the weights; the powers of x are just engineered features, 
 <details>
 <summary><b>Q8.</b> Write multivariate linear regression in vector form and give the vectorised GD update.</summary>
 
-$`h_w(\mathbf x) = \mathbf w^\top \mathbf x`$ with $`x_0 = 1`$; $`\mathbf w := \mathbf w - \frac{\alpha}{M}X^\top(X\mathbf w - \mathbf y)`$.
+$`h_w(\mathbf{x}) = \mathbf{w}^\top \mathbf{x}`$ with $`x_0 = 1`$; $`\mathbf{w} := \mathbf{w} - \frac{\alpha}{M}X^\top(X\mathbf{w} - \mathbf{y})`$.
 </details>
 
 <details>
@@ -659,14 +659,14 @@ errors = [−2, −4]; ∂/∂w0 = (−2−4)/2 = −3; ∂/∂w1 = (−2·1 −
 
 | Concept | Formula |
 |---|---|
-| Model | $`\hat y = w_0 + w_1x`$ ; multivariate $`\hat y = \mathbf w^\top\mathbf x`$ ($`x_0=1`$) |
-| OLS slope | $`m = \frac{\sum(x-\bar x)(y-\bar y)}{\sum(x-\bar x)^2}`$ |
-| OLS intercept | $`c = \bar y - m\bar x`$ (line passes through the means) |
-| MSE | $`\frac1n\sum(y-\hat y)^2`$ |
-| GD cost | $`\frac{1}{2M}\sum(\hat y - y)^2`$ |
-| GD update | $`w_j := w_j - \alpha\frac1M\sum(\hat y^{(i)} - y^{(i)})x^{(i)}_j`$ |
-| Vectorised | $`\mathbf w := \mathbf w - \frac{\alpha}{M}X^\top(X\mathbf w - \mathbf y)`$ |
-| Normal eq. | $`\mathbf w = (X^\top X)^{-1}X^\top\mathbf y`$ |
+| Model | $`\hat{y} = w_0 + w_1x`$ ; multivariate $`\hat{y} = \mathbf{w}^\top\mathbf{x}`$ ($`x_0=1`$) |
+| OLS slope | $`m = \frac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}`$ |
+| OLS intercept | $`c = \bar{y} - m\bar{x}`$ (line passes through the means) |
+| MSE | $`\frac1n\sum(y-\hat{y})^2`$ |
+| GD cost | $`\frac{1}{2M}\sum(\hat{y} - y)^2`$ |
+| GD update | $`w_j := w_j - \alpha\frac1M\sum(\hat{y}^{(i)} - y^{(i)})x^{(i)}_j`$ |
+| Vectorised | $`\mathbf{w} := \mathbf{w} - \frac{\alpha}{M}X^\top(X\mathbf{w} - \mathbf{y})`$ |
+| Normal eq. | $`\mathbf{w} = (X^\top X)^{-1}X^\top\mathbf{y}`$ |
 | R² | $`1 - SS_{res}/SS_{tot}`$ |
 
 - Baseline = predict the mean. Beat it.

@@ -167,7 +167,7 @@ $`A^{-1}`$ — **Inverse of $`A`$.**
 [Diagram: $`x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}`$ → box $`A`$ → $`b = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}`$, which then feeds into box $`A^{-1}`$ → $`x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}`$.]
 
 ```math
-A^{-1} = \frac{\operatorname{Adj}(A)}{\det(A)}
+A^{-1} = \frac{\text{Adj}(A)}{\det(A)}
 ```
 
 ```math
