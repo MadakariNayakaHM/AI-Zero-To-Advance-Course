@@ -4,10 +4,12 @@
 
 ## Notes
 
-| # | Topic |
-|:-:|:--|
-| 01 | [Why Research? Course vs Research Degree & the Path to Research](01-Why-Research-and-the-Research-Path.md) |
-| 02 | [Assignments Guide & Research Toolkit](02-Assignments-Guide-and-Research-Toolkit.md) |
+| # | Topic | Notebook |
+|:-:|:--|:--|
+| 01 | [Why Research? Course vs Research Degree & the Path to Research](01-Why-Research-and-the-Research-Path.md) | [research methods hands-on](code/01_research_methods_hands_on.ipynb) |
+| 02 | [Assignments Guide & Research Toolkit](02-Assignments-Guide-and-Research-Toolkit.md) | [bibliometrics hands-on](code/02_bibliometrics_hands_on.ipynb) |
+
+Note 01 covers research methodology, validity, hypothesis testing and sample size; note 02 covers literature search, bibliometrics, citation, plagiarism and patents. Both have worked examples, 25+ practice problems with full solutions, and case studies.
 
 **Coming up:** topic exploration & literature review · research gaps & hypotheses · handling results · papers, patents & theses · GenAI for research · research ethics
 

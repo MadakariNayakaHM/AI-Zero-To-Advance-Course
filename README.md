@@ -18,7 +18,7 @@ From first principles to research depth, with runnable code for every topic.
 | [**Applied Mathematics for DS & AI**](SEM1/Applied-Math-For-AI-DS/Notes) | Linear systems · Elimination & rank · Vector spaces · Basis · Null space |
 | [**Introduction to Generative AI**](SEM1/Introduction-To-Generative-AI/Notes) | AI, ML & DL foundations · Neural networks from scratch |
 | [**Speech & Natural Language Processing**](SEM1/Introduction-To-SNLP/Notes) | Layers of language · Lexical processing · Tokenization |
-| [**Introduction to Research**](SEM1/Introduction-To-Research/Notes) | The research mindset · Literature review toolkit |
+| [**Introduction to Research**](SEM1/Introduction-To-Research/Notes) | Research methodology & statistics · Literature review, bibliometrics & patents |
 
 → **[Full Semester 1 index](SEM1/README.md)**
 

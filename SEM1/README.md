@@ -32,8 +32,8 @@ Class examples: [lexical processing, hands-on](Introduction-To-SNLP/Notes/code/l
 
 ## Introduction to Research
 
-1. [Why Research? The Path to Research](Introduction-To-Research/Notes/01-Why-Research-and-the-Research-Path.md)
-2. [Assignments Guide & Research Toolkit](Introduction-To-Research/Notes/02-Assignments-Guide-and-Research-Toolkit.md)
+1. [Why Research? The Path to Research](Introduction-To-Research/Notes/01-Why-Research-and-the-Research-Path.md) · [notebook](Introduction-To-Research/Notes/code/01_research_methods_hands_on.ipynb)
+2. [Assignments Guide & Research Toolkit](Introduction-To-Research/Notes/02-Assignments-Guide-and-Research-Toolkit.md) · [notebook](Introduction-To-Research/Notes/code/02_bibliometrics_hands_on.ipynb)
 
 ---
 
