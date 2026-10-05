@@ -4,15 +4,17 @@
 
 ## Notes
 
-| # | Topic | Lectures |
-|:-:|:--|:--|
-| 01 | [Linear Systems, Determinant & Inverse](01-Linear-Systems-Determinant-Inverse.md) | 16 & 19 Sep |
-| 02 | [Gaussian Elimination, Row Operations & Rank](02-Gaussian-Elimination-Row-Operations-Rank.md) | 19 & 23 Sep |
-| 03 | [Vector Spaces & Subspaces](03-Vector-Spaces-and-Subspaces.md) | 26 & 30 Sep |
-| 04 | [Span, Linear Independence, Basis & Dimension](04-Span-Independence-Basis-Dimension.md) | 30 Sep & 3 Oct |
-| 05 | [Null Space & Nullity](05-Null-Space-and-Nullity.md) | 3 Oct |
+| # | Topic | Lectures | Notebook |
+|:-:|:--|:--|:--|
+| 01 | [Linear Systems, Determinant & Inverse](01-Linear-Systems-Determinant-Inverse.md) | 16 & 19 Sep | [deep dive](code/01_linear_systems_deep_dive.ipynb) |
+| 02 | [Gaussian Elimination, Row Operations & Rank](02-Gaussian-Elimination-Row-Operations-Rank.md) | 19 & 23 Sep | [deep dive](code/02_elimination_deep_dive.ipynb) |
+| 03 | [Vector Spaces & Subspaces](03-Vector-Spaces-and-Subspaces.md) | 26 & 30 Sep | [deep dive](code/03_vector_spaces_deep_dive.ipynb) |
+| 04 | [Span, Linear Independence, Basis & Dimension](04-Span-Independence-Basis-Dimension.md) | 30 Sep & 3 Oct | [deep dive](code/04_basis_deep_dive.ipynb) |
+| 05 | [Null Space & Nullity](05-Null-Space-and-Nullity.md) | 3 Oct | [deep dive](code/05_null_space_deep_dive.ipynb) |
 
-- **Notebook:** [linear algebra, part 1](code/linear_algebra_part1.ipynb) verifies every example from the lectures and includes a "find the redundant features in a dataset" demo.
+Each note has full proofs, worked examples, a bank of 25+ practice problems with full solutions, and real-world case studies.
+
+- **Class examples notebook:** [linear algebra, part 1](code/linear_algebra_part1.ipynb) verifies every example from the lectures and includes a "find the redundant features in a dataset" demo.
 - **Source:** [the handwritten lecture notes, typed](00-Handwritten-Notes-Transcribed.md) (pages 1–55, searchable).
 
 **Coming up:** problem-solving session · rest of linear algebra · probability & statistics · calculus & optimisation

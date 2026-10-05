@@ -4,11 +4,13 @@
 
 ## Notes
 
-| # | Topic | Lecture | Code |
-|:-:|:--|:--|:-:|
-| 01 | [Introduction to ML Paradigms](01-Introduction-to-ML-Paradigms.md) | 1 Oct | — |
-| 02 | [The ML Pipeline, Hands-On](02-ML-Pipeline-Hands-On.md) | 3 Oct | [notebook](code/02_ml_pipeline_hands_on.ipynb) |
-| 03 | [Regression & Gradient Descent](03-Supervised-Learning-Regression.md) | Week 2 | [notebook](code/03_linear_regression.ipynb) |
+| # | Topic | Lecture | Notebooks |
+|:-:|:--|:--|:--|
+| 01 | [Introduction to ML Paradigms](01-Introduction-to-ML-Paradigms.md) | 1 Oct | [paradigms hands-on](code/01_paradigms_hands_on.ipynb) |
+| 02 | [The ML Pipeline, Hands-On](02-ML-Pipeline-Hands-On.md) | 3 Oct | [class demo](code/02_ml_pipeline_hands_on.ipynb) · [deep dive](code/02_pipeline_deep_dive.ipynb) |
+| 03 | [Regression & Gradient Descent](03-Supervised-Learning-Regression.md) | Week 2 | [basics](code/03_linear_regression.ipynb) · [deep dive](code/03_regression_deep_dive.ipynb) |
+
+Each note has worked examples, a bank of 25+ practice problems with full solutions, and real-world case studies.
 
 **Coming up:** Classification · Clustering · Semi-supervised & active learning · Self-supervised learning · Reinforcement learning · Transfer learning · Generative learning · Few-shot learning · Continual learning · Multimodal learning · Meta-learning
 

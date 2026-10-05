@@ -4,12 +4,14 @@
 
 ## Notes
 
-| # | Topic | Slides |
-|:-:|:--|:--|
-| 01 | [Foundations: AI, ML, DL & the Learning Setup](01-AI-ML-DL-Foundations.md) | 1–17 |
-| 02 | [Neural Networks: Why, What & How They Compute](02-Neural-Networks-Fundamentals.md) | 18–26 |
+| # | Topic | Slides | Notebook |
+|:-:|:--|:--|:--|
+| 01 | [Foundations: AI, ML, DL & the Learning Setup](01-AI-ML-DL-Foundations.md) | 1–17 | [deep dive](code/01_foundations_deep_dive.ipynb) |
+| 02 | [Neural Networks: Why, What & How They Compute](02-Neural-Networks-Fundamentals.md) | 18–26 | [deep dive](code/02_neural_networks_deep_dive.ipynb) |
 
-**Notebook:** [neural networks from scratch](code/neural_networks_from_scratch.ipynb) covers the forward pass by hand, XOR, a network trained with hand-written backpropagation (NumPy only), a gradient check, softmax temperature and parameter counting.
+Each note has derivations, worked examples, a bank of 30+ practice problems with full solutions, and real-world case studies.
+
+**Class examples notebook:** [neural networks from scratch](code/neural_networks_from_scratch.ipynb) covers the forward pass by hand, XOR, a network trained with hand-written backpropagation (NumPy only), a gradient check, softmax temperature and parameter counting.
 
 **Coming up:** training & backpropagation · optimisers · sequence models · attention · Transformers & LLMs · VAEs, GANs & diffusion
 

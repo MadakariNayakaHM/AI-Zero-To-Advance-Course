@@ -4,12 +4,14 @@
 
 ## Notes
 
-| # | Topic | Lecture |
-|:-:|:--|:--|
-| 01 | [What is SNLP? The Information Layers of Language](01-Information-Layers-of-SNLP.md) | Lectures 0–1 |
-| 02 | [Lexical Processing, Part 1](02-Lexical-Processing-Part-1.md) | Lecture 2 · 30 Sep |
+| # | Topic | Lecture | Notebook |
+|:-:|:--|:--|:--|
+| 01 | [What is SNLP? The Information Layers of Language](01-Information-Layers-of-SNLP.md) | Lectures 0–1 | [deep dive](code/01_language_layers_deep_dive.ipynb) |
+| 02 | [Lexical Processing, Part 1](02-Lexical-Processing-Part-1.md) | Lecture 2 · 30 Sep | [deep dive](code/02_lexical_deep_dive.ipynb) |
 
-**Notebook:** [lexical processing, hands-on](code/lexical_processing_hands_on.ipynb) covers types & tokens, Heaps' law, stemming vs lemmatization, a toy morphological parser, sentence segmentation, tokenizer comparison, BPE from scratch, an ambiguous parse tree and word senses.
+Each note has worked examples, a bank of 30+ practice problems with full solutions, and real-world case studies.
+
+**Class examples notebook:** [lexical processing, hands-on](code/lexical_processing_hands_on.ipynb) covers types & tokens, Heaps' law, stemming vs lemmatization, a toy morphological parser, sentence segmentation, tokenizer comparison, BPE from scratch, an ambiguous parse tree and word senses.
 
 **Coming up:** tokenization & normalization (part 2) · n-grams · BoW, TF-IDF, Word2Vec, GloVe · speech processing · ASR & TTS · POS, NER & parsing · LLMs
 
@@ -27,7 +29,7 @@
 
 - *"The cat chased the cat"* has 3 types only after lower-casing; case-sensitive, it has 4.
 - WordNet lemmatizes *better* → *good*, but keeps *best* as *best*.
-- The single Porter rule ATIONAL → ATE gives *relate*; the full Porter stemmer gives *relat*.
+- The single Porter rule ATIONAL → ATE gives *relate*; the full Porter stemmer then drops the final *e* (step 5a), giving *relat*.
 
 ## Textbooks
 
