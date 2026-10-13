@@ -35,6 +35,13 @@ Class examples: [lexical processing, hands-on](Introduction-To-SNLP/Notes/code/l
 1. [Why Research? The Path to Research](Introduction-To-Research/Notes/01-Why-Research-and-the-Research-Path.md) · [notebook](Introduction-To-Research/Notes/code/01_research_methods_hands_on.ipynb)
 2. [Assignments Guide & Research Toolkit](Introduction-To-Research/Notes/02-Assignments-Guide-and-Research-Toolkit.md) · [notebook](Introduction-To-Research/Notes/code/02_bibliometrics_hands_on.ipynb)
 
+## Data Analytics Laboratory
+
+1. [NumPy Foundations](DS-LAB/Notes/01-NumPy-Foundations.md) · [notebook](DS-LAB/Notes/code/01_numpy_deep_dive.ipynb)
+2. [Pandas DataFrames & Data Cleaning](DS-LAB/Notes/02-Pandas-DataFrames-and-Data-Cleaning.md) · [notebook](DS-LAB/Notes/code/02_pandas_deep_dive.ipynb)
+
+Class examples: [Lab 1, NumPy](DS-LAB/Notes/code/lab1_numpy_class.ipynb) · Experiment plan: [lab README](DS-LAB/Notes/README.md)
+
 ---
 
-*Computer Vision and Data Analytics Lab: coming soon.*
+*Computer Vision: coming soon.*
