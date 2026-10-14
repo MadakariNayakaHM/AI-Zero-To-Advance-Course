@@ -17,7 +17,7 @@ From first principles to research depth, with runnable code for every topic.
 | [**Machine Learning Paradigms**](SEM1/Machine-Learning-Paradigms/Notes) | ML paradigms · The ML pipeline · Regression & gradient descent |
 | [**Applied Mathematics for DS & AI**](SEM1/Applied-Math-For-AI-DS/Notes) | Linear systems · Elimination & rank · Vector spaces · Basis · Null space · Column space & rank · Linear transformations · Projections & least squares |
 | [**Introduction to Generative AI**](SEM1/Introduction-To-Generative-AI/Notes) | AI, ML & DL foundations · Neural networks from scratch |
-| [**Speech & Natural Language Processing**](SEM1/Introduction-To-SNLP/Notes) | Layers of language · Lexical processing · Tokenization |
+| [**Speech & Natural Language Processing**](SEM1/Introduction-To-SNLP/Notes) | Layers of language · Lexical processing · Tokenization · Edit distance · PCFG & CKY · Dependency parsing |
 | [**Introduction to Research**](SEM1/Introduction-To-Research/Notes) | Research methodology & statistics · Literature review, bibliometrics & patents |
 | [**Data Analytics Laboratory**](SEM1/DS-LAB/Notes) | NumPy foundations · Pandas DataFrames & data cleaning |
 

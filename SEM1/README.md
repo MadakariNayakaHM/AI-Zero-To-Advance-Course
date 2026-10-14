@@ -30,6 +30,8 @@ Class examples: [neural networks from scratch](Introduction-To-Generative-AI/Not
 
 1. [What is SNLP? The Information Layers of Language](Introduction-To-SNLP/Notes/01-Information-Layers-of-SNLP.md) · [notebook](Introduction-To-SNLP/Notes/code/01_language_layers_deep_dive.ipynb)
 2. [Lexical Processing, Part 1](Introduction-To-SNLP/Notes/02-Lexical-Processing-Part-1.md) · [notebook](Introduction-To-SNLP/Notes/code/02_lexical_deep_dive.ipynb)
+3. [Lexical Processing, Part 2: Minimum Edit Distance](Introduction-To-SNLP/Notes/03-Minimum-Edit-Distance.md) · [notebook](Introduction-To-SNLP/Notes/code/03_edit_distance_deep_dive.ipynb)
+4. [Syntactic Processing: Constituency & Dependency Parsing](Introduction-To-SNLP/Notes/04-Syntactic-Processing-Parsing.md) · [notebook](Introduction-To-SNLP/Notes/code/04_parsing_deep_dive.ipynb)
 
 Class examples: [lexical processing, hands-on](Introduction-To-SNLP/Notes/code/lexical_processing_hands_on.ipynb)
 
