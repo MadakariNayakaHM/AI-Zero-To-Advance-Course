@@ -13,6 +13,9 @@
 3. [Vector Spaces & Subspaces](Applied-Math-For-AI-DS/Notes/03-Vector-Spaces-and-Subspaces.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/03_vector_spaces_deep_dive.ipynb)
 4. [Span, Linear Independence, Basis & Dimension](Applied-Math-For-AI-DS/Notes/04-Span-Independence-Basis-Dimension.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/04_basis_deep_dive.ipynb)
 5. [Null Space & Nullity](Applied-Math-For-AI-DS/Notes/05-Null-Space-and-Nullity.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/05_null_space_deep_dive.ipynb)
+6. [Problem-Solving Session: Complete Solution, Column Space & Rank](Applied-Math-For-AI-DS/Notes/06-Problem-Solving-Column-Space-and-Rank.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/06_column_space_deep_dive.ipynb)
+7. [Linear Transformations](Applied-Math-For-AI-DS/Notes/07-Linear-Transformations.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/07_linear_transformations_deep_dive.ipynb)
+8. [Dot Product, Projections & Least Squares](Applied-Math-For-AI-DS/Notes/08-Dot-Product-Projections-Least-Squares.md) · [notebook](Applied-Math-For-AI-DS/Notes/code/08_projections_deep_dive.ipynb)
 
 Class examples: [linear algebra, part 1](Applied-Math-For-AI-DS/Notes/code/linear_algebra_part1.ipynb) · Source: [handwritten lecture notes, typed](Applied-Math-For-AI-DS/Notes/00-Handwritten-Notes-Transcribed.md)
 

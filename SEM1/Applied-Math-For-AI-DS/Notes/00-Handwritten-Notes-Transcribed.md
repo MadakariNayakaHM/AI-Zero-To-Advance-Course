@@ -1,8 +1,8 @@
-# Handwritten Lecture Notes: Typed Transcription (pp. 1–55)
+# Handwritten Lecture Notes: Typed Transcription (pp. 1–81)
 
-> Faithful transcription of `Class-PPT/Lecture notes till 3rd October.pdf` (16 Sep – 3 Oct 2026) into Markdown + LaTeX, so it can be searched and copied.
+> Faithful transcription of `Class-PPT/Lecture notes till 10th October.pdf` (16 Sep – 10 Oct 2026) into Markdown + LaTeX, so it can be searched and copied. Pages 1–55 are identical to the earlier `Lecture notes till 3rd October.pdf`.
 >
-> Content is kept as written. `[CHECK: …]` marks a suspected slip in the original; each one is discussed in the topic notes (01–05).
+> Content is kept as written. `[CHECK: …]` marks a suspected slip in the original; each one is discussed in the topic notes: pp. 1–55 in notes 01–05; pp. 56–81 in notes 06 (5 Oct problem-solving session, column space & rank), 07 (linear transformations) and 08 (dot product, projections & least squares).
 >
 > The study notes are in [README.md](README.md). This file is the raw source.
 
@@ -1507,3 +1507,584 @@ $`\Rightarrow`$ Null space: 1D sub. of $`\mathbb{R}^3`$ $`= \left\{t[-3, 1, 1]^\
 ---
 
 
+
+## Page 56
+
+**Problem Solving Class.** **05.10.2026.**
+
+1. Solve for $`x_1, x_2`$ & $`x_3`$.
+
+```math
+\begin{aligned}
+x_1 + x_2 + x_3 &= 1 \\
+x_1 + x_2 - x_3 &= -1 \\
+x_1 - x_2 + x_3 &= -1
+\end{aligned}
+```
+
+Row operations:
+
+```math
+\begin{bmatrix}1&1&1\\1&1&-1\\1&-1&1\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}1\\-1\\-1\end{bmatrix}
+```
+
+```math
+[A \mid b] = \left[\begin{array}{ccc|c}1&1&1&1\\1&1&-1&-1\\1&-1&1&-1\end{array}\right]
+```
+
+## Page 57
+
+$`R_2 \leftarrow R_2 - R_1`$
+
+```math
+\left[\begin{array}{ccc|c}1&1&1&1\\0&0&-2&-2\\1&-1&1&-1\end{array}\right]
+```
+
+$`R_3 \leftarrow R_3 - R_1`$
+
+```math
+\left[\begin{array}{ccc|c}1&1&1&1\\0&0&-2&-2\\0&-2&0&-2\end{array}\right]
+```
+
+$`R_2 \leftrightarrow R_3`$.
+
+```math
+\left[\begin{array}{ccc|c}1&1&1&1\\0&-2&0&-2\\0&0&-2&-2\end{array}\right]
+\quad\Rightarrow\quad
+\begin{aligned}
+x_1 + x_2 + x_3 &= 1 &&\Rightarrow x_1 = -1 \\
+-2x_2 &= -2 &&\Rightarrow x_2 = 1 \\
+-2x_3 &= -2 &&\Rightarrow x_3 = 1
+\end{aligned}
+```
+
+## Page 58
+
+Solve the same with RHS $`= \begin{bmatrix}0\\0\\0\end{bmatrix}`$
+
+Ans: $`\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix}`$
+
+**Ex: 2.** (in blue: *Solve for $`x_1, x_2, x_3`$*)
+
+```math
+\begin{aligned}
+x_1 + x_2 + x_3 &= 1 \\
+x_1 + x_2 - x_3 &= -1
+\end{aligned}
+```
+
+Soln:
+
+```math
+\left[\begin{array}{ccc|c}1&1&1&1\\1&1&-1&-1\end{array}\right]
+```
+
+$`R_2 \leftarrow R_2 - R_1`$
+
+```math
+= \left[\begin{array}{ccc|c}1&1&1&1\\0&0&-2&-2\end{array}\right]
+\qquad
+\begin{aligned}
+x_1 + x_2 + x_3 &= 1. \\
+-2x_3 &= -2
+\end{aligned}
+```
+
+$`\Rightarrow x_3 = 1.`$
+$`\Rightarrow x_1 + x_2 = 0 \Rightarrow x_4 = -x_2.`$
+
+[CHECK: "$`x_4 = -x_2`$" should read $`x_1 = -x_2`$; there is no $`x_4`$ in this system.]
+
+(In purple:) *The variable associated with the col. in REF/RREF of A which has no pivot is called as **FREE Variable**.*
+
+## Page 59
+
+(In purple/green:) *In the ex above col. 2 does not have pivot $`\Rightarrow x_2`$ is a free variable i.e., $`x_2`$ can take any real value. So, we parameterize $`x_2`$ as $`x_2 = t,\ t \in \mathbb{R}`$.*
+
+```math
+\therefore \text{Soln}: \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}-t\\t\\1\end{bmatrix} = \left\{ t\begin{pmatrix}-1\\1\\0\end{pmatrix} + \begin{pmatrix}0\\0\\1\end{pmatrix} \right\}
+```
+
+(In blue:) In the above ex, take RHS $`= \begin{bmatrix}0\\0\end{bmatrix}`$.
+
+```math
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}-t\\t\\0\end{bmatrix} = \left\{ t\begin{pmatrix}-1\\1\\0\end{pmatrix} \right\}
+```
+
+## Page 60
+
+```math
+\begin{bmatrix}1&1&1\\1&1&-1\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}
+```
+
+Soln: **Complete Soln:**
+
+```math
+\left\{ \begin{bmatrix}0\\0\\1\end{bmatrix} + t\begin{bmatrix}-1\\1\\0\end{bmatrix} \right\}
+```
+
+(Annotation above, with an arrow:) $`x_p + t\,x_H`$. *Similar to Particular Integral + Compl. fn to diff. eqn*
+
+$`t = -3`$:
+
+```math
+\begin{bmatrix}0\\0\\1\end{bmatrix} + (-3)\begin{bmatrix}-1\\1\\0\end{bmatrix} = \begin{bmatrix}0\\0\\1\end{bmatrix} + \begin{bmatrix}3\\-3\\0\end{bmatrix} = \begin{bmatrix}3\\-3\\1\end{bmatrix}
+```
+
+```math
+\begin{bmatrix}1&1&1\\1&1&-1\end{bmatrix}\begin{bmatrix}3\\-3\\1\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}
+```
+
+## Page 61
+
+Rank of $`A = \begin{bmatrix}1&1&1\\1&1&-1\end{bmatrix} \Rightarrow`$ REF $`\begin{bmatrix}1&1&1\\0&0&-2\end{bmatrix}`$ (the pivots $`1`$ and $`-2`$ are circled)
+
+**Rank** $`=`$ No. of pivots in RREF of $`A = 2`$.
+$`=`$ No. of pivot variables in RREF $`=`$ No. of pivot cols in RREF $`= 2`$.
+
+[CHECK: the matrix shown is the REF, not the RREF (the RREF is $`\begin{bmatrix}1&1&0\\0&0&1\end{bmatrix}`$). The pivot count, and hence the rank, is the same in both.]
+
+(In blue/purple:)
+
+```math
+\underbrace{\text{No. of pivot variables in RREF}(A)}_{\textbf{Rank}} + \underbrace{\text{No. of free var in RREF}(A)}_{\textbf{Nullity}} = \text{No. of col. in } A.
+```
+
+(Boxed:) $`\boxed{\textbf{Rank} + \textbf{Nullity} = \text{No. of col. in } A.}`$
+
+**Rank Nullity Theorem.**
+
+## Page 62
+
+(In yellow:)
+
+```math
+* \quad \begin{bmatrix}1&1&1\\1&1&-1\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}b_1\\b_2\end{bmatrix}
+```
+
+```math
+\Rightarrow \underbrace{x_1\begin{bmatrix}1\\1\end{bmatrix} + x_2\begin{bmatrix}1\\1\end{bmatrix} + x_3\begin{bmatrix}1\\-1\end{bmatrix}}_{\text{Linear Combination.}} = \begin{bmatrix}b_1\\b_2\end{bmatrix}
+```
+
+```math
+\Rightarrow c_1\begin{pmatrix}1\\1\end{pmatrix} + x_3\begin{pmatrix}1\\-1\end{pmatrix} = \begin{pmatrix}b_1\\b_2\end{pmatrix}
+```
+
+[CHECK: $`c_1`$ is not defined; it stands for $`x_1 + x_2`$ (columns 1 and 2 are equal, so their terms merge).]
+
+(In green/red:) *Set of all possible linear combinations of the columns of $`A`$. $`\rightarrow`$ Is this set a vector space?*
+
+## Page 63
+
+Let $`A`$ be a real $`m \times n`$ matrix
+
+Every col. of $`A`$ is an $`m`$-component vector. and there are $`n`$ such cols.
+
+(In green:) *All possible linear combinations of the $`n`$-columns of $`m`$-component vectors.*
+
+$`A^{m\times n}\, x^{n\times 1} = b^{m\times 1}`$
+
+$`x \in \mathbb{R}^n`$ $`\qquad`$ $`b \in \mathbb{R}^m`$
+
+Null sp($`A`$) is a Subsp ($`\mathbb{R}^n`$) $`\qquad`$ (in green:) *Look at $`b \in \mathbb{R}^m`$ which can be expressed as $`Ax`$*
+
+$`\Rightarrow \vec{b} = x_1\vec{A}_1 + x_2\vec{A}_2 + \dots + x_n\vec{A}_n`$
+
+(Arrow labelled $`R_A`$, a subset of $`\mathbb{R}^m`$; boxed:)
+
+```math
+\boxed{\begin{aligned}\vec{b} &= x_1\vec{A}_1 + \dots + x_n\vec{A}_n \\ &= A\vec{x}\end{aligned}}
+```
+
+## Page 64
+
+```math
+\begin{aligned}
+\vec{u} \in R_A &= x_1\vec{A}_1 + x_2\vec{A}_2 + \dots + x_n\vec{A}_n \\
++\ \vec{v} \in R_A &= y_1\vec{A}_1 + y_2\vec{A}_2 + \dots + y_n\vec{A}_n \\
+\vec{u}+\vec{v} &= (x_1+y_1)\vec{A}_1 + (x_2+y_2)\vec{A}_2 + \dots + (x_n+y_n)\vec{A}_n \\
+\vec{u}+\vec{v} &= z_1\vec{A}_1 + z_2\vec{A}_2 + \dots + z_n\vec{A}_n
+\end{aligned}
+```
+
+$`\Rightarrow (\vec{u}+\vec{v}) \in R_A.`$
+
+$`\Rightarrow R_A`$: **Closed under VA.**
+
+$`*\quad \vec{u} \in R_A = x_1\vec{A}_1 + \dots + x_n\vec{A}_n`$
+
+Let $`k \in \mathbb{R}`$,
+
+```math
+\begin{aligned}
+k\vec{u} &= k(x_1\vec{A}_1 + \dots + x_n\vec{A}_n) \\
+&= (kx_1)\vec{A}_1 + \dots + (kx_n)\vec{A}_n \\
+&= \alpha_1\vec{A}_1 + \dots + \alpha_n\vec{A}_n
+\end{aligned}
+```
+
+$`\Rightarrow k\vec{u}`$ is also a l.c. of cols. of $`A`$.
+
+$`\Rightarrow k\vec{u} \in R_A \Rightarrow R_A`$ **is closed under SM.**
+
+## Page 65
+
+(In red:) $`*\quad \vec{0} \in \mathbb{R}^m`$ is also an element of $`R_A`$.
+
+$`\therefore R_A`$ is a vector Space.
+
+(In green:) $`R_A \Rightarrow`$ Linear Combin$`^n`$ of cols of $`A`$
+
+$`R_A`$: **Column Sp($`A`$)** $`\Rightarrow`$ Set of all $`\vec{b} \in \mathbb{R}^m`$ which can be expressed as $`Ax`$ i.e., l.c. of cols of $`A`$.
+$`\Downarrow`$
+**Range of $`A`$** is a Subspace of $`\mathbb{R}^m`$ $`\qquad \Rightarrow`$ Set of all destinations we reach by taking l.c. of cols. of $`A`$.
+
+(Boxed, red/green:) **Dimension of the colSp($`A`$) is called the Rank**
+
+(In yellow:) Rank of $`A`$ = No. of linearly indep cols of $`A`$.
+
+(Left margin, separated by a vertical line:)
+$`y = f(x)`$
+$`x`$: Domain
+$`y`$: Range.
+$`f(x) = y = x^3`$
+$`x`$: Set of all non neg. integers.
+
+## Page 66
+
+(In green:)
+
+```math
+\text{For } A = \begin{bmatrix}1&1&1\\1&1&-1\end{bmatrix} \quad \text{col. Sp}(A) = \left\{\alpha_1\begin{pmatrix}1\\1\end{pmatrix} + \alpha_2\begin{pmatrix}1\\-1\end{pmatrix}\right\} = \mathbb{R}^2
+```
+
+Rank of $`A`$ = Dim of Col Sp($`A`$) $`=`$ Dim of $`\mathbb{R}^2 = 2.`$
+
+**READING ASSIGNMENT.**
+
+1. LC, LI, VS, Basis.
+2. Span
+3. Four Fundamental Subsp. of $`A^{m\times n}`$
+
+- *Linear Algebra* 5th Ed — Gilbert Strang
+- *Linear Algebra & its Applic$`^n`$* — David C Lay
+- *Linear Algebra: Pure & Applied* — Edgar Goodaire.
+
+---
+
+## Page 67
+
+**07.10.2026.**
+
+(In blue:) $`*`$ **Linearly indep set:**
+
+A set of vectors $`v_1, v_2 \dots v_k \in \mathbb{R}^n`$ is said to be l.i if the only way to generate the $`0^{n\times 1}`$ vector as a l.c. of $`v_1 \dots v_k`$ is by making the scalars $`c_1, c_2 \dots c_k = 0`$
+
+```math
+\Rightarrow c_1\vec{v}_1 + c_2\vec{v}_2 + \dots + c_k\vec{v}_k = \vec{0} \Rightarrow c_1 = c_2 = \dots = c_k = 0
+```
+
+(In yellow:) **Q:** What is the smallest VS that contains $`\{v_1, \dots, v_k\}`$?
+
+Ex: $`v_1 = \begin{pmatrix}1\\0\\0\\0\end{pmatrix},\ v_2 = \begin{pmatrix}0\\1\\0\\0\end{pmatrix},\ v_3 = \begin{pmatrix}0\\1\\1\\1\end{pmatrix}`$ (grouped by a brace underneath)
+
+## Page 68
+
+(In green:) *Smallest VS that contains these $`v_1 \dots v_k`$ vectors is the set of all possible linear combinations of $`v_1, \dots v_k`$ vectors.*
+
+(In purple:)
+
+Ex: $`\vec{u} = \begin{pmatrix}1\\2\end{pmatrix} \Rightarrow S = \{\vec{u}\} = \left\{\begin{pmatrix}1\\2\end{pmatrix}\right\}`$ is a L.I set.
+
+$`V_{\vec{u}} = \left\{c\begin{pmatrix}1\\2\end{pmatrix}\right\},\ c \in \mathbb{R}.`$ (a double-headed arrow under the vector: the whole line)
+
+$`\vec{u} = \begin{pmatrix}1\\0\\0\end{pmatrix} \qquad \vec{u} = \begin{pmatrix}0\\1\\0\end{pmatrix}.`$
+
+[CHECK: the second vector is labelled $`\vec{u}`$ again; it is $`\vec{v}`$, as the next line uses.]
+
+```math
+V_{\vec{u}\,\&\,\vec{v}} = \{c_1\vec{u} + c_2\vec{v}\} = \left\{c_1\begin{pmatrix}1\\0\\0\end{pmatrix} + c_2\begin{pmatrix}0\\1\\0\end{pmatrix}\right\}.
+```
+
+## Page 69
+
+(In yellow:) *The set of all possible linear combinations of $`v_1, v_2 \dots v_k \in \mathbb{R}^n`$ is called the* **SPAN**
+
+**Span:** Smallest vector space that contains a given set of vectors $`v_1, \dots v_k`$.
+
+**Four fundamental Subspaces associated with a matrix** $`A^{m\times n}`$.
+
+(In blue:) $`*`$ 2 for $`A \Rightarrow`$
+- Null Sp($`A`$) $`\subseteq \mathbb{R}^n`$
+- Col. Sp($`A`$) $`\subseteq \mathbb{R}^m`$.
+
+(In red:) $`*`$ 2 for $`A^\top \Rightarrow`$
+- Null sp($`A^\top`$) $`\subseteq \mathbb{R}^m`$
+- Col sp($`A^\top`$) $`\subseteq \mathbb{R}^n`$.
+  $`\Downarrow`$
+  **Rowspace of $`A`$.**
+
+## Page 70
+
+```math
+* \quad \text{Ex:}\quad \overset{A}{\begin{bmatrix}3&2\\1&5\\-1&1\end{bmatrix}} \overset{\vec{x}}{\begin{bmatrix}x_1\\x_2\end{bmatrix}} = \begin{bmatrix}3x_1+2x_2\\x_1+5x_2\\-x_1+x_2\end{bmatrix}
+```
+
+(Diagram:) $`\begin{bmatrix}x_1\\x_2\end{bmatrix} \longrightarrow \boxed{\ A\ } \longrightarrow \begin{bmatrix}3x_1+2x_2\\x_1+5x_2\\-x_1+x_2\end{bmatrix}`$
+
+(In blue:) **Linear Transform$`^n`$:** $`T : \mathbb{R}^n \mapsto \mathbb{R}^m`$
+
+$`T`$: Maps a $`\vec{x} \in \mathbb{R}^n`$ to $`\vec{b} \in \mathbb{R}^m`$.
+
+(Diagram:) $`x \in \mathbb{R}^n \longrightarrow \boxed{\ A\ } \longrightarrow b \in \mathbb{R}^m \qquad A\vec{x} = \vec{b}`$
+
+## Page 71
+
+(In blue, top right:) $`A^{2\times 3}\vec{x} = \vec{b},\quad \vec{x} \in \mathbb{R}^3,\quad \vec{b} \in \mathbb{R}^2.`$
+
+(Diagram:) $`\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} \longrightarrow \boxed{A^{2\times 3}} \longrightarrow \begin{bmatrix}b_1\\b_2\end{bmatrix}`$
+
+```math
+A = \begin{bmatrix}1&1&1\\1&0&2\end{bmatrix} \qquad
+\begin{bmatrix}1&1&1\\1&0&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}x_1+x_2+x_3\\x_1+2x_3\end{bmatrix}
+```
+
+```math
+x_1\begin{pmatrix}1\\1\end{pmatrix} + x_2\begin{pmatrix}1\\0\end{pmatrix} + x_3\begin{pmatrix}1\\2\end{pmatrix}
+```
+
+(In green:) **Linear Transf:**
+
+A transform$`^n`$ $`T : \mathbb{R}^n \mapsto \mathbb{R}^m`$ is called linear if
+
+(i) $`T(\vec{0} \in \mathbb{R}^n) = \vec{0} \in \mathbb{R}^m`$
+(ii) (*Superposition*) $`T(\vec{u}+\vec{v}) = T(\vec{u}) + T(\vec{v})`$ for $`\vec{u}, \vec{v} \in \mathbb{R}^n`$.
+(iii) (*Homogenicity*) $`T(c\vec{u}) = c\,T(\vec{u})`$ for $`\vec{u} \in \mathbb{R}^n`$ & $`c \in \mathbb{R}`$.
+
+[CHECK: "Homogenicity" is usually called *homogeneity*. Condition (i) follows from (iii) with $`c = 0`$, so it is a consequence rather than an extra requirement.]
+
+## Page 72
+
+```math
+\Rightarrow T(\alpha\vec{u} + \beta\vec{v}) = \alpha T(\vec{u}) + \beta T(\vec{v}) \qquad \alpha, \beta \in \mathbb{R},\ \vec{v}, \vec{u} \in \mathbb{R}^n.
+```
+
+$`\vec{u} = \begin{bmatrix}1\\2\end{bmatrix} \qquad \vec{u} = \begin{bmatrix}3\\4\end{bmatrix} \qquad \vec{u} + \vec{v} = \begin{bmatrix}4\\6\end{bmatrix}`$
+
+[CHECK: the second vector $`[3, 4]^\top`$ is labelled $`\vec{u}`$; it is $`\vec{v}`$.]
+
+(Margin labels: $`2\vec{u}`$, $`\alpha\vec{u}`$, $`3\vec{v}`$.)
+
+```math
+\begin{bmatrix}3&2\\1&5\\-1&1\end{bmatrix}\begin{bmatrix}1\\2\end{bmatrix} = \begin{bmatrix}7\\11\\1\end{bmatrix} \checkmark
+\qquad
+\begin{bmatrix}3&2\\1&5\\-1&1\end{bmatrix}\begin{bmatrix}3\\4\end{bmatrix} = \begin{bmatrix}17\\23\\1\end{bmatrix} \checkmark
+```
+
+$`A\left(\alpha\begin{pmatrix}1\\2\end{pmatrix}\right) = \alpha\begin{pmatrix}7\\11\\1\end{pmatrix}`$
+
+```math
+\begin{bmatrix}3&2\\1&5\\-1&1\end{bmatrix}\begin{bmatrix}4\\6\end{bmatrix} = \begin{bmatrix}24\\34\\2\end{bmatrix}
+```
+
+$`\Rightarrow A(\vec{u}+\vec{v}) = A\vec{u} + A\vec{v}.`$
+
+(In yellow:) $`A(2\vec{u} + 3\vec{v}) = 2(A\vec{u}) + 3(A\vec{v})`$, with the side working
+
+```math
+\begin{bmatrix}14\\22\\2\end{bmatrix} + \begin{bmatrix}51\\69\\3\end{bmatrix} = \begin{bmatrix}65\\91\\5\end{bmatrix}
+```
+
+(Check: $`2\vec{u} + 3\vec{v} = [11, 16]^\top`$ and $`A[11, 16]^\top = [65, 91, 5]^\top`$.)
+
+## Page 73
+
+$`*`$ A linear transform $`T`$ maps
+
+a) $`\vec{0} \in \mathbb{R}^n`$ to $`\vec{0} \in \mathbb{R}^m`$
+b) any line passing thro' the origin in $`\mathbb{R}^n`$ to a line passing thro' the origin in $`\mathbb{R}^m`$.
+c) (in blue) any plane passing thro' the origin in $`\mathbb{R}^n`$ to a plane passing thro' the origin $`\mathbb{R}^m`$.
+
+(Top right, in purple:) $`y = mx`$ ✓ (arrows marking $`y`$ and $`x`$) $`\qquad y = mx + c,\ c \ne 0`$
+
+(Graph: axes $`x_1`$ (0–5) and $`x_2`$ (0–3). Three arrows from the origin to $`(2, 1)`$ (blue), $`(2, 2)`$ (purple) and $`(2, 3)`$ (green); a dashed vertical line at $`x_1 = 2`$ with arrowheads pointing down to the $`x_1`$-axis, i.e. each vector is dropped onto $`(2, 0)`$.)
+
+(In green, right:)
+$`(2, y) \to (2, 0)`$
+$`(2, y) \to (2, 0)`$
+$`(x, y, z) \to (x, y, 0)`$
+$`(x, y)`$
+
+[CHECK: (b) and (c) need the transformation to be one-to-one. A non-injective map can collapse a line to the single point $`\vec{0}`$ (e.g. the projection on this page sends the $`x_2`$-axis to $`\vec{0}`$), or a plane to a line.]
+
+---
+
+## Page 74
+
+**10.10.2026.**
+
+**Recall:**
+
+**Linear Transformation.**
+
+$`T : \mathbb{R}^n \to \mathbb{R}^m`$ if $`T(0) = 0;`$
+$`\qquad T(\alpha\vec{u} + \beta\vec{v}) = \alpha T(u) + \beta T(v).`$
+
+$`*\quad T : \mathbb{R}^n \to \mathbb{R}^n`$
+
+Ex: $`T : \mathbb{R}^2 \to \mathbb{R}^2`$.
+
+```math
+T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{pmatrix}x_1\\0\end{pmatrix}.
+\qquad
+T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{matrix}1x_1 + 0x_2\\0x_1 + 0x_2\end{matrix}
+```
+
+**Q:** Identify the matrix corresp. to this transform$`^n`$ $`T`$.
+
+```math
+T : A = \begin{bmatrix}1&0\\0&0\end{bmatrix}
+```
+
+## Page 75
+
+```math
+T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{pmatrix}0\\x_2\end{pmatrix} = \begin{bmatrix}0&0\\0&1\end{bmatrix}.
+```
+
+[CHECK: the "=" between the output vector and the matrix means "the matrix of this $`T`$ is"; the vector itself equals $`\begin{bmatrix}0&0\\0&1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}`$.]
+
+$`*`$ The matrices $`\begin{pmatrix}1&0\\0&0\end{pmatrix}`$ & $`\begin{pmatrix}0&0\\0&1\end{pmatrix}`$ project every vector in $`\mathbb{R}^2`$ onto $`x_1`$-axis & $`x_2`$-axis respectively.
+
+(In blue:)
+
+```math
+P_{x_1} = \begin{pmatrix}1&0\\0&0\end{pmatrix} \qquad P_{x_2} = \begin{pmatrix}0&0\\0&1\end{pmatrix}.
+```
+
+$`P_{x_1}^\top = P_{x_1} \rightarrow`$ Symmetric $`\qquad P_{x_2}^\top`$: Symmetric
+
+$`P_{x_1}^2 = P_{x_1} \cdot P_{x_1} = P_{x_1} \qquad P_{x_2}^2 = P_{x_2}`$
+
+(In yellow:) *A matrix $`P`$ is called a projection matrix if and only if*
+
+## Page 76
+
+$`P^\top = P`$ (Symmetric)
+$`P^2 = P`$ (Idompotent).
+
+[CHECK: spelling *idempotent*. Also, $`P^2 = P`$ alone defines a projection; adding $`P^\top = P`$ makes it an **orthogonal** projection. Matrices like $`\begin{bmatrix}1&1\\0&0\end{bmatrix}`$ satisfy $`P^2 = P`$ but are not symmetric (oblique projections).]
+
+Ex:
+
+```math
+\begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}2\\3\end{bmatrix} = \begin{bmatrix}2\\0\end{bmatrix}
+\qquad
+\begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}2\\0\end{bmatrix} = \begin{bmatrix}2\\0\end{bmatrix}
+```
+
+```math
+\Rightarrow \begin{bmatrix}1&0\\0&0\end{bmatrix}\left(\begin{bmatrix}1&0\\0&0\end{bmatrix}\begin{bmatrix}2\\3\end{bmatrix}\right) = \begin{bmatrix}2\\0\end{bmatrix}
+```
+
+**Q:** Given a vector $`\vec{u}`$, what is the projection of the vector $`\vec{v}`$ along the direction of $`\vec{u}`$? $`= \dfrac{\vec{v}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\,\vec{u}.`$
+
+(Note: from page 78 on, the roles swap: $`\vec{u}`$ is projected onto $`\vec{v}`$.)
+
+## Page 77
+
+To answer, we need to understand the idea of dot product of 2 vectors.
+
+$`*`$ If $`\vec{u}, \vec{v}`$ are $`n`$-component vectors, we define the **dot prod** of $`\vec{u}`$ & $`\vec{v}`$ as a scalar obtained by
+
+```math
+\begin{aligned}
+\vec{u}\cdot\vec{v} &= \sum_{i=1}^{n} u_i v_i = u_1v_1 + u_2v_2 + \dots + u_nv_n \\
+&= v_1u_1 + v_2u_2 + \dots + v_nu_n = \sum v_i u_i \\
+&= \vec{v}\cdot\vec{u}
+\end{aligned}
+```
+
+## Page 78
+
+(i) $`\vec{u}\cdot\vec{v} = v^\top u = u^\top v = \vec{v}\cdot\vec{u}`$
+(ii) $`(\vec{u}+\vec{v})\cdot\vec{w} = (\vec{u}\cdot\vec{w}) + (\vec{v}\cdot\vec{w}).`$
+(iii) $`(\alpha\vec{u})\cdot\vec{w} = \vec{u}\cdot(\alpha\vec{w}) = \alpha(\vec{u}\cdot\vec{w}).`$
+(iv) (in purple) $`\vec{u}\cdot\vec{u} = u^\top u = \|\vec{u}\|^2`$ squared Mag. of the vector $`\vec{u}`$
+$`\qquad \vec{u}\cdot\vec{u} \ge 0;\ u^\top u = 0`$ if and only if $`\vec{u} = \vec{0}.`$
+(iv)(a) $`\vec{u}\cdot\vec{v} = 0 \Rightarrow \vec{u}`$ & $`\vec{v}`$ are **orthogonal** (perpendicular).
+(v) (in green) Angle b/w $`\vec{u}`$ & $`\vec{v}`$
+
+$`\cos\theta = ?`$
+
+(Diagram: $`\vec{v}`$ drawn horizontally; $`\vec{u}`$ at angle $`\theta`$ from it; the foot of the perpendicular from the tip of $`\vec{u}`$ marks $`t\vec{v}`$ on $`\vec{v}`$, with a right-angle mark; the dashed perpendicular is labelled $`\vec{u} - t\vec{v}`$.)
+
+(In pink:)
+
+```math
+\begin{aligned}
+(\vec{u} - t\vec{v})\cdot\vec{v} &= 0 \\
+\Rightarrow \vec{u}\cdot\vec{v} - t(\vec{v}\cdot\vec{v}) &= 0.
+\end{aligned}
+```
+
+[CHECK: the formula for $`\cos\theta`$ is asked but not written in these pages; it is $`\cos\theta = \dfrac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|\,\|\vec{v}\|}`$.]
+
+## Page 79
+
+$`\Rightarrow t = \dfrac{\vec{u}\cdot\vec{v}}{\vec{v}\cdot\vec{v}}`$
+
+(In pink:) *Shadow of $`\vec{u}`$ in the direction of $`\vec{v}`$ is given by $`t\vec{v}`$*
+
+(Boxed:) $`\boxed{t\vec{v} = \dfrac{\vec{u}\cdot\vec{v}}{\vec{v}\cdot\vec{v}}\,\vec{v}}`$ **Projection of $`\vec{u}`$ along $`\vec{v}`$.**
+
+**Q:** What is the matrix that projects any vector in $`\mathbb{R}^n`$ onto the vector $`\vec{v}`$?
+
+```math
+\begin{aligned}
+t\vec{v} &= \frac{\vec{u}\cdot\vec{v}}{\vec{v}\cdot\vec{v}}\,\vec{v} \\
+&= \frac{v^\top u\,\vec{v}}{v^\top v} = v\left(\frac{v^\top u}{v^\top v}\right) = \left(\frac{vv^\top}{v^\top v}\right)\vec{u}
+\end{aligned}
+```
+
+(The matrix $`\dfrac{vv^\top}{v^\top v}`$ is marked with an arrow and underlined; $`\vec{u}`$ is double-underlined with $`\vec{x}`$ written above it, i.e. it can be any vector $`\vec{x}`$.)
+
+## Page 80
+
+Look at $`v^\top v = \sum_{i=1}^{n} v_i^2 = k`$ **scalar**. (Denominator)
+
+$`vv^\top = n \times n`$ matrix $`\qquad \vec{v} = \begin{pmatrix}v_1\\ \vdots\\ v_n\end{pmatrix}^{n\times 1},\quad v^\top \Rightarrow (v_1 \dots v_n)^{1\times n}`$
+
+$`\left[\dfrac{vv^\top}{v^\top v}\right]^{n\times n}`$ projects any vector in $`\mathbb{R}^n`$ onto the vector $`\vec{v}`$.
+
+```math
+\vec{v} = \begin{bmatrix}1\\0\end{bmatrix} \Rightarrow \frac{vv^\top}{v^\top v} = \begin{bmatrix}1&0\\0&0\end{bmatrix}
+```
+
+(In purple:) *Check if $`\dfrac{vv^\top}{v^\top v}`$ is Symmetric & idempotent.*
+
+```math
+\left(\frac{vv^\top}{v^\top v}\right)^\top = \frac{(v^\top)^\top v^\top}{v^\top v} = \frac{vv^\top}{v^\top v} \Rightarrow \text{Symm.}
+```
+
+## Page 81
+
+```math
+P^2 = P \Rightarrow \frac{vv^\top}{v^\top v}\cdot\frac{vv^\top}{v^\top v} = \frac{v\,(v^\top v)\,v^\top}{(v^\top v)(v^\top v)} = \frac{vv^\top}{v^\top v} = P.
+```
+
+(The middle $`(v^\top v)`$ in the numerator is cancelled against one $`(v^\top v)`$ in the denominator; the result $`\frac{vv^\top}{v^\top v}`$ is circled.)
+
+$`y = X\beta \qquad \beta = \begin{pmatrix}m\\c\end{pmatrix}`$ or $`\begin{pmatrix}c\\m\end{pmatrix}`$
+
+```math
+\beta = \underbrace{(X^\top X)^{-1}}_{\text{Pseudoinverse.}} X^\top y
+```
+
+(Right side, underlined:) $`v \cdot (v^\top v)^{-1} v^\top`$
+
+[CHECK: the pseudo-inverse is the whole matrix $`(X^\top X)^{-1}X^\top`$ (the Moore–Penrose inverse $`X^+`$ when $`X`$ has independent columns), not just $`(X^\top X)^{-1}`$. The note $`v(v^\top v)^{-1}v^\top`$ is the same projection matrix as $`\frac{vv^\top}{v^\top v}`$, written so that it generalises to $`X(X^\top X)^{-1}X^\top`$.]
+
+**eigenvalues & eigenvectors** (next topic)
+
+---
